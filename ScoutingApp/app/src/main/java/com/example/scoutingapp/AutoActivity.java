@@ -2,7 +2,8 @@ package com.example.scoutingapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.os.Vibrator;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 
@@ -19,23 +20,10 @@ public class AutoActivity extends AppCompatActivity {
     private int l1Scored = 0;
     private int processorScored = 0;
     private int netScored = 0;
-    private int startingLocation;
 
     private boolean reefPickup = false;
     private boolean canLeave = false;
     private boolean coralPickup = false;
-
-    private Button l4Button;
-    private Button l3Button;
-    private Button l2Button;
-    private Button l1Button;
-    private Button processorButton;
-    private Button netButton;
-    private Button nextButton;
-
-    private CheckBox canLeaveBox;
-    private CheckBox reefPickupBox;
-    private CheckBox coralPickupBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,52 +36,60 @@ public class AutoActivity extends AppCompatActivity {
             return insets;
         });
 
-        l4Button = (Button) findViewById(R.id.button_L4);
-        l3Button = (Button) findViewById(R.id.button_L3);
-        l2Button = (Button) findViewById(R.id.button_L2);
-        l1Button = (Button) findViewById(R.id.button_L1);
-        processorButton = (Button) findViewById(R.id.button_Processor);
-        netButton = (Button) findViewById(R.id.button_Net);
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+
+        Button l4Button = (Button) findViewById(R.id.button_L4);
+        Button l3Button = (Button) findViewById(R.id.button_L3);
+        Button l2Button = (Button) findViewById(R.id.button_L2);
+        Button l1Button = (Button) findViewById(R.id.button_L1);
+        Button processorButton = (Button) findViewById(R.id.button_Processor);
+        Button netButton = (Button) findViewById(R.id.button_Net);
+        Button nextButton = (Button) findViewById(R.id.button_Next);
+
+        CheckBox coralPickupBox = (CheckBox) findViewById(R.id.cb_coralPickup);
+        CheckBox reefPickupBox = (CheckBox) findViewById(R.id.cb_algaeReef);
+        CheckBox canLeaveBox = (CheckBox) findViewById(R.id.cb_CanLeave);
+
 
         l4Button.setOnClickListener((v) -> l4Scored++);
         l4Button.setOnLongClickListener((v) -> {
             l4Scored--;
-            //vibration
+            vibrator.vibrate(250);
             return true;
         });
 
         l3Button.setOnClickListener((v) -> l3Scored++);
         l3Button.setOnLongClickListener((v) -> {
             l3Scored--;
-            //vibration
+            vibrator.vibrate(250);
             return true;
         });
 
         l2Button.setOnClickListener((v) -> l2Scored++);
         l2Button.setOnLongClickListener((v) -> {
             l2Scored--;
-            //vibration
+            vibrator.vibrate(250);
             return true;
         });
 
         l1Button.setOnClickListener((v) -> l1Scored++);
         l1Button.setOnLongClickListener((v) -> {
             l1Scored--;
-            //vibration
+            vibrator.vibrate(250);
             return true;
         });
 
         processorButton.setOnClickListener((v) -> processorScored++);
         processorButton.setOnLongClickListener((v) -> {
             processorScored--;
-            //vibration
+            vibrator.vibrate(250);
             return true;
         });
 
         netButton.setOnClickListener((v) -> netScored++);
         netButton.setOnLongClickListener((v) -> {
             netScored--;
-            //vibration
+            vibrator.vibrate(250);
             return true;
         });
 
@@ -107,6 +103,7 @@ public class AutoActivity extends AppCompatActivity {
             //submit data
             Intent intent = new Intent(this, TeleActivity.class);
             startActivity(intent);
+            Log.d("test", intent.toString());
             return true;
         });
     }
