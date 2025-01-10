@@ -13,7 +13,8 @@
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="L4"
+        android:backgroundTint="#F94C00"
+        android:text="@string/l4"
         android:textAlignment="center"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Algae Removed From Reef"
+        android:text="@string/can_remove_algae"
         app:layout_constraintBottom_toTopOf="@+id/cb_coralPickup"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -35,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Coral Pickup"
+        android:text="@string/coral_pickup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -44,7 +45,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="8dp"
-        android:text="L3"
+        android:backgroundTint="#F94C00"
+        android:text="@string/l3"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_L4" />
@@ -54,7 +56,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="8dp"
-        android:text="L2"
+        android:backgroundTint="#F94C00"
+        android:text="@string/l2"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_L3" />
@@ -64,7 +67,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="8dp"
-        android:text="L1"
+        android:backgroundTint="#F94C00"
+        android:text="@string/l1"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_L2" />
@@ -74,7 +78,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="8dp"
-        android:text="Net"
+        android:backgroundTint="#F94C00"
+        android:text="@string/net"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button_Processor"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -85,7 +90,8 @@
         android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Processor"
+        android:backgroundTint="#F94C00"
+        android:text="@string/processor"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -96,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Can Leave"
+        android:text="@string/can_leave"
         app:layout_constraintBottom_toTopOf="@+id/cb_algaeReef"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -106,7 +112,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Next (Hold)"
+        android:backgroundTint="#F94C00"
+        android:text="@string/next_hold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,6 +125,7 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:contentDescription="@string/image_of_field"
         app:layout_constraintBottom_toTopOf="@+id/cb_CanLeave"
         app:layout_constraintEnd_toStartOf="@+id/button_L2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -125,5 +133,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/auto"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
