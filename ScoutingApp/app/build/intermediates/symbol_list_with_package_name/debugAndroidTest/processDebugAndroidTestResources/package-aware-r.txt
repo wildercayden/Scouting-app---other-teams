@@ -1,0 +1,3 @@
+com.example.scoutingapp.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

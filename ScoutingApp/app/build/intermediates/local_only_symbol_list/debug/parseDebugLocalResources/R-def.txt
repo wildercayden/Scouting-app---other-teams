@@ -1,0 +1,30 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id button_L1
+id button_L2
+id button_L3
+id button_L4
+id button_Net
+id button_Next
+id button_Processor
+id cb_CanLeave
+id cb_algaeReef
+id cb_coralPickup
+id imageView
+id main
+id textView
+layout activity_auto
+layout activity_end
+layout activity_main
+layout activity_tele
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.ScoutingApp
+style Theme.ScoutingApp
+xml backup_rules
+xml data_extraction_rules
