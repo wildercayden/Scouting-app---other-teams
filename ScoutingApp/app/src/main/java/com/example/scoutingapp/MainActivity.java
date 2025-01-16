@@ -2,8 +2,6 @@ package com.example.scoutingapp;
 
 import static java.sql.DriverManager.println;
 
-import static kotlin.text.ScreenFloatValueRegEx.value;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,17 +42,20 @@ public class MainActivity extends AppCompatActivity {
 
         public void run() throws Exception {
             Request request = new Request.Builder()
-                    .url("https://www.thebluealliance.com/api/v3")
+                    .url("https://www.thebluealliance.com/api/v3/event/2025melew/teams?X-TBA-Auth-Key=your_api_key")
                     .build();
 
             client.newCall(request).enqueue(new Callback() {
-                @Override public void onFailure(Call call, IOException e) {
+                @Override
+                public void onFailure(Call call, IOException e) {
                     e.printStackTrace();
                 }
 
-                @Override public void onResponse(Call call, Response response) throws IOException {
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
                     try (ResponseBody responseBody = response.body()) {
-                        if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+                        if (!response.isSuccessful())
+                            throw new IOException("Unexpected code " + response);
 
                         Headers responseHeaders = response.headers();
                         for (int i = 0, size = responseHeaders.size(); i < size; i++) {
@@ -66,4 +67,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
 }
