@@ -1,5 +1,9 @@
 package com.example.scoutingapp;
 
+import static java.sql.DriverManager.println;
+
+import static kotlin.text.ScreenFloatValueRegEx.value;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,10 +16,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.io.IOException;
 
+import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,16 +39,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void getTBARequest{
-        OkHttpClient client = new OkHttpClient();
+    public final class AsynchronousGet {
+        private final OkHttpClient client = new OkHttpClient();
 
-        Request tbaRequest = new Request.Builder().url("https.thebluealliance.com/api/v3").build();
+        public void run() throws Exception {
+            Request request = new Request.Builder()
+                    .url("https://www.thebluealliance.com/api/v3")
+                    .build();
 
-        Response response = client.newCall(tbaRequest).execute();
-        return response.body().string();
-        response.close();
+            client.newCall(request).enqueue(new Callback() {
+                @Override public void onFailure(Call call, IOException e) {
+                    e.printStackTrace();
+                }
 
+                @Override public void onResponse(Call call, Response response) throws IOException {
+                    try (ResponseBody responseBody = response.body()) {
+                        if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
 
+                        Headers responseHeaders = response.headers();
+                        for (int i = 0, size = responseHeaders.size(); i < size; i++) {
+                            System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
+                        }
 
-    }
+                        System.out.println(responseBody.string());
+                    }
+                }
+            });
+        }
 }
