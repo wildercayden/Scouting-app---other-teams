@@ -1,10 +1,12 @@
 package com.example.scoutingapp;
 
+import android.content.Intent;
 import static java.sql.DriverManager.println;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,10 +31,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.NextPlaceholder), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        Button nextButton = (Button) findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makeIntent();
+            }
+
         });
 
     }
@@ -61,11 +71,10 @@ public class MainActivity extends AppCompatActivity {
                         for (int i = 0, size = responseHeaders.size(); i < size; i++) {
                             System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                         }
-
-                        System.out.println(responseBody.string());
-                    }
-                }
-            });
-        }
+    }
+    private void makeIntent()
+    {
+        Intent intent = new Intent(this, AutoActivity.class);
+        startActivity(intent);
     }
 }
