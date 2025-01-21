@@ -4,6 +4,7 @@ color black
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+id Submit_button
 id button_L1
 id button_L2
 id button_L3
@@ -16,6 +17,7 @@ id cb_algaeReef
 id cb_coralPickup
 id imageView
 id main
+id nextButton
 id textView
 layout activity_auto
 layout activity_end
@@ -24,6 +26,18 @@ layout activity_tele
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
+string auto
+string can_leave
+string can_remove_algae
+string coral_pickup
+string image_of_field
+string l1
+string l2
+string l3
+string l4
+string net
+string next_hold
+string processor
 style Base.Theme.ScoutingApp
 style Theme.ScoutingApp
 xml backup_rules
