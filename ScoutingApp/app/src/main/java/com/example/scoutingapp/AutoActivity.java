@@ -23,6 +23,8 @@ public class AutoActivity extends AppCompatActivity {
     private String L3;
     private String L2;
     private String L1;
+    private String processorScoredstring;
+    private String netScoredstring;
     private String canLeavestring;
     private String reefPickupstring;
     private String coralPickupstring;
@@ -126,6 +128,8 @@ public class AutoActivity extends AppCompatActivity {
         String L3 = String.valueOf(l3Scored);
         String L2 = String.valueOf(l2Scored);
         String L1 = String.valueOf(l1Scored);
+        String processorScoredstring = String.valueOf(processorScored);
+        String netScoredstring = String.valueOf(netScored);
         if(canLeave== true){
            canLeavestring = "yes";
         } else {
@@ -152,7 +156,7 @@ public class AutoActivity extends AppCompatActivity {
     public void CSVmake(Context context) {
         //adds the strings
         String CSVLine = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
-            L4, L3, L2, L1, canLeavestring, reefPickupstring, coralPickupstring );
+            L4, L3, L2, L1, canLeavestring, reefPickupstring, coralPickupstring, processorScoredstring, netScoredstring);
         //makes the file
         File csvFile = new File(context.getFilesDir(), "match_data.csv");
         //writes to file
