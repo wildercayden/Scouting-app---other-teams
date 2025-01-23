@@ -29,7 +29,7 @@ public class Submit {
                 //adds account info
                 InputStream serviceAccountStream = context.getResources().openRawResource(R.raw.info);
                 ServiceAccountCredentials credentials = ServiceAccountCredentials.fromStream(serviceAccountStream);
-                //Srts up the google sheet API and json factury for use later
+                //Sets up the google sheet API and json factory for use later
                 Sheets sheetsService = new Sheets.Builder(
                         GoogleNetHttpTransport.newTrustedTransport(),
                         GsonFactory.getDefaultInstance(),
