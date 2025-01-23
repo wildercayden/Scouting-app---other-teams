@@ -15,6 +15,7 @@ id button_Processor
 id cb_CanLeave
 id cb_algaeReef
 id cb_coralPickup
+id deleteButton
 id imageView
 id main
 id nextButton
@@ -25,6 +26,7 @@ layout activity_main
 layout activity_tele
 mipmap ic_launcher
 mipmap ic_launcher_round
+raw info
 string app_name
 string auto
 string can_leave
@@ -38,6 +40,7 @@ string l4
 string net
 string next_hold
 string processor
+string submit
 style Base.Theme.ScoutingApp
 style Theme.ScoutingApp
 xml backup_rules

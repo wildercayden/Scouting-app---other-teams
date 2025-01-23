@@ -43,15 +43,15 @@ public class EndActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Submit submit = new Submit();
                 //Writes test Data to the String getTeamNumber
-                submit.getTeamNumberTest();
+                //submit.getTeamNumberTest();
                 //Makes the CSV file
-                submit.CSVmake(EndActivity.this);
+                //submit.CSVmake(EndActivity.this);
                 //Writes data to file to make google sheet read it as a list
                 File csvFile = new File(getExternalFilesDir(null), "match_data.csv");
                 List<List<Object>> data = submit.parseCSVToList(csvFile);
                 submit.parseCSVToList(csvFile);
                 //Uploads the Data to the Google sheet
-                submit.uploadCSV(EndActivity.this);
+                //submit.uploadCSV(EndActivity.this);
             }
         });
 
