@@ -1,5 +1,6 @@
 package com.example.scoutingapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -13,7 +14,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class AutoActivity extends AppCompatActivity {
+    private String L4;
+    private String L3;
+    private String L2;
+    private String L1;
+    private String canLeavestring;
+    private String reefPickupstring;
+    private String coralPickupstring;
     private int l4Scored = 0;
     private int l3Scored = 0;
     private int l2Scored = 0;
@@ -101,10 +113,53 @@ public class AutoActivity extends AppCompatActivity {
 
         nextButton.setOnLongClickListener((v) -> {
             //submit data
+            CSVmake(AutoActivity.this);
             Intent intent = new Intent(this, TeleActivity.class);
             startActivity(intent);
             Log.d("test", intent.toString());
             return true;
         });
+    }
+    public void makeSring(){
+        String L4 = String.valueOf(l4Scored);
+        String L3 = String.valueOf(l3Scored);
+        String L2 = String.valueOf(l2Scored);
+        String L1 = String.valueOf(l1Scored);
+        if(canLeave== true){
+           canLeavestring = "yes";
+        } else {
+            canLeavestring = "no";
+        }
+        if(reefPickup== true){
+            reefPickupstring = "yes";
+        } else {
+            reefPickupstring = "no";
+        }
+        if(reefPickup== true){
+            reefPickupstring = "yes";
+        } else {
+            reefPickupstring = "no";
+        }
+        if( coralPickup== true){
+            coralPickupstring = "yes";
+        } else {
+            coralPickupstring = "no";
+        }
+
+    }
+
+    public void CSVmake(Context context) {
+        //adds the strings
+        String CSVLine = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
+            L4, L3, L2, L1, canLeavestring, reefPickupstring, coralPickupstring );
+        //makes the file
+        File csvFile = new File(context.getFilesDir(), "match_data.csv");
+        //writes to file
+        try (FileWriter writer = new FileWriter(csvFile, true)) {
+            writer.append(CSVLine).append("\n");
+            Log.d("CSVFilePath", csvFile.getAbsolutePath());
+        } catch (IOException e) {
+            Log.d("CSVFail", "CSV didn't make");
+        }
     }
 }
