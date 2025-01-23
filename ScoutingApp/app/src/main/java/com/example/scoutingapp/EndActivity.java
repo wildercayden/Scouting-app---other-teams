@@ -42,11 +42,11 @@ public class EndActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 Submit submit = new Submit();
-                //calls test, write data to String getTeamNumber
+                //Writes test Data to the String getTeamNumber
                 submit.getTeamNumberTest();
-                //Calls CSVmake which makes the CSV file
+                //Makes the CSV file
                 submit.CSVmake(EndActivity.this);
-                //Writes data to file to make Google Sheet API take the data
+                //Writes data to file to make google sheet read it as a list
                 File csvFile = new File(getExternalFilesDir(null), "match_data.csv");
                 List<List<Object>> data = submit.parseCSVToList(csvFile);
                 submit.parseCSVToList(csvFile);
