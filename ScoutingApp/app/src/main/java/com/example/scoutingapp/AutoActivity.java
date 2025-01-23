@@ -113,6 +113,7 @@ public class AutoActivity extends AppCompatActivity {
 
         nextButton.setOnLongClickListener((v) -> {
             //submit data
+            makeSring();
             CSVmake(AutoActivity.this);
             Intent intent = new Intent(this, TeleActivity.class);
             startActivity(intent);
