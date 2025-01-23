@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,36 +46,37 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        TextView TBAView = (TextView)findViewById(R.id.TBATest);
     }
 
     public final class AsynchronousGet {
         private final OkHttpClient client = new OkHttpClient();
 
-        public void run() throws Exception {
+        /*
+        public int[] getMatchTeams(String eventKey, int qualMatchNum) throws Exception {
+            // https://www.thebluealliance.com/api/v3/event/2024melew/teams?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt
+            // https://www.thebluealliance.com/api/v3/match/2024melew_qm1?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt
+
             Request request = new Request.Builder()
-                    .url("https://www.thebluealliance.com/api/v3/event/2025melew/teams?X-TBA-Auth-Key=your_api_key")
+                    .url("https://www.thebluealliance.com/api/v3/match/" + eventKey + "_qm" + qualMatchNum + "?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt")
                     .build();
 
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    e.printStackTrace();
-                }
+            try(Response response = client.newCall(request).execute()){
+                if(!response.isSuccessful()) throw new IOException("unexpected code " + response);
 
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    try (ResponseBody responseBody = response.body()) {
-                        if (!response.isSuccessful())
-                            throw new IOException("Unexpected code " + response);
-
-                        Headers responseHeaders = response.headers();
-                        for (int i = 0, size = responseHeaders.size(); i < size; i++) {
-                            System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-                        }
-                    }
+                Headers responseHeaders = response.headers();
+                for(int i = 0; i < responseHeaders.size(); i++){
+                    System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                 }
-            });
+                //fein = response.body().string();
+            }
+
+
+
+            //return
         }
+        
+         */
     }
 
     private void makeIntent()
