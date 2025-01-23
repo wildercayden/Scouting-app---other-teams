@@ -42,11 +42,15 @@ public class EndActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 Submit submit = new Submit();
+                //calls test, write data to String getTeamNumber
                 submit.getTeamNumberTest();
+                //Calls CSVmake which makes the CSV file
                 submit.CSVmake(EndActivity.this);
+                //Writes data to file to make Google Sheet API take the data
                 File csvFile = new File(getExternalFilesDir(null), "match_data.csv");
                 List<List<Object>> data = submit.parseCSVToList(csvFile);
                 submit.parseCSVToList(csvFile);
+                //Uploads the Data to the Google sheet
                 submit.uploadCSV(EndActivity.this);
             }
         });
@@ -56,6 +60,7 @@ public class EndActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 Submit submit = new Submit();
+                //Deletes the CSV file (Currently for testing but feature might stay but with some features to make it harder to do it on accident)
                 submit.deleteCSVFile(EndActivity.this);
             }
         });
