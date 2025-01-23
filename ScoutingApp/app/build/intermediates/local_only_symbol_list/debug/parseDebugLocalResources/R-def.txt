@@ -4,6 +4,7 @@ color black
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable screenshot_2025_01_16_115155
 id Submit_button
 id button_L1
 id button_L2
@@ -20,6 +21,12 @@ id imageView
 id main
 id nextButton
 id textView
+id tv_L1
+id tv_L2
+id tv_L3
+id tv_L4
+id tv_Net
+id tv_Net2
 layout activity_auto
 layout activity_end
 layout activity_main
@@ -31,6 +38,7 @@ string app_name
 string auto
 string can_leave
 string can_remove_algae
+string coralScored
 string coral_pickup
 string image_of_field
 string l1

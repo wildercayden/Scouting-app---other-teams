@@ -3105,6 +3105,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable screenshot_2025_01_16_115155
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3605,6 +3606,12 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_L1
+id tv_L2
+id tv_L3
+id tv_L4
+id tv_Net
+id tv_Net2
 id unchecked
 id uniform
 id unlabeled
@@ -3880,6 +3887,7 @@ string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string clear_text_end_icon_content_description
+string coralScored
 string coral_pickup
 string error_a11y_label
 string error_icon_content_description

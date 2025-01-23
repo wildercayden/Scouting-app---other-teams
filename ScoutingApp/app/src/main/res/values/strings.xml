@@ -13,4 +13,5 @@
     <string name="coral_pickup">Coral Pickup</string>
     <string name="auto">Auto</string>
     <string name="image_of_field">Image of field</string>
+    <string name="coralScored">%dx</string>
 </resources>

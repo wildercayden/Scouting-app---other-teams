@@ -6,6 +6,7 @@
     <string name="auto">Auto</string>
     <string name="can_leave">Can Leave</string>
     <string name="can_remove_algae">Can Remove Algae</string>
+    <string name="coralScored">%dx</string>
     <string name="coral_pickup">Coral Pickup</string>
     <string name="image_of_field">Image of field</string>
     <string name="l1">L1</string>
