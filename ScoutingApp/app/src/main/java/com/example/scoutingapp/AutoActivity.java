@@ -1,17 +1,22 @@
 package com.example.scoutingapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class AutoActivity extends AppCompatActivity {
     private int l4Scored = 0;
@@ -25,6 +30,13 @@ public class AutoActivity extends AppCompatActivity {
     private boolean canLeave = false;
     private boolean coralPickup = false;
 
+    private TextView l4TV;
+    private TextView l3TV;
+    private TextView l2TV;
+    private TextView l1TV;
+    private TextView processorTV;
+    private TextView netTV;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +47,6 @@ public class AutoActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 
         Button l4Button = (Button) findViewById(R.id.button_L4);
         Button l3Button = (Button) findViewById(R.id.button_L3);
@@ -50,46 +60,72 @@ public class AutoActivity extends AppCompatActivity {
         CheckBox reefPickupBox = (CheckBox) findViewById(R.id.cb_algaeReef);
         CheckBox canLeaveBox = (CheckBox) findViewById(R.id.cb_CanLeave);
 
+        l4TV = (TextView) findViewById(R.id.tv_L4);
+        l3TV = (TextView) findViewById(R.id.tv_L3);
+        l2TV = (TextView) findViewById(R.id.tv_L2);
+        l1TV = (TextView) findViewById(R.id.tv_L1);
+        processorTV = (TextView) findViewById(R.id.tv_Net2);
+        netTV = (TextView) findViewById(R.id.tv_Net);
 
-        l4Button.setOnClickListener((v) -> l4Scored++);
+        //When clicked, add 1 to the scored and update the text for L4
+        l4Button.setOnClickListener((v) -> {
+            l4Scored++;
+            updateL4Text();
+        });
+        //when held, subtract 1 from scored and update the text for L4
         l4Button.setOnLongClickListener((v) -> {
             l4Scored--;
-            vibrator.vibrate(250);
+            updateL4Text();
             return true;
         });
 
-        l3Button.setOnClickListener((v) -> l3Scored++);
+        l3Button.setOnClickListener((v) -> {
+            l3Scored++;
+            updateL3Text();
+        });
         l3Button.setOnLongClickListener((v) -> {
             l3Scored--;
-            vibrator.vibrate(250);
+            updateL3Text();
             return true;
         });
 
-        l2Button.setOnClickListener((v) -> l2Scored++);
+        l2Button.setOnClickListener((v) -> {
+            l2Scored++;
+            updateL2Text();
+        });
         l2Button.setOnLongClickListener((v) -> {
             l2Scored--;
-            vibrator.vibrate(250);
+            updateL2Text();
             return true;
         });
 
-        l1Button.setOnClickListener((v) -> l1Scored++);
+        l1Button.setOnClickListener((v) -> {
+            l1Scored++;
+            updateL1Text();
+        });
         l1Button.setOnLongClickListener((v) -> {
             l1Scored--;
-            vibrator.vibrate(250);
+            updateL1Text();
             return true;
         });
 
-        processorButton.setOnClickListener((v) -> processorScored++);
+        processorButton.setOnClickListener((v) -> {
+            processorScored++;
+            updateProcessorText();
+        });
         processorButton.setOnLongClickListener((v) -> {
             processorScored--;
-            vibrator.vibrate(250);
+            updateProcessorText();
             return true;
         });
 
-        netButton.setOnClickListener((v) -> netScored++);
+        netButton.setOnClickListener((v) -> {
+            netScored++;
+            updateNetText();
+        });
         netButton.setOnLongClickListener((v) -> {
             netScored--;
-            vibrator.vibrate(250);
+            updateNetText();
             return true;
         });
 
@@ -103,8 +139,63 @@ public class AutoActivity extends AppCompatActivity {
             //submit data
             Intent intent = new Intent(this, TeleActivity.class);
             startActivity(intent);
-            Log.d("test", intent.toString());
             return true;
         });
+
+        //sets all text boxes to 0
+        updateL4Text();
+        updateL3Text();
+        updateL2Text();
+        updateL1Text();
+        updateProcessorText();
+        updateNetText();
+    }
+
+    //Methods that update the score count
+    private void updateL4Text() {
+        l4TV.setText(String.format(getResources().getString(R.string.coralScored), l4Scored));
+    }
+
+    private void updateL3Text() {
+        l3TV.setText(String.format(getResources().getString(R.string.coralScored), l3Scored));
+    }
+
+    private void updateL2Text() {
+        l2TV.setText(String.format(getResources().getString(R.string.coralScored), l2Scored));
+    }
+
+    private void updateL1Text() {
+        l1TV.setText(String.format(getResources().getString(R.string.coralScored), l1Scored));
+    }
+
+    private void updateProcessorText() {
+        processorTV.setText(String.format(getResources().getString(R.string.coralScored), processorScored));
+    }
+
+    private void updateNetText() {
+        netTV.setText(String.format(getResources().getString(R.string.coralScored), netScored));
+    }
+
+    public void CSVmake(Context context) {
+        //adds the strings
+        String CSVLine = String.format(
+                "%s %s %s %s %s %s %s",
+                l4Scored,
+                l3Scored,
+                l2Scored,
+                l1Scored,
+                reefPickup,
+                canLeave,
+                coralPickup
+                );
+        //makes the file
+        File csvFile = new File(context.getFilesDir(), "match_data.csv");
+        //writes to file
+        try (FileWriter writer = new FileWriter(csvFile, true)) {
+            writer.append(CSVLine).append("\n");
+            Log.d("CSVFilePath", csvFile.getAbsolutePath());
+        } catch (IOException e) {
+            Log.d("CSVFail", "CSV didn't make");
+        }
     }
 }

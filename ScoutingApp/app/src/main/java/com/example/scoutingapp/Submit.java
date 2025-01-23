@@ -1,23 +1,19 @@
 package com.example.scoutingapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.sheets.v4.Sheets;
-import com.google.api.services.sheets.v4.model.UpdateValuesResponse;
 import com.google.api.services.sheets.v4.model.ValueRange;
 import com.google.auth.http.HttpCredentialsAdapter;
 import com.google.auth.oauth2.ServiceAccountCredentials;
 import com.google.common.collect.Lists;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,44 +22,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Submit {
-    private String teamNumber;
-    private String matchNumber;
-    private String Taxiing;
-    private String autoCoral;
-    private String autoAlgea;
-    private String floorPickup;
-    private String HPPickup;
-    private String startingLocation;
-    private String teleopCoral;
-    private String teleopAlgea;
-    private String HPScore;
-    private String teleopFloorPickup;
-    private String Endgame;
-    private String Climb;
-    private String Notes;
 
-    public String getTeamNumberTest()
-    {   teamNumber = "2647";
-        return teamNumber;
-    }
-
-    public void CSVmake(Context context) {
-        //adds the strings
-        String CSVLine = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
-                teamNumber, matchNumber, Taxiing, autoCoral, autoAlgea, floorPickup, HPPickup,
-                startingLocation, teleopCoral, teleopAlgea, HPScore, teleopFloorPickup, Endgame, Climb, Notes);
-        //makes the file
-        File csvFile = new File(context.getExternalFilesDir(null), "match_data.csv");
-        //writes to file
-        try (FileWriter writer = new FileWriter(csvFile, true)) {
-            writer.append(CSVLine).append("\n");
-            Log.d("CSVFilePath", csvFile.getAbsolutePath());
-        } catch (IOException e) {
-            Log.d("CSVFail", "CSV didn't make");
-        }
-    }
-
-    void uploadCSV(Context context) {
+    void uploadSheets(Context context) {
         new Thread(() -> {
             try {
                 //adds account info
@@ -77,7 +37,7 @@ public class Submit {
                 ).setApplicationName("Scouting App").build();
 
                 //make sure the file is there
-                File csvFile = new File(context.getExternalFilesDir(null), "match_data.csv");
+                File csvFile = new File(context.getFilesDir(), "match_data.csv");
                 if (!csvFile.exists()) {
                     Log.d("CSVError", "CSV file does not exist.");
                     return;
@@ -122,7 +82,7 @@ public class Submit {
 
     public void deleteCSVFile(Context context) {
         //Finds the file
-        File csvFile = new File(context.getExternalFilesDir(null), "match_data.csv");
+        File csvFile = new File(context.getFilesDir(), "match_data.csv");
         
         //Checks if the file exists
         if (csvFile.exists()) {
