@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -20,12 +21,21 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText Match_number;
+    private EditText Event;
+    private String Match_numberString;
+    private String EventString;
+    public static final String Event_Key = "EVENTCONFIRM";
+    public static final String Match_key = "MATCHCONFIRM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +46,16 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
         });
+        Match_number = (EditText) findViewById(R.id.Match);
+        Event = (EditText) findViewById(R.id.Event);
         Button nextButton = (Button) findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Match_numberString = Match_number.getText().toString();
+                EventString = Event.getText().toString();
                 makeIntent();
             }
 
@@ -48,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
         TextView TBAView = (TextView)findViewById(R.id.TBATest);
     }
-
     public final class AsynchronousGet {
         private final OkHttpClient client = new OkHttpClient();
 
@@ -83,13 +97,15 @@ public class MainActivity extends AppCompatActivity {
 
             return new String[][]{blueTeams, redTeams};
         }
-        
+
 
     }
 
     private void makeIntent()
     {
         Intent intent = new Intent(this, AutoActivity.class);
+        intent.putExtra(Event_Key, EventString);
+        intent.putExtra(Match_key, Match_numberString);
         startActivity(intent);
     }
 }
