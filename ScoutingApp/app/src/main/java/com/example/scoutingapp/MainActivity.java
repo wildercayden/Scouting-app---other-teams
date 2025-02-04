@@ -1,9 +1,7 @@
 package com.example.scoutingapp;
 
 import android.content.Intent;
-import static java.sql.DriverManager.println;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,21 +19,21 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 public class MainActivity extends AppCompatActivity {
     private EditText Match_number;
     private EditText Event;
+    private EditText Team;
     private String Match_numberString;
     private String EventString;
+    private String TeamString;
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
+    public static final String Team_key = "TEAMCONFIRM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +48,27 @@ public class MainActivity extends AppCompatActivity {
         });
         Match_number = (EditText) findViewById(R.id.Match);
         Event = (EditText) findViewById(R.id.Event);
+        Team = (EditText) findViewById(R.id.TeamNumber);
         Button nextButton = (Button) findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Submit submit = new Submit();
+                submit.renameFileagain(MainActivity.this, "unuploaded.csv");
                 Match_numberString = Match_number.getText().toString();
                 EventString = Event.getText().toString();
+                TeamString = Team.getText().toString();
                 makeIntent();
             }
 
+        });
+        Button submit = (Button) findViewById(R.id.Submit_button);
+        submit.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Submit submit = new Submit();
+                submit.uploadSheets(MainActivity.this, "unuploaded.csv");
+            }
         });
 
         TextView TBAView = (TextView)findViewById(R.id.TBATest);
@@ -106,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AutoActivity.class);
         intent.putExtra(Event_Key, EventString);
         intent.putExtra(Match_key, Match_numberString);
+        intent.putExtra(Team_key, TeamString);
         startActivity(intent);
     }
 }
