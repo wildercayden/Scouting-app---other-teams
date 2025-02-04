@@ -3033,6 +3033,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable indeterminate_static
+drawable loop
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3113,8 +3114,10 @@ id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
+id Event
 id FUNCTION
 id META
+id Match
 id NO_DEBUG
 id SHIFT
 id SHOW_ALL
@@ -3122,8 +3125,10 @@ id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
 id Submit_button
+id TBATest
 id TOP_END
 id TOP_START
+id TeamNumber
 id above
 id accelerate
 id accessibility_action_clickable_span
@@ -3574,6 +3579,9 @@ id tag_window_insets_animation_callback
 id text
 id text2
 id textEnd
+id textInputLayout
+id textInputLayout2
+id textInputLayout3
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart

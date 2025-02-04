@@ -158,19 +158,19 @@ public class TeleActivity extends AppCompatActivity {
 
     //Methods that update the score count
     private void updateL4Text() {
-        l4Button.setText(String.format(getResources().getString(R.string.coralScored), "L4", l4Scored));
+        l4Button.setText(String.format(getResources().getString(R.string.coralScored), "L4 : ", l4Scored));
     }
 
     private void updateL3Text() {
-        l3Button.setText(String.format(getResources().getString(R.string.coralScored), "L3", l3Scored));
+        l3Button.setText(String.format(getResources().getString(R.string.coralScored), "L3 : ", l3Scored));
     }
 
     private void updateL2Text() {
-        l2Button.setText(String.format(getResources().getString(R.string.coralScored), "L2", l2Scored));
+        l2Button.setText(String.format(getResources().getString(R.string.coralScored), "L2 : ", l2Scored));
     }
 
     private void updateL1Text() {
-        l1Button.setText(String.format(getResources().getString(R.string.coralScored), "L1", l1Scored));
+        l1Button.setText(String.format(getResources().getString(R.string.coralScored), "L1 : ", l1Scored));
     }
 
     private void updateProcessorText() {
@@ -198,6 +198,7 @@ public class TeleActivity extends AppCompatActivity {
                 canLeave,
                 coralPickup
         );
+
         //makes the file
         File csvFile = new File(this.getFilesDir(), eventString+matchString+TeamString+".csv");
         Log.d("CSVFile", "File created/written at: " + csvFile.getAbsolutePath());

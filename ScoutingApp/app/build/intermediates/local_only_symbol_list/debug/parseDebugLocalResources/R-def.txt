@@ -4,8 +4,13 @@ color black
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable loop
 drawable screenshot_2025_01_16_115155
+id Event
+id Match
 id Submit_button
+id TBATest
+id TeamNumber
 id button_L1
 id button_L2
 id button_L3
@@ -21,6 +26,9 @@ id imageView2
 id linearLayout
 id main
 id nextButton
+id textInputLayout
+id textInputLayout2
+id textInputLayout3
 id textView2
 id textView3
 layout activity_auto
