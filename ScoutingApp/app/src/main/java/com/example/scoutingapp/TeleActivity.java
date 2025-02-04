@@ -36,6 +36,10 @@ public class TeleActivity extends AppCompatActivity {
     private Button l1Button;
     private Button processorButton;
     private Button netButton;
+    private String eventString, matchString, TeamString;
+    public static final String Event_Key = "EVENTCONFIRM";
+    public static final String Match_key = "MATCHCONFIRM";
+    public static final String Team_key = "TEAMCONFIRM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,10 @@ public class TeleActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Intent intentinput = getIntent();
+        eventString = intentinput.getStringExtra(AutoActivity.Event_Key);
+        matchString = intentinput.getStringExtra(AutoActivity.Match_key);
+        TeamString = intentinput.getStringExtra(AutoActivity.Team_key);
 
         l4Button = (Button) findViewById(R.id.button_L4);
         l3Button = (Button) findViewById(R.id.button_L3);
@@ -130,7 +138,11 @@ public class TeleActivity extends AppCompatActivity {
 
         nextButton.setOnLongClickListener((v) -> {
             //submit data
+            csvMake();
             Intent intent = new Intent(this, EndActivity.class);
+            intent.putExtra(Event_Key, eventString);
+            intent.putExtra(Match_key, matchString);
+            intent.putExtra(Team_key, TeamString);
             startActivity(intent);
             return true;
         });
@@ -169,20 +181,26 @@ public class TeleActivity extends AppCompatActivity {
         netButton.setText(String.format(getResources().getString(R.string.coralScored), "Net", netScored));
     }
 
-    public void CSVmake(Context context) {
+    public void csvMake() {
         //adds the strings
         String CSVLine = String.format(
-                "Tele, %s, %s, %s, %s, %s, %s, %s",
+                "%s,%s,%s,Tele,%s,%s,%s,%s,%s,%s,%s,%s,%s",
+                eventString,
+                matchString,
+                TeamString,
                 l4Scored,
                 l3Scored,
                 l2Scored,
                 l1Scored,
+                processorScored,
+                netScored,
                 reefPickup,
                 canLeave,
                 coralPickup
         );
         //makes the file
-        File csvFile = new File(context.getFilesDir(), "match_data.csv");
+        File csvFile = new File(this.getFilesDir(), eventString+matchString+TeamString+".csv");
+        Log.d("CSVFile", "File created/written at: " + csvFile.getAbsolutePath());
         //writes to file
         try (FileWriter writer = new FileWriter(csvFile, true)) {
             writer.append(CSVLine).append("\n");

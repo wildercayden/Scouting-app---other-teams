@@ -1,5 +1,6 @@
 package com.example.scoutingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -25,6 +26,9 @@ import java.io.File;
 
 
 public class EndActivity extends AppCompatActivity {
+    private String eventString, matchString, TeamString;
+    public static final String Event_Key = "EVENTCONFIRM";
+    public static final String Match_key = "MATCHCONFIRM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,22 +40,24 @@ public class EndActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Intent intentinput = getIntent();
+        eventString = intentinput.getStringExtra(TeleActivity.Event_Key);
+        matchString = intentinput.getStringExtra(TeleActivity.Match_key);
+        TeamString = intentinput.getStringExtra(TeleActivity.Team_key);
 
         Button submit = (Button) findViewById(R.id.Submit_button);
         submit.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+                String csvFileString = eventString+matchString+TeamString+".csv";
                 Submit submit = new Submit();
-                //Writes test Data to the String getTeamNumber
-                //submit.getTeamNumberTest();
-                //Makes the CSV file
-                //submit.CSVmake(EndActivity.this);
                 //Writes data to file to make google sheet read it as a list
-                File csvFile = new File(getExternalFilesDir(null), "match_data.csv");
-                List<List<Object>> data = submit.parseCSVToList(csvFile);
-                submit.parseCSVToList(csvFile);
+                File csvFilefile = new File(getFilesDir(), csvFileString);
+                List<List<Object>> data = submit.parseCSVToList(csvFilefile);
+                submit.parseCSVToList(csvFilefile);
                 //Uploads the Data to the Google sheet
-                submit.uploadSheets(EndActivity.this);
+                submit.uploadSheets(EndActivity.this, csvFileString);
+                //submit.renameFile(EndActivity.this, csvFileString);
             }
         });
 
@@ -68,4 +74,7 @@ public class EndActivity extends AppCompatActivity {
 
     }
 
+
+
 }
+

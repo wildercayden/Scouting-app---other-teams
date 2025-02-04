@@ -1,12 +1,12 @@
 package com.example.scoutingapp;
 
 import android.content.Intent;
-import static java.sql.DriverManager.println;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,17 +14,26 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
-import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText Match_number;
+    private EditText Event;
+    private EditText Team;
+    private String Match_numberString;
+    private String EventString;
+    private String TeamString;
+    public static final String Event_Key = "EVENTCONFIRM";
+    public static final String Match_key = "MATCHCONFIRM";
+    public static final String Team_key = "TEAMCONFIRM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,51 +44,79 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
         });
+        Match_number = (EditText) findViewById(R.id.Match);
+        Event = (EditText) findViewById(R.id.Event);
+        Team = (EditText) findViewById(R.id.TeamNumber);
         Button nextButton = (Button) findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Submit submit = new Submit();
+                submit.renameFileagain(MainActivity.this, "unuploaded.csv");
+                Match_numberString = Match_number.getText().toString();
+                EventString = Event.getText().toString();
+                TeamString = Team.getText().toString();
                 makeIntent();
             }
 
         });
+        Button submit = (Button) findViewById(R.id.Submit_button);
+        submit.setOnClickListener(new View.OnClickListener() {
 
+            public void onClick(View view) {
+                Submit submit = new Submit();
+                submit.uploadSheets(MainActivity.this, "unuploaded.csv");
+            }
+        });
+
+        TextView TBAView = (TextView)findViewById(R.id.TBATest);
     }
-
     public final class AsynchronousGet {
         private final OkHttpClient client = new OkHttpClient();
 
-        public void run() throws Exception {
+
+
+        public String[][] getMatchTeams(String eventKey, int qualMatchNum) throws Exception {
+            // https://www.thebluealliance.com/api/v3/event/2024melew/teams?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt
+            // https://www.thebluealliance.com/api/v3/match/2024melew_qm1?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt
+
+            String fein;
+
             Request request = new Request.Builder()
-                    .url("https://www.thebluealliance.com/api/v3/event/2025melew/teams?X-TBA-Auth-Key=your_api_key")
+                    .url("https://www.thebluealliance.com/api/v3/match/" + eventKey + "_qm" + qualMatchNum + "?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt")
                     .build();
 
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    e.printStackTrace();
-                }
+            try(Response response = client.newCall(request).execute()){
+                if(!response.isSuccessful()) throw new IOException("unexpected code " + response);
 
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    try (ResponseBody responseBody = response.body()) {
-                        if (!response.isSuccessful())
-                            throw new IOException("Unexpected code " + response);
-
-                        Headers responseHeaders = response.headers();
-                        for (int i = 0, size = responseHeaders.size(); i < size; i++) {
-                            System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-                        }
-                    }
+                Headers responseHeaders = response.headers();
+                for(int i = 0; i < responseHeaders.size(); i++){
+                    System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
                 }
-            });
+                fein = response.body().string();
+            }
+
+            JSONObject teamsJSON = new JSONObject(fein);
+            JSONArray blueTeamsJSON = teamsJSON.getJSONObject("alliances").getJSONObject("blue").getJSONArray("team_keys");
+            JSONArray redTeamsJSON = teamsJSON.getJSONObject("alliances").getJSONObject("blue").getJSONArray("team_keys");
+
+            String[] blueTeams = {blueTeamsJSON.getString(0), blueTeamsJSON.getString(1), blueTeamsJSON.getString(2)};
+            String[] redTeams = {redTeamsJSON.getString(0), redTeamsJSON.getString(1), redTeamsJSON.getString(2)};
+
+            return new String[][]{blueTeams, redTeams};
         }
+
+
     }
 
     private void makeIntent()
     {
         Intent intent = new Intent(this, AutoActivity.class);
+        intent.putExtra(Event_Key, EventString);
+        intent.putExtra(Match_key, Match_numberString);
+        intent.putExtra(Team_key, TeamString);
         startActivity(intent);
     }
 }
