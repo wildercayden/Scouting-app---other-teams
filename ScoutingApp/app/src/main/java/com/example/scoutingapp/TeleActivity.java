@@ -174,11 +174,11 @@ public class TeleActivity extends AppCompatActivity {
     }
 
     private void updateProcessorText() {
-        processorButton.setText(String.format(getResources().getString(R.string.coralScored), "Processor", processorScored));
+        processorButton.setText(String.format(getResources().getString(R.string.coralScored), "Processor\n", processorScored));
     }
 
     private void updateNetText() {
-        netButton.setText(String.format(getResources().getString(R.string.coralScored), "Net", netScored));
+        netButton.setText(String.format(getResources().getString(R.string.coralScored), "Net\n", netScored));
     }
 
     public void csvMake() {
