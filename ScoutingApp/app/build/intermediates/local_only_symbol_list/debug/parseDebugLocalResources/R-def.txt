@@ -4,8 +4,10 @@ color black
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable loop
 drawable screenshot_2025_01_16_115155
 id Submit_button
+id TBATest
 id button_L1
 id button_L2
 id button_L3
