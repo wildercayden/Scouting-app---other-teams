@@ -51,7 +51,7 @@ public class EndActivity extends AppCompatActivity {
                 List<List<Object>> data = submit.parseCSVToList(csvFile);
                 submit.parseCSVToList(csvFile);
                 //Uploads the Data to the Google sheet
-                //submit.uploadCSV(EndActivity.this);
+                submit.uploadSheets(EndActivity.this);
             }
         });
 

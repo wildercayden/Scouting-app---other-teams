@@ -3345,7 +3345,7 @@ int id ifRoom 0x7f0800e9
 int id ignore 0x7f0800ea
 int id ignoreRequest 0x7f0800eb
 int id image 0x7f0800ec
-int id imageView 0x7f0800ed
+int id imageView2 0x7f080210
 int id immediateStop 0x7f0800ee
 int id included 0x7f0800ef
 int id indeterminate 0x7f0800f0
@@ -3364,6 +3364,7 @@ int id legacy 0x7f0800fc
 int id line1 0x7f0800fd
 int id line3 0x7f0800fe
 int id linear 0x7f0800ff
+int id linearLayout 0x7f080212
 int id listMode 0x7f080100
 int id list_item 0x7f080101
 int id m3_side_sheet 0x7f080102
@@ -3576,7 +3577,8 @@ int id textSpacerNoButtons 0x7f0801d0
 int id textSpacerNoTitle 0x7f0801d1
 int id textStart 0x7f0801d2
 int id textTop 0x7f0801d3
-int id textView 0x7f0801d4
+int id textView2 0x7f080211
+int id textView3 0x7f080213
 int id text_input_end_icon 0x7f0801d5
 int id text_input_error_icon 0x7f0801d6
 int id text_input_start_icon 0x7f0801d7
@@ -3605,12 +3607,6 @@ int id transition_position 0x7f0801ed
 int id transition_scene_layoutid_cache 0x7f0801ee
 int id transition_transform 0x7f0801ef
 int id triangle 0x7f0801f0
-int id tv_L1 0x7f0801f1
-int id tv_L2 0x7f0801f2
-int id tv_L3 0x7f0801f3
-int id tv_L4 0x7f0801f4
-int id tv_Net 0x7f0801f5
-int id tv_Net2 0x7f0801f6
 int id unchecked 0x7f0801f7
 int id uniform 0x7f0801f8
 int id unlabeled 0x7f0801f9
