@@ -81,14 +81,14 @@ public class MainActivity extends AppCompatActivity {
 
         TextView TBAView = (TextView)findViewById(R.id.TBATest);
 
-        getTBAInfo = new AsynchronousGet();
+       // getTBAInfo = new AsynchronousGet();
 
-        try {
+        //try {
 
-            TBAView.setText(getTBAInfo.getMatchTeams("MELEW", 1)[0][1]);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+            //TBAView.setText(getTBAInfo.getMatchTeams("melew", 1)[0][1]);
+        //} catch (Exception e) {
+        //    throw new RuntimeException(e);
+        //}
 
     }
     public final class AsynchronousGet {
