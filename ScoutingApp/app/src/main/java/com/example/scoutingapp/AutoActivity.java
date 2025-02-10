@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class AutoActivity extends AppCompatActivity {
     private int l4Scored = 0;
@@ -182,32 +183,38 @@ public class AutoActivity extends AppCompatActivity {
         netButton.setText(String.format(getResources().getString(R.string.coralScored), "Net\n", netScored));
     }
 
+
     public void CSVmake(Context context) {
-        //adds the strings
         String CSVLine = String.format(
-                "%s,%s,%s,Auto,%s,%s,%s,%s,%s,%s,%s,%s,%s",
-                eventString,
-                matchString,
-                TeamString,
-                l4Scored,
-                l3Scored,
-                l2Scored,
-                l1Scored,
-                processorScored,
-                netScored,
+                "%b,%b,%b",
                 reefPickup,
                 canLeave,
                 coralPickup
         );
-        //makes the file
-        File csvFile = new File(context.getFilesDir(), eventString+matchString+TeamString+".csv");
+
+        File csvFile = new File(context.getFilesDir(), eventString + matchString + TeamString + ".csv");
         Log.d("CSVFile", "File created/written at: " + csvFile.getAbsolutePath());
-        //writes to file
-        try (FileWriter writer = new FileWriter(csvFile, true)) {
-            writer.append(CSVLine).append("\n");
-            Log.d("CSVFilePath", csvFile.getAbsolutePath());
+
+        try (PrintWriter pwriter = new PrintWriter(new FileWriter(csvFile), true)) {
+            pwriter.append(eventString).append(",");
+            pwriter.append(matchString).append(",");
+            pwriter.append(TeamString).append(",");
+            pwriter.append("auto").append(",");
+
+            pwriter.print(l4Scored); pwriter.print(",");
+            pwriter.print(l3Scored); pwriter.print(",");
+            pwriter.print(l2Scored); pwriter.print(",");
+            pwriter.print(l1Scored); pwriter.print(",");
+            pwriter.print(netScored); pwriter.print(",");
+            pwriter.print(processorScored); pwriter.print(",");
+
+            pwriter.append(CSVLine).append("\n");
+
+            Log.d("CSVSuccess", "CSV written successfully at: " + csvFile.getAbsolutePath());
         } catch (IOException e) {
-            Log.d("CSVFail", "CSV didn't make");
+            Log.e("CSVFail", "CSV didn't make", e);
         }
     }
+
 }
+
