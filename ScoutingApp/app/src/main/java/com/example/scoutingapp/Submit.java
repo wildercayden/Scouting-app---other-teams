@@ -58,6 +58,7 @@ public class Submit {
                         .execute();
 
                 Log.d("GoogleSheets", "Data uploaded to Google Sheets successfully.");
+                deleteCSVFile(context);
             } catch (Exception e) {
                 Log.d("GoogleSheets", "Error uploading data", e);
                 renameFile(context, csvFileString);
