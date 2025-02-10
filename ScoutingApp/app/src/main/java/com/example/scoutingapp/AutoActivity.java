@@ -19,7 +19,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class AutoActivity extends AppCompatActivity {
-    private String auto = "Auto";
     private int l4Scored = 0;
     private int l3Scored = 0;
     private int l2Scored = 0;
@@ -31,12 +30,12 @@ public class AutoActivity extends AppCompatActivity {
     private boolean canLeave = false;
     private boolean coralPickup = false;
 
-    private TextView l4TV;
-    private TextView l3TV;
-    private TextView l2TV;
-    private TextView l1TV;
-    private TextView processorTV;
-    private TextView netTV;
+    private Button l4Button;
+    private Button l3Button;
+    private Button l2Button;
+    private Button l1Button;
+    private Button processorButton;
+    private Button netButton;
     private String eventString, matchString, TeamString;
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
@@ -58,24 +57,17 @@ public class AutoActivity extends AppCompatActivity {
         TeamString = intentinput.getStringExtra(MainActivity.Team_key);
 
 
-        Button l4Button = (Button) findViewById(R.id.button_L4);
-        Button l3Button = (Button) findViewById(R.id.button_L3);
-        Button l2Button = (Button) findViewById(R.id.button_L2);
-        Button l1Button = (Button) findViewById(R.id.button_L1);
-        Button processorButton = (Button) findViewById(R.id.button_Processor);
-        Button netButton = (Button) findViewById(R.id.button_Net);
+        l4Button = (Button) findViewById(R.id.button_L4);
+        l3Button = (Button) findViewById(R.id.button_L3);
+        l2Button = (Button) findViewById(R.id.button_L2);
+        l1Button = (Button) findViewById(R.id.button_L1);
+        processorButton = (Button) findViewById(R.id.button_Processor);
+        netButton = (Button) findViewById(R.id.button_Net);
         Button nextButton = (Button) findViewById(R.id.button_Next);
 
         CheckBox coralPickupBox = (CheckBox) findViewById(R.id.cb_coralPickup);
         CheckBox reefPickupBox = (CheckBox) findViewById(R.id.cb_algaeReef);
         CheckBox canLeaveBox = (CheckBox) findViewById(R.id.cb_CanLeave);
-
-        l4TV = (TextView) findViewById(R.id.tv_L4);
-        l3TV = (TextView) findViewById(R.id.tv_L3);
-        l2TV = (TextView) findViewById(R.id.tv_L2);
-        l1TV = (TextView) findViewById(R.id.tv_L1);
-        processorTV = (TextView) findViewById(R.id.tv_Net2);
-        netTV = (TextView) findViewById(R.id.tv_Net);
 
         //When clicked, add 1 to the scored and update the text for L4
         l4Button.setOnClickListener((v) -> {
@@ -167,37 +159,36 @@ public class AutoActivity extends AppCompatActivity {
 
     //Methods that update the score count
     private void updateL4Text() {
-        l4TV.setText(String.format(getResources().getString(R.string.coralScored), l4Scored));
+        l4Button.setText(String.format(getResources().getString(R.string.coralScored), "L4 : ", l4Scored));
     }
 
     private void updateL3Text() {
-        l3TV.setText(String.format(getResources().getString(R.string.coralScored), l3Scored));
+        l3Button.setText(String.format(getResources().getString(R.string.coralScored), "L3 : ", l3Scored));
     }
 
     private void updateL2Text() {
-        l2TV.setText(String.format(getResources().getString(R.string.coralScored), l2Scored));
+        l2Button.setText(String.format(getResources().getString(R.string.coralScored), "L2 : ", l2Scored));
     }
 
     private void updateL1Text() {
-        l1TV.setText(String.format(getResources().getString(R.string.coralScored), l1Scored));
+        l1Button.setText(String.format(getResources().getString(R.string.coralScored), "L1 : ", l1Scored));
     }
 
     private void updateProcessorText() {
-        processorTV.setText(String.format(getResources().getString(R.string.coralScored), processorScored));
+        processorButton.setText(String.format(getResources().getString(R.string.coralScored), "Processor\n", processorScored));
     }
 
     private void updateNetText() {
-        netTV.setText(String.format(getResources().getString(R.string.coralScored), netScored));
+        netButton.setText(String.format(getResources().getString(R.string.coralScored), "Net\n", netScored));
     }
 
     public void CSVmake(Context context) {
         //adds the strings
         String CSVLine = String.format(
-                "%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
+                "%s,%s,%s,Auto,%s,%s,%s,%s,%s,%s,%s,%s,%s",
                 eventString,
                 matchString,
                 TeamString,
-                auto,
                 l4Scored,
                 l3Scored,
                 l2Scored,
@@ -207,7 +198,7 @@ public class AutoActivity extends AppCompatActivity {
                 reefPickup,
                 canLeave,
                 coralPickup
-                );
+        );
         //makes the file
         File csvFile = new File(context.getFilesDir(), eventString+matchString+TeamString+".csv");
         Log.d("CSVFile", "File created/written at: " + csvFile.getAbsolutePath());

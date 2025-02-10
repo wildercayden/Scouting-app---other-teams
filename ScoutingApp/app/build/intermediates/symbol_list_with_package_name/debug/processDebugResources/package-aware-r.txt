@@ -3351,7 +3351,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageView
+id imageView2
 id immediateStop
 id included
 id indeterminate
@@ -3370,6 +3370,7 @@ id legacy
 id line1
 id line3
 id linear
+id linearLayout
 id listMode
 id list_item
 id m3_side_sheet
@@ -3585,7 +3586,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView
+id textView2
 id textView3
 id text_input_end_icon
 id text_input_error_icon
@@ -3615,12 +3616,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tv_L1
-id tv_L2
-id tv_L3
-id tv_L4
-id tv_Net
-id tv_Net2
 id unchecked
 id uniform
 id unlabeled
