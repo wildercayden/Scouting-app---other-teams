@@ -3113,8 +3113,10 @@ int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
 int id CTRL 0x7f080003
+int id Event 0x7f080210
 int id FUNCTION 0x7f080004
 int id META 0x7f080005
+int id Match 0x7f080211
 int id NO_DEBUG 0x7f080006
 int id SHIFT 0x7f080007
 int id SHOW_ALL 0x7f080008
@@ -3125,6 +3127,7 @@ int id Submit_button 0x7f08000c
 int id TBATest 0x7f08000d
 int id TOP_END 0x7f08000e
 int id TOP_START 0x7f08000f
+int id TeamNumber 0x7f080212
 int id above 0x7f080010
 int id accelerate 0x7f080011
 int id accessibility_action_clickable_span 0x7f080012
@@ -3574,11 +3577,15 @@ int id tag_window_insets_animation_callback 0x7f0801cd
 int id text 0x7f0801ce
 int id text2 0x7f0801cf
 int id textEnd 0x7f0801d0
+int id textInputLayout 0x7f080213
+int id textInputLayout2 0x7f080214
+int id textInputLayout3 0x7f080215
 int id textSpacerNoButtons 0x7f0801d1
 int id textSpacerNoTitle 0x7f0801d2
 int id textStart 0x7f0801d3
 int id textTop 0x7f0801d4
 int id textView 0x7f0801d5
+int id textView3 0x7f080216
 int id text_input_end_icon 0x7f0801d6
 int id text_input_error_icon 0x7f0801d7
 int id text_input_start_icon 0x7f0801d8

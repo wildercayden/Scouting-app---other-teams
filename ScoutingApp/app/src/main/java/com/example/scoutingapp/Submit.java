@@ -23,7 +23,7 @@ import java.util.List;
 
 public class Submit {
 
-    void uploadSheets(Context context) {
+    void uploadSheets(Context context, String csvFileString) {
         new Thread(() -> {
             try {
                 //adds account info
@@ -37,7 +37,7 @@ public class Submit {
                 ).setApplicationName("Scouting App").build();
 
                 //make sure the file is there
-                File csvFile = new File(context.getFilesDir(), "match_data.csv");
+                File csvFile = new File(context.getFilesDir(), csvFileString);
                 if (!csvFile.exists()) {
                     Log.d("CSVError", "CSV file does not exist.");
                     return;
@@ -47,7 +47,7 @@ public class Submit {
                 //data for the sheet API 
                 ValueRange body = new ValueRange().setValues(data);
                 //the ID for the google sheet
-                String spreadsheetId = "1WqULxMRuXV97sUy01hdy8hiDIud1M4j5oNpWWHDsvcI";
+                String spreadsheetId = "1ky5LBTpnEeBEEaaF7z6UWdh-E7YmOSeij4dYdR2PU4A";
                 //starting point
                 String range = "Sheet1!a2:O2";
                 //inserts data to the sheet 
@@ -60,40 +60,79 @@ public class Submit {
                 Log.d("GoogleSheets", "Data uploaded to Google Sheets successfully.");
             } catch (Exception e) {
                 Log.d("GoogleSheets", "Error uploading data", e);
+                renameFile(context, csvFileString);
             }
         }).start();
     }
 
     List<List<Object>> parseCSVToList(File csvFile) {
-        //makes A array
         List<List<Object>> data = Lists.newArrayList();
-        //Reads the info from the CSV file and makes it usedable to upload to the google sheet
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             String line;
             while ((line = br.readLine()) != null) {
-                List<Object> row = Arrays.asList(line.split(","));
-                data.add(row);
+                String[] values = line.split(","); // Assuming CSV is comma-separated
+                data.add(Arrays.asList((Object[]) values));
             }
         } catch (IOException e) {
-            Log.d("parseCSVToList", "Error with BufferredReader");
+            Log.d("CSVError", "Error reading CSV file", e);
         }
         return data;
     }
 
+
     public void deleteCSVFile(Context context) {
-        //Finds the file
-        File csvFile = new File(context.getFilesDir(), "match_data.csv");
-        
-        //Checks if the file exists
-        if (csvFile.exists()) {
-            //Tries to delete file
-            if (csvFile.delete()) {
-                Log.d("CSVDelete", "match_data.csv deleted successfully.");
-            } else {
-                Log.d("CSVDelete", "Failed to delete match_data.csv.");
+        // Get the directory containing the files
+        File directory = context.getFilesDir();
+
+        // Get all files in the directory
+        File[] files = directory.listFiles();
+
+        if (files != null) {
+            // Iterate through each file in the directory
+            for (File file : files) {
+                // Deletes the file
+                if (file.delete()) {
+                    Log.d("CSVDelete", file.getName() + " deleted successfully.");
+                } else {
+                    Log.d("CSVDelete", "Failed to delete " + file.getName());
+                }
             }
         } else {
-            Log.d("CSVDelete", "match_data.csv does not exist.");
+            Log.d("CSVDelete", "No files found in the directory.");
+        }
+    }
+
+    public void renameFile(Context context, String csvFileString) {
+        File csvFile = new File(context.getFilesDir(), csvFileString);
+
+        if (!csvFile.exists()) {
+            Log.d("CSVRenameFail", "File does not exist: " + csvFile.getAbsolutePath());
+            return;
+        }
+
+        File renamedFile = new File(context.getFilesDir(), "unuploaded.csv");
+
+        if (csvFile.renameTo(renamedFile)) {
+            Log.d("CSVRename", "File renamed successfully to: " + renamedFile.getAbsolutePath());
+        } else {
+            Log.d("CSVRenameFail", "File renaming failed. Possible reasons: file is in use, permission issue, or incorrect file path.");
+        }
+    }
+
+    public void renameFileagain(Context context, String csvFileString) {
+        File csvFile = new File(context.getFilesDir(), csvFileString);
+
+        if (!csvFile.exists()) {
+            Log.d("CSVRenameFail", "File does not exist: " + csvFile.getAbsolutePath());
+            return;
+        }
+
+        File renamedFile = new File(context.getFilesDir(), "uploaded.csv");
+
+        if (csvFile.renameTo(renamedFile)) {
+            Log.d("CSVRename", "File renamed successfully to: " + renamedFile.getAbsolutePath());
+        } else {
+            Log.d("CSVRenameFail", "File renaming failed. Possible reasons: file is in use, permission issue, or incorrect file path.");
         }
     }
 }
