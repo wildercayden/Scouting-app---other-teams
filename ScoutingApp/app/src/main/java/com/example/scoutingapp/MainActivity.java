@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String Team_key = "TEAMCONFIRM";
     public String fein;
 
-    AsynchronousGet getTBAInfo;
+    SychronousGet getTBAInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,16 +81,17 @@ public class MainActivity extends AppCompatActivity {
 
         TextView TBAView = (TextView)findViewById(R.id.TBATest);
 
-        getTBAInfo = new AsynchronousGet();
+        getTBAInfo = new SychronousGet();
 
         try {
-
-            TBAView.setText(getTBAInfo.getMatchTeams("melew", 1)[0][1]);
+            getTBAInfo.run();
+            //TBAView.setText(getTBAInfo.getMatchTeams("melew", 1)[0][1]);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
     }
+
     public final class AsynchronousGet {
         private final OkHttpClient client = new OkHttpClient();
 
@@ -154,6 +155,27 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public final class SychronousGet{
+        private final OkHttpClient client = new OkHttpClient();
+
+        public void run() throws Exception{
+            Request request = new Request.Builder()
+                    .url("https://www.thebluealliance.com/api/v3/match/2024melew_qm1?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt")
+                    .build();
+
+            try(Response response = client.newCall(request).execute()){
+                if(!response.isSuccessful()) throw new IOException("bruh moment" + response);
+
+                Headers responseHeaders = response.headers();
+                for(int i = 0; i < responseHeaders.size(); i++){
+                    Log.d("test", responseHeaders.name(i) + ": " + responseHeaders.value(i));
+                }
+
+                Log.d("test", response.body().string());
+            }
+        }
     }
 
     private void makeIntent()

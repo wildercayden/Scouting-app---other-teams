@@ -3123,6 +3123,7 @@ int id SHOW_ALL 0x7f08000a
 int id SHOW_PATH 0x7f08000b
 int id SHOW_PROGRESS 0x7f08000c
 int id SYM 0x7f08000d
+int id Sheet 0x7f080212
 int id Submit_button 0x7f08000e
 int id TBATest 0x7f08000f
 int id TOP_END 0x7f080010
@@ -3269,7 +3270,6 @@ int id decelerate 0x7f08009c
 int id decelerateAndComplete 0x7f08009d
 int id decor_content_parent 0x7f08009e
 int id default_activity_button 0x7f08009f
-int id deleteButton 0x7f0800a0
 int id deltaRelative 0x7f0800a1
 int id dependency_ordering 0x7f0800a2
 int id design_bottom_sheet 0x7f0800a3

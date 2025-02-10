@@ -8,6 +8,7 @@ drawable loop
 drawable screenshot_2025_01_16_115155
 id Event
 id Match
+id Sheet
 id Submit_button
 id TBATest
 id TeamNumber
@@ -21,7 +22,6 @@ id button_Processor
 id cb_CanLeave
 id cb_algaeReef
 id cb_coralPickup
-id deleteButton
 id imageView2
 id linearLayout
 id main
