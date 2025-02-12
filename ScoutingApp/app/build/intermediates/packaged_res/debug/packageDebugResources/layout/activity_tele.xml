@@ -5,100 +5,169 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TeleActivity">
+    tools:context=".AutoActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="264dp"
+        android:layout_height="423dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/screenshot_2025_01_16_115155" />
 
     <Button
         android:id="@+id/button_L4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="L4"
-        android:textAlignment="center"
-        android:textSize="40sp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="-5dp"
+        android:backgroundTint="#40FF5722"
+        android:text="@string/l4"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_L3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <CheckBox
-        android:id="@+id/cb_algaeReef"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Can Remove Algae"
-        app:layout_constraintBottom_toTopOf="@+id/cb_coralPickup"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <CheckBox
-        android:id="@+id/cb_coralPickup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Coral Pickup"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:strokeColor="#FF5722"
+        app:strokeWidth="5dp" />
 
     <Button
         android:id="@+id/button_L3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:text="L3"
-        android:textSize="40sp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#40FF5722"
+        android:text="@string/l3"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_L2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_L4" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_L4"
+        app:strokeColor="#FF5722"
+        app:strokeWidth="5dp" />
 
     <Button
         android:id="@+id/button_L2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:text="L2"
-        android:textSize="40sp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#40FF5722"
+        android:text="@string/l2"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_L1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_L3" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_L3"
+        app:strokeColor="#FF5722"
+        app:strokeWidth="5dp" />
 
     <Button
         android:id="@+id/button_L1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:text="L1"
-        android:textSize="40sp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#40FF5722"
+        android:text="@string/l1"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_L2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_L2"
+        app:strokeColor="#FF5722"
+        app:strokeWidth="5dp" />
 
-    <Button
-        android:id="@+id/button_Net"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:text="Net"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_Processor"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Tele"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_Processor"
-        android:layout_width="150sp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Processor"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#402196F3"
+        android:text="@string/processor"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_Net"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:strokeColor="#2196F3"
+        app:strokeWidth="5dp" />
 
-    <CheckBox
-        android:id="@+id/cb_CanLeave"
+    <Button
+        android:id="@+id/button_Net"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#402196F3"
+        android:text="@string/net"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/button_Processor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:strokeColor="#2196F3"
+        app:strokeWidth="5dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <CheckBox
+            android:id="@+id/cb_CanLeave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/can_leave" />
+
+        <CheckBox
+            android:id="@+id/cb_algaeReef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/can_remove_algae" />
+
+        <CheckBox
+            android:id="@+id/cb_coralPickup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/coral_pickup" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Can Leave"
-        app:layout_constraintBottom_toTopOf="@+id/cb_algaeReef"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Hold button to \ndecrement"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_Next"
@@ -106,34 +175,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Next (Hold)"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="277dp"
-        android:layout_height="476dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/cb_CanLeave"
-        app:layout_constraintEnd_toStartOf="@+id/button_L2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tele"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="#FF5722"
+        android:text="@string/next_hold"
+        android:textColor="#000000"
+        app:cornerRadius="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
