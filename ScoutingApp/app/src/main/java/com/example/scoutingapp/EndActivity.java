@@ -1,13 +1,11 @@
 package com.example.scoutingapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
-
-import org.json.JSONException;
-
 
 
 import androidx.activity.EdgeToEdge;
@@ -57,13 +55,12 @@ public class EndActivity extends AppCompatActivity {
             }
         });
 
-        Button Delete = (Button) findViewById(R.id.deleteButton);
-        Delete.setOnClickListener(new View.OnClickListener() {
+        Button Sheet = (Button) findViewById(R.id.Sheet);
+        Sheet.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Submit submit = new Submit();
-                //Deletes the CSV file (Currently for testing but feature might stay but with some features to make it harder to do it on accident)
-                submit.deleteCSVFile(EndActivity.this);
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/spreadsheets/d/1ky5LBTpnEeBEEaaF7z6UWdh-E7YmOSeij4dYdR2PU4A/edit?gid=0#gid=0"));
+                startActivity(browserIntent);
             }
         });
 
