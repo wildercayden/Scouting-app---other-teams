@@ -3,6 +3,7 @@ package com.example.scoutingapp;
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,10 +17,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -42,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public String fein;
 
     SychronousGet getTBAInfo;
+    InputStream stream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +92,22 @@ public class MainActivity extends AppCompatActivity {
 
         TextView TBAView = (TextView)findViewById(R.id.TBATest);
 
-        getTBAInfo = new SychronousGet();
+       // getTBAInfo = new SychronousGet();
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2024melew_qm1");
+
+
+
+        JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(stream));
+        JsonObject teamsJSON = jsonElement.getAsJsonObject();
+        String blueTeams = teamsJSON.get("alliances").getAsJsonObject().get("blue").getAsJsonObject().get("team_keys").toString();
+        TBAView.setText(blueTeams);
+    //    JSONArray blueTeamsJSON = teamsJSON.getJSONObject("alliances").getJSONObject("blue").getJSONArray("team_keys");
+  //      JSONArray redTeamsJSON = teamsJSON.getJSONObject("alliances").getJSONObject("blue").getJSONArray("team_keys");
 
         try {
-            getTBAInfo.run();
+           // getTBAInfo.run();
             //TBAView.setText(getTBAInfo.getMatchTeams("melew", 1)[0][1]);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -100,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
             // https://www.thebluealliance.com/api/v3/match/2024melew_qm1?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt
 
             Request request = new Request.Builder()
-                    .url("https://www.thebluealliance.com/api/v3/match/2024melew_qm1?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt")
+                    .url("https://www.thebluealliance.com/api/v3/match/2024melew_qm1")
+                    .header("X-TBA-Auth-Key", "0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt")
                     .build();
 /*
             try(Response response = client.newCall(request).enqueue(new Callback())){
@@ -161,11 +185,16 @@ public class MainActivity extends AppCompatActivity {
         private final OkHttpClient client = new OkHttpClient();
 
         public void run() throws Exception{
+
+            Log.d( "test", "before");
             Request request = new Request.Builder()
-                    .url("https://www.thebluealliance.com/api/v3/match/2024melew_qm1?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt")
+                    .url("https://www.thebluealliance.com/api/v3/match/2024melew_qm1")
+                    .header("X-TBA-Auth-Key", "0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt")
                     .build();
 
+
             try(Response response = client.newCall(request).execute()){
+                Log.d("test", String.valueOf(response.isSuccessful()));
                 if(!response.isSuccessful()) throw new IOException("bruh moment" + response);
 
                 Headers responseHeaders = response.headers();
@@ -176,6 +205,31 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("test", response.body().string());
             }
         }
+    }
+
+    public InputStream getJSON(String path){
+
+        InputStream stream = null;
+        try{
+
+            URL url = new URL(path);
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("User-Agent", "TBA_API");
+            connection.setRequestProperty("X-TBA-Auth-Key", "0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt");
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            connection.setRequestProperty("charset", "utf-8");
+            connection.setUseCaches(false);
+
+            stream = (InputStream)connection.getInputStream();
+            //Log.d("test", "after assigned stream");
+            //Log.d("test", stream.toString());
+        }
+        catch (Exception e){
+            Log.d("test", "inside catch");
+            e.printStackTrace();
+        }
+        return stream;
     }
 
     private void makeIntent()
