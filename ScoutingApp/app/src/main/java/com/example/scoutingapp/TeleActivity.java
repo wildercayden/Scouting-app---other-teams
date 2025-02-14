@@ -184,10 +184,7 @@ public class TeleActivity extends AppCompatActivity {
     public void csvMake() {
         //adds the strings
         String CSVLine = String.format(
-                "%s,%s,%s,Tele,%s,%s,%s,%s,%s,%s,%s,%s,%s",
-                eventString,
-                matchString,
-                TeamString,
+                "Tele,%s,%s,%s,%s,%s,%s,%s,%s,%s",
                 l4Scored,
                 l3Scored,
                 l2Scored,

@@ -49,11 +49,11 @@ public class Submit {
                 //the ID for the google sheet
                 String spreadsheetId = "1ky5LBTpnEeBEEaaF7z6UWdh-E7YmOSeij4dYdR2PU4A";
                 //starting point
-                String range = "Sheet1!a2:O2";
+                String range = "Data!a2:O2";
                 //inserts data to the sheet 
                 sheetsService.spreadsheets().values()
                 .append(spreadsheetId, range, body)
-                        .setValueInputOption("RAW")
+                        .setValueInputOption("USER_ENTERED")
                         .setInsertDataOption("INSERT_ROWS")
                         .execute();
 

@@ -139,7 +139,7 @@ public class AutoActivity extends AppCompatActivity {
 
         nextButton.setOnLongClickListener((v) -> {
             //submit data
-            CSVmake(AutoActivity.this);
+            CSVmake();
             Intent intent = new Intent(this, TeleActivity.class);
             intent.putExtra(Event_Key, eventString);
             intent.putExtra(Match_key, matchString);
@@ -182,10 +182,10 @@ public class AutoActivity extends AppCompatActivity {
         netButton.setText(String.format(getResources().getString(R.string.coralScored), "Net\n", netScored));
     }
 
-    public void CSVmake(Context context) {
+    public void CSVmake() {
         //adds the strings
-        String CSVLine = String.format(
-                "%s,%s,%s,Auto,%s,%s,%s,%s,%s,%s,%s,%s,%s",
+        String csvLine = String.format(
+                "%s,%s,%s,Auto,%s,%s,%s,%s,%s,%s,%s,%s,%s,",
                 eventString,
                 matchString,
                 TeamString,
@@ -200,11 +200,11 @@ public class AutoActivity extends AppCompatActivity {
                 coralPickup
         );
         //makes the file
-        File csvFile = new File(context.getFilesDir(), eventString+matchString+TeamString+".csv");
+        File csvFile = new File(this.getFilesDir(), eventString+matchString+TeamString+".csv");
         Log.d("CSVFile", "File created/written at: " + csvFile.getAbsolutePath());
         //writes to file
         try (FileWriter writer = new FileWriter(csvFile, true)) {
-            writer.append(CSVLine).append("\n");
+            writer.write(csvLine);
             Log.d("CSVFilePath", csvFile.getAbsolutePath());
         } catch (IOException e) {
             Log.d("CSVFail", "CSV didn't make");
