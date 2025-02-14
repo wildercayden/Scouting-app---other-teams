@@ -2,7 +2,12 @@ package com.example.scoutingapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
+import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
@@ -24,6 +29,13 @@ import java.util.List;
 public class Submit {
 
     void uploadSheets(Context context, String csvFileString) {
+        if (!isWifiConnected(context)) {
+            Log.e("NetworkError", "No Wi-Fi connection. Cannot upload.");
+            Toast.makeText(context, "upload failed, Upload later", Toast.LENGTH_SHORT).show();
+            return;
+
+        }
+
         new Thread(() -> {
             try {
                 //adds account info
@@ -52,16 +64,15 @@ public class Submit {
                 String range = "Data!a2:O2";
                 //inserts data to the sheet 
                 sheetsService.spreadsheets().values()
-                .append(spreadsheetId, range, body)
+                        .append(spreadsheetId, range, body)
                         .setValueInputOption("USER_ENTERED")
                         .setInsertDataOption("INSERT_ROWS")
                         .execute();
 
                 Log.d("GoogleSheets", "Data uploaded to Google Sheets successfully.");
-                deleteCSVFile(context);
+                deleteCSVFile(context, csvFileString);
             } catch (Exception e) {
-                Log.d("GoogleSheets", "Error uploading data", e);
-                renameFile(context, csvFileString);
+                Log.e("GoogleSheetFailed", "Failed to upload");
             }
         }).start();
     }
@@ -81,7 +92,7 @@ public class Submit {
     }
 
 
-    public void deleteCSVFile(Context context) {
+    public void deleteCSVFile(Context context, String csvFileString) {
         // Get the directory containing the files
         File directory = context.getFilesDir();
 
@@ -89,19 +100,23 @@ public class Submit {
         File[] files = directory.listFiles();
 
         if (files != null) {
-            // Iterate through each file in the directory
             for (File file : files) {
-                // Deletes the file
-                if (file.delete()) {
-                    Log.d("CSVDelete", file.getName() + " deleted successfully.");
-                } else {
-                    Log.d("CSVDelete", "Failed to delete " + file.getName());
+                // Check if the file name matches the given string
+                if (file.getName().equals(csvFileString)) {
+                    if (file.delete()) {
+                        Log.d("CSVDelete", file.getName() + " deleted successfully.");
+                    } else {
+                        Log.d("CSVDelete", "Failed to delete " + file.getName());
+                    }
+                    return; // Exit after deleting the file
                 }
             }
+            Log.d("CSVDelete", "File " + csvFileString + " not found.");
         } else {
             Log.d("CSVDelete", "No files found in the directory.");
         }
     }
+
 
     public void renameFile(Context context, String csvFileString) {
         File csvFile = new File(context.getFilesDir(), csvFileString);
@@ -111,7 +126,7 @@ public class Submit {
             return;
         }
 
-        File renamedFile = new File(context.getFilesDir(), "unuploaded.csv");
+        File renamedFile = new File(context.getFilesDir(), csvFileString);
 
         if (csvFile.renameTo(renamedFile)) {
             Log.d("CSVRename", "File renamed successfully to: " + renamedFile.getAbsolutePath());
@@ -135,5 +150,17 @@ public class Submit {
         } else {
             Log.d("CSVRenameFail", "File renaming failed. Possible reasons: file is in use, permission issue, or incorrect file path.");
         }
+    }
+
+    public boolean isWifiConnected(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if (cm != null) {
+            android.net.Network network = cm.getActiveNetwork();
+            if (network == null) return false;
+            NetworkCapabilities capabilities = cm.getNetworkCapabilities(network);
+            return capabilities != null && capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI);
+        }
+        return false;
     }
 }

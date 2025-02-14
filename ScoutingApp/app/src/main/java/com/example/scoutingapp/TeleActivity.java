@@ -36,10 +36,11 @@ public class TeleActivity extends AppCompatActivity {
     private Button l1Button;
     private Button processorButton;
     private Button netButton;
-    private String eventString, matchString, TeamString;
+    private String eventString, matchString, TeamString, startingPostionString;
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
     public static final String Team_key = "TEAMCONFIRM";
+    public static final String Postion_key = "POSTIONKEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,8 @@ public class TeleActivity extends AppCompatActivity {
         eventString = intentinput.getStringExtra(AutoActivity.Event_Key);
         matchString = intentinput.getStringExtra(AutoActivity.Match_key);
         TeamString = intentinput.getStringExtra(AutoActivity.Team_key);
+        startingPostionString = intentinput.getStringExtra(AutoActivity.Postion_key);
+
 
         l4Button = (Button) findViewById(R.id.button_L4);
         l3Button = (Button) findViewById(R.id.button_L3);
@@ -184,7 +187,7 @@ public class TeleActivity extends AppCompatActivity {
     public void csvMake() {
         //adds the strings
         String CSVLine = String.format(
-                "Tele,%s,%s,%s,%s,%s,%s,%s,%s,%s",
+                "Tele,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
                 l4Scored,
                 l3Scored,
                 l2Scored,
@@ -193,7 +196,8 @@ public class TeleActivity extends AppCompatActivity {
                 netScored,
                 reefPickup,
                 canLeave,
-                coralPickup
+                coralPickup,
+                startingPostionString
         );
 
         //makes the file

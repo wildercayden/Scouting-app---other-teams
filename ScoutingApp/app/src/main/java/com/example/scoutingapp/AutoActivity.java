@@ -36,10 +36,11 @@ public class AutoActivity extends AppCompatActivity {
     private Button l1Button;
     private Button processorButton;
     private Button netButton;
-    private String eventString, matchString, TeamString;
+    private String eventString, matchString, TeamString, startingPostionString;
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
     public static final String Team_key = "TEAMCONFIRM";
+    public static final String Postion_key = "POSTIONKEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class AutoActivity extends AppCompatActivity {
         eventString = intentinput.getStringExtra(MainActivity.Event_Key);
         matchString = intentinput.getStringExtra(MainActivity.Match_key);
         TeamString = intentinput.getStringExtra(MainActivity.Team_key);
+        startingPostionString = intentinput.getStringExtra(MainActivity.Postion_key);
 
 
         l4Button = (Button) findViewById(R.id.button_L4);
@@ -144,6 +146,7 @@ public class AutoActivity extends AppCompatActivity {
             intent.putExtra(Event_Key, eventString);
             intent.putExtra(Match_key, matchString);
             intent.putExtra(Team_key, TeamString);
+            intent.putExtra(Postion_key, startingPostionString);
             startActivity(intent);
             return true;
         });
