@@ -14,4 +14,6 @@
     <string name="auto">Auto</string>
     <string name="image_of_field">Image of field</string>
     <string name="coralScored">%s%dx</string>
+    <string name="tele">Tele</string>
+    <string name="hold_button_to_ndecrement">Hold button to \ndecrement</string>
 </resources>

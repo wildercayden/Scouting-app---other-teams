@@ -44,6 +44,7 @@ string can_leave
 string can_remove_algae
 string coralScored
 string coral_pickup
+string hold_button_to_ndecrement
 string image_of_field
 string l1
 string l2
@@ -53,6 +54,7 @@ string net
 string next_hold
 string processor
 string submit
+string tele
 style Base.Theme.ScoutingApp
 style Theme.ScoutingApp
 xml backup_rules

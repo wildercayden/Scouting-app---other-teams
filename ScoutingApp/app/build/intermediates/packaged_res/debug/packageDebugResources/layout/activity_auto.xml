@@ -14,7 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/screenshot_2025_01_16_115155" />
+        app:srcCompat="@drawable/screenshot_2025_01_16_115155"
+        tools:ignore="ContentDescription" />
 
     <Button
         android:id="@+id/button_L4"
@@ -32,7 +33,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
         app:strokeColor="#FF5722"
-        app:strokeWidth="5dp" />
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
 
     <Button
         android:id="@+id/button_L3"
@@ -48,7 +50,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_L4"
         app:strokeColor="#FF5722"
-        app:strokeWidth="5dp" />
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
 
     <Button
         android:id="@+id/button_L2"
@@ -64,7 +67,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_L3"
         app:strokeColor="#FF5722"
-        app:strokeWidth="5dp" />
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
 
     <Button
         android:id="@+id/button_L1"
@@ -80,7 +84,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_L2"
         app:strokeColor="#FF5722"
-        app:strokeWidth="5dp" />
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
 
     <TextView
         android:id="@+id/textView2"
@@ -107,7 +112,8 @@
         app:layout_constraintStart_toEndOf="@+id/button_Net"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:strokeColor="#2196F3"
-        app:strokeWidth="5dp" />
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
 
     <Button
         android:id="@+id/button_Net"
@@ -123,7 +129,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:strokeColor="#2196F3"
-        app:strokeWidth="5dp" />
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -139,21 +146,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/can_leave" />
+            android:text="@string/can_leave"
+            tools:ignore="VisualLintButtonSize" />
 
         <CheckBox
             android:id="@+id/cb_algaeReef"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/can_remove_algae" />
+            android:text="@string/can_remove_algae"
+            tools:ignore="VisualLintButtonSize" />
 
         <CheckBox
             android:id="@+id/cb_coralPickup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/coral_pickup" />
+            android:text="@string/coral_pickup"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
     <TextView
@@ -163,7 +173,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Hold button to \ndecrement"
+        android:text="@string/hold_button_to_ndecrement"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"

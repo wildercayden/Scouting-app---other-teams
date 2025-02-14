@@ -3898,6 +3898,7 @@ int string exposed_dropdown_menu_content_description 0x7f100036
 int string fab_transformation_scrim_behavior 0x7f100037
 int string fab_transformation_sheet_behavior 0x7f100038
 int string hide_bottom_view_on_scroll_behavior 0x7f100039
+int string hold_button_to_ndecrement 0x7f1000b5
 int string icon_content_description 0x7f10003a
 int string image_of_field 0x7f10003b
 int string item_view_role_description 0x7f10003c
@@ -4021,6 +4022,7 @@ int string side_sheet_accessibility_pane_title 0x7f1000b1
 int string side_sheet_behavior 0x7f1000b2
 int string status_bar_notification_info_overflow 0x7f1000b3
 int string submit 0x7f1000b4
+int string tele 0x7f1000b6
 int style AlertDialog_AppCompat 0x7f110000
 int style AlertDialog_AppCompat_Light 0x7f110001
 int style Animation_AppCompat_Dialog 0x7f110002

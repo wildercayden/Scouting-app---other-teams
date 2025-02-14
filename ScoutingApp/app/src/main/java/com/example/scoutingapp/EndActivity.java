@@ -19,10 +19,6 @@ import java.util.List;
 
 import java.io.File;
 
-
-
-
-
 public class EndActivity extends AppCompatActivity {
     private String eventString, matchString, TeamString;
     public static final String Event_Key = "EVENTCONFIRM";
