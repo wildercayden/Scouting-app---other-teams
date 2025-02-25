@@ -97,12 +97,12 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
         stream = getJSON("https://www.thebluealliance.com/api/v3/match/2024melew_qm1");
 
-
-
         JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(stream));
         JsonObject teamsJSON = jsonElement.getAsJsonObject();
         String blueTeams = teamsJSON.get("alliances").getAsJsonObject().get("blue").getAsJsonObject().get("team_keys").toString();
         TBAView.setText(blueTeams);
+        String redTeams = teamsJSON.get("alliances").getAsJsonObject().get("blue").getAsJsonObject().get("team_keys").toString();
+        TBAView.setText(redTeams);
     //    JSONArray blueTeamsJSON = teamsJSON.getJSONObject("alliances").getJSONObject("blue").getJSONArray("team_keys");
   //      JSONArray redTeamsJSON = teamsJSON.getJSONObject("alliances").getJSONObject("blue").getJSONArray("team_keys");
 
@@ -113,98 +113,6 @@ public class MainActivity extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
-    }
-
-    public final class AsynchronousGet {
-        private final OkHttpClient client = new OkHttpClient();
-
-        public String[][] getMatchTeams(String eventKey, int qualMatchNum) throws Exception {
-            // https://www.thebluealliance.com/api/v3/event/2024melew/teams?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt
-            // https://www.thebluealliance.com/api/v3/match/2024melew_qm1?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt
-
-            Request request = new Request.Builder()
-                    .url("https://www.thebluealliance.com/api/v3/match/2024melew_qm1")
-                    .header("X-TBA-Auth-Key", "0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt")
-                    .build();
-/*
-            try(Response response = client.newCall(request).enqueue(new Callback())){
-                if(!response.isSuccessful()) throw new IOException("unexpected code " + response);
-                Log.d("test", "inside if statement");
-                Headers responseHeaders = response.headers();
-                for(int i = 0; i < responseHeaders.size(); i++){
-                    System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-                }
-                fein = response.body().string();
-            }
-*/
-            Log.d("test", "before enqueue");
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                    Log.d("test", "before try");
-                    ResponseBody responseBody = response.body();
-                    Log.d("test", responseBody.string());
-                   //try (ResponseBody responseBody1 = response.body()) {
-                    //    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
-
-                        Headers responseHeaders = response.headers();
-                        for (int i = 0, size = responseHeaders.size(); i < size; i++) {
-                            System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-                        }
-
-                        fein = responseBody.string();
-                        responseBody.close();
-                        Log.d("test", "hehehehaw");
-
-                }
-
-                @Override
-                public void onFailure(@NonNull okhttp3.Call call, @NonNull IOException e) {
-                    e.printStackTrace();
-                    Log.d("test", "on fail");
-                }
-
-            });
-
-            JSONObject teamsJSON = new JSONObject();
-            JSONArray blueTeamsJSON = teamsJSON.getJSONObject("alliances").getJSONObject("blue").getJSONArray("team_keys");
-            JSONArray redTeamsJSON = teamsJSON.getJSONObject("alliances").getJSONObject("blue").getJSONArray("team_keys");
-
-            //String[] blueTeams = {blueTeamsJSON.getString(0), blueTeamsJSON.getString(1), blueTeamsJSON.getString(2)};
-            //String[] redTeams = {redTeamsJSON.getString(0), redTeamsJSON.getString(1), redTeamsJSON.getString(2)};
-
-            Log.d("test", "before return");
-
-            return new String[][]{{""}, {""}};
-        }
-
-
-    }
-
-    public final class SychronousGet{
-        private final OkHttpClient client = new OkHttpClient();
-
-        public void run() throws Exception{
-
-            Log.d( "test", "before");
-            Request request = new Request.Builder()
-                    .url("https://www.thebluealliance.com/api/v3/match/2024melew_qm1")
-                    .header("X-TBA-Auth-Key", "0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt")
-                    .build();
-
-
-            try(Response response = client.newCall(request).execute()){
-                Log.d("test", String.valueOf(response.isSuccessful()));
-                if(!response.isSuccessful()) throw new IOException("bruh moment" + response);
-
-                Headers responseHeaders = response.headers();
-                for(int i = 0; i < responseHeaders.size(); i++){
-                    Log.d("test", responseHeaders.name(i) + ": " + responseHeaders.value(i));
-                }
-
-                Log.d("test", response.body().string());
-            }
-        }
     }
 
     public InputStream getJSON(String path){
