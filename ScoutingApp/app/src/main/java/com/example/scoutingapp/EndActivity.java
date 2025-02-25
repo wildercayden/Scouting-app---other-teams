@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 
 import androidx.activity.EdgeToEdge;
@@ -14,13 +16,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 
 import java.io.File;
 
 public class EndActivity extends AppCompatActivity {
-    private String eventString, matchString, TeamString;
+    private String eventString, matchString, TeamString, noteString;
+    private EditText noteText;
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
 
@@ -34,6 +39,7 @@ public class EndActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        noteText = (EditText) findViewById(R.id.Notes);
         Intent intentinput = getIntent();
         eventString = intentinput.getStringExtra(TeleActivity.Event_Key);
         matchString = intentinput.getStringExtra(TeleActivity.Match_key);
@@ -45,6 +51,8 @@ public class EndActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+                noteString = noteText.getText().toString();
+                csvMake();
                 String csvFileString = eventString+matchString+TeamString+".csv";
                 Submit submit = new Submit();
                 //Writes data to file to make google sheet read it as a list
@@ -68,8 +76,23 @@ public class EndActivity extends AppCompatActivity {
 
 
     }
+    public void csvMake() {
+        //adds the strings
+        String CSVLine = String.format(
+                "%s", noteString
+        );
 
+        //makes the file
+        File csvFile = new File(this.getFilesDir(), eventString + matchString + TeamString + ".csv");
+        Log.d("CSVFile", "File created/written at: " + csvFile.getAbsolutePath());
+        //writes to file
+        try (FileWriter writer = new FileWriter(csvFile, true)) {
+            writer.append(CSVLine).append("\n");
+            Log.d("CSVFilePath", csvFile.getAbsolutePath());
+        } catch (IOException e) {
+            Log.d("CSVFail", "CSV didn't make");
+        }
 
-
-}
+    }
+    }
 

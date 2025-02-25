@@ -201,11 +201,11 @@ public class TeleActivity extends AppCompatActivity {
         );
 
         //makes the file
-        File csvFile = new File(this.getFilesDir(), eventString+matchString+TeamString+".csv");
+        File csvFile = new File(this.getFilesDir(), eventString + matchString + TeamString + ".csv");
         Log.d("CSVFile", "File created/written at: " + csvFile.getAbsolutePath());
         //writes to file
         try (FileWriter writer = new FileWriter(csvFile, true)) {
-            writer.append(CSVLine).append("\n");
+            writer.append(CSVLine).append(",");
             Log.d("CSVFilePath", csvFile.getAbsolutePath());
         } catch (IOException e) {
             Log.d("CSVFail", "CSV didn't make");
