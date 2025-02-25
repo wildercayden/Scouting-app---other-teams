@@ -39,6 +39,8 @@ public class EndActivity extends AppCompatActivity {
         matchString = intentinput.getStringExtra(TeleActivity.Match_key);
         TeamString = intentinput.getStringExtra(TeleActivity.Team_key);
 
+
+
         Button submit = (Button) findViewById(R.id.Submit_button);
         submit.setOnClickListener(new View.OnClickListener() {
 
