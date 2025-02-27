@@ -25,9 +25,12 @@ import java.io.File;
 
 public class EndActivity extends AppCompatActivity {
     private String eventString, matchString, TeamString, noteString;
+    private int climbLevel = 0;
     private EditText noteText;
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
+    private Button deepClimbButton, shallowClimbButton, parkButton, noClimbButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,17 +42,21 @@ public class EndActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Intent intent = new Intent(this, MainActivity.class);
         noteText = (EditText) findViewById(R.id.Notes);
         Intent intentinput = getIntent();
         eventString = intentinput.getStringExtra(TeleActivity.Event_Key);
         matchString = intentinput.getStringExtra(TeleActivity.Match_key);
         TeamString = intentinput.getStringExtra(TeleActivity.Team_key);
 
-
+        deepClimbButton = (Button) findViewById(R.id.RB_DeepClimb);
+        shallowClimbButton = (Button) findViewById(R.id.RB_ShallowClimb);
+        parkButton = (Button) findViewById(R.id.RB_Park);
+        noClimbButton = (Button) findViewById(R.id.RB_NoClimb);
 
         Button submit = (Button) findViewById(R.id.Submit_button);
         submit.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View view) {
                 noteString = noteText.getText().toString();
                 csvMake();
@@ -62,6 +69,8 @@ public class EndActivity extends AppCompatActivity {
                 //Uploads the Data to the Google sheet
                 submit.uploadSheets(EndActivity.this, csvFileString);
                 //submit.renameFile(EndActivity.this, csvFileString);
+                startActivity(intent);
+
             }
         });
 
@@ -74,12 +83,27 @@ public class EndActivity extends AppCompatActivity {
             }
         });
 
+        deepClimbButton.setOnClickListener((v) -> {
+            climbLevel = 3;
+        });
 
+        shallowClimbButton.setOnClickListener((v) -> {
+            climbLevel = 2;
+        });
+
+        parkButton.setOnClickListener((v) -> {
+            climbLevel = 1;
+        });
+
+        noClimbButton.setOnClickListener((v) -> {
+            climbLevel = 0;
+        });
     }
+
     public void csvMake() {
         //adds the strings
         String CSVLine = String.format(
-                "%s", noteString
+                "%s, %s", climbLevel, noteString
         );
 
         //makes the file
@@ -94,5 +118,5 @@ public class EndActivity extends AppCompatActivity {
         }
 
     }
-    }
+}
 

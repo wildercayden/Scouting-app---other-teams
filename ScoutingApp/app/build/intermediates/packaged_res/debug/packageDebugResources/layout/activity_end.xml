@@ -8,59 +8,79 @@
     tools:context=".EndActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:id="@+id/radioButton6"
+                android:id="@+id/RB_NoClimb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="No Climb" />
 
             <RadioButton
-                android:id="@+id/radioButton5"
+                android:id="@+id/RB_Park"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Park" />
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/RB_ShallowClimb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Shallow Climb" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/RB_DeepClimb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Deep Climb" />
 
         </RadioGroup>
 
-        <Button
-            android:id="@+id/Submit_button"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/submit" />
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/Sheet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="The Google Sheet" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/Sheet"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="189dp"
-        tools:layout_editor_absoluteY="309dp"></LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="The Google Sheet"
+        app:layout_constraintBottom_toTopOf="@+id/Submit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Notes"
+        app:layout_constraintBottom_toTopOf="@+id/Sheet"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,11 @@ drawable screenshot_2025_01_16_115155
 id Event
 id Explain
 id Match
+id Notes
+id RB_DeepClimb
+id RB_NoClimb
+id RB_Park
+id RB_ShallowClimb
 id Rbutton1
 id Rbutton2
 id Rbutton3
@@ -30,12 +35,9 @@ id cb_algaeReef
 id cb_coralPickup
 id imageView2
 id linearLayout
+id linearLayout2
 id main
 id nextButton
-id radioButton3
-id radioButton4
-id radioButton5
-id radioButton6
 id textInputLayout
 id textInputLayout2
 id textInputLayout3

@@ -3120,6 +3120,11 @@ id FUNCTION
 id META
 id Match
 id NO_DEBUG
+id Notes
+id RB_DeepClimb
+id RB_NoClimb
+id RB_Park
+id RB_ShallowClimb
 id Rbutton1
 id Rbutton2
 id Rbutton3
@@ -3377,6 +3382,7 @@ id line1
 id line3
 id linear
 id linearLayout
+id linearLayout2
 id listMode
 id list_item
 id m3_side_sheet
@@ -3497,10 +3503,6 @@ id pressed
 id progress_circular
 id progress_horizontal
 id radio
-id radioButton3
-id radioButton4
-id radioButton5
-id radioButton6
 id ratio
 id rectangles
 id report_drawn
