@@ -3,33 +3,29 @@ package com.example.scoutingapp;
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
-import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Headers;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
     private EditText Match_number;
@@ -45,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String Team_key = "TEAMCONFIRM";
     public String fein;
 
-    AsynchronousGet getTBAInfo;
+    InputStream stream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         Match_number = (EditText) findViewById(R.id.Match);
         Event = (EditText) findViewById(R.id.Event);
         Team = (EditText) findViewById(R.id.TeamNumber);
-        Button nextButton = (Button) findViewById(R.id.nextButton);
+        Button nextButton = (Button) findViewById(R.id.ButtonNext);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,121 +84,49 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        RadioButton Rbutton1 = findViewById(R.id.Rbutton1);
-        Rbutton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startingPostionString = "1";
-            }
-        });
-        RadioButton Rbutton2 = findViewById(R.id.Rbutton2);
-        Rbutton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startingPostionString = "2";
-            }
-        });
-        RadioButton Rbutton3 = findViewById(R.id.Rbutton3);
-        Rbutton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startingPostionString = "3";
-            }
-        });
-        RadioButton Rbutton4 = findViewById(R.id.Rbutton4);
-        Rbutton4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startingPostionString = "4";
-            }
-        });
-        RadioButton Rbutton5 = findViewById(R.id.Rbutton5);
-        Rbutton5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startingPostionString = "5";
-            }
-        });
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2024melew_qm1");
 
-        TextView TBAView = (TextView)findViewById(R.id.TBATest);
+        JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(stream));
+        JsonObject teamsJSON = jsonElement.getAsJsonObject();
+        String blueTeams = teamsJSON.get("alliances").getAsJsonObject().get("blue").getAsJsonObject().get("team_keys").toString();
+        String redTeams = teamsJSON.get("alliances").getAsJsonObject().get("blue").getAsJsonObject().get("team_keys").toString();
 
-       // getTBAInfo = new AsynchronousGet();
+        RadioButton r1Button = findViewById(R.id.red1Button);
+        r1Button.setText(blueTeams);
+        RadioButton r2Button = findViewById(R.id.red2Button);
+        RadioButton r3Button = findViewById(R.id.red3Button);
 
-        //try {
-
-            //TBAView.setText(getTBAInfo.getMatchTeams("melew", 1)[0][1]);
-        //} catch (Exception e) {
-        //    throw new RuntimeException(e);
-        //}
-
+        RadioButton b1Button = findViewById(R.id.red1Button);
+        RadioButton b2Button = findViewById(R.id.red2Button);
+        RadioButton b3Button = findViewById(R.id.red3Button);
     }
-    public final class AsynchronousGet {
-        private final OkHttpClient client = new OkHttpClient();
 
-        public String[][] getMatchTeams(String eventKey, int qualMatchNum) throws Exception {
-            // https://www.thebluealliance.com/api/v3/event/2024melew/teams?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt
-            // https://www.thebluealliance.com/api/v3/match/2024melew_qm1?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt
+    public InputStream getJSON(String path){
 
-            Request request = new Request.Builder()
-                    .url("https://www.thebluealliance.com/api/v3/match/2024melew_qm1?X-TBA-Auth-Key=0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt")
-                    .build();
-/*
-            try(Response response = client.newCall(request).enqueue(new Callback())){
-                if(!response.isSuccessful()) throw new IOException("unexpected code " + response);
-                Log.d("test", "inside if statement");
-                Headers responseHeaders = response.headers();
-                for(int i = 0; i < responseHeaders.size(); i++){
-                    System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-                }
-                fein = response.body().string();
-            }
-*/
-            Log.d("test", "before enqueue");
-            client.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                    Log.d("test", "before try");
-                    ResponseBody responseBody = response.body();
-                    Log.d("test", responseBody.string());
-                   //try (ResponseBody responseBody1 = response.body()) {
-                    //    if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+        InputStream stream = null;
+        try{
 
-                        Headers responseHeaders = response.headers();
-                        for (int i = 0, size = responseHeaders.size(); i < size; i++) {
-                            System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-                        }
+            URL url = new URL(path);
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("User-Agent", "TBA_API");
+            connection.setRequestProperty("X-TBA-Auth-Key", "0zxxGYSvY7xI2onqcWg0NT0sEtmtR6hCpmYJ29nwfxvqrP3Mf1M3lRZO5x6Kc3kt");
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            connection.setRequestProperty("charset", "utf-8");
+            connection.setUseCaches(false);
 
-                        fein = responseBody.string();
-                        responseBody.close();
-                        Log.d("test", "hehehehaw");
-
-                }
-
-                @Override
-                public void onFailure(@NonNull okhttp3.Call call, @NonNull IOException e) {
-                    e.printStackTrace();
-                    Log.d("test", "on fail");
-                }
-
-            });
-
-            JSONObject teamsJSON = new JSONObject();
-            JSONArray blueTeamsJSON = teamsJSON.getJSONObject("alliances").getJSONObject("blue").getJSONArray("team_keys");
-            JSONArray redTeamsJSON = teamsJSON.getJSONObject("alliances").getJSONObject("blue").getJSONArray("team_keys");
-
-            //String[] blueTeams = {blueTeamsJSON.getString(0), blueTeamsJSON.getString(1), blueTeamsJSON.getString(2)};
-            //String[] redTeams = {redTeamsJSON.getString(0), redTeamsJSON.getString(1), redTeamsJSON.getString(2)};
-
-            Log.d("test", "before return");
-
-            return new String[][]{{""}, {""}};
+            stream = (InputStream)connection.getInputStream();
+            //Log.d("test", "after assigned stream");
+            //Log.d("test", stream.toString());
         }
-
-
-
-
+        catch (Exception e){
+            Log.d("test", "inside catch");
+            e.printStackTrace();
+        }
+        return stream;
     }
-
 
     private void makeIntent()
     {

@@ -7,32 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/nextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/TBATest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="113dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="54dp" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
         android:layout_width="409dp"
@@ -40,16 +14,10 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="156dp"
         android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/nextButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Event"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Event" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -76,11 +44,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Match"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Match Number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
@@ -90,7 +53,8 @@
         android:hint="Team number"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-        tools:layout_editor_absoluteX="-16dp" />
+        app:layout_constraintVertical_bias="0.902"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/Submit_button"
@@ -99,7 +63,98 @@
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Match"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Match Number"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="156dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Event"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nextButton" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="216dp">
+
+        <LinearLayout
+            android:layout_width="409dp"
+            android:layout_height="215dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="210dp"
+                android:layout_height="match_parent"
+                android:background="#D11010"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButton10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+
+                <RadioButton
+                    android:id="@+id/radioButton11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+
+                <RadioButton
+                    android:id="@+id/radioButton12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#3F51B5"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButton13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+
+                <RadioButton
+                    android:id="@+id/radioButton14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+
+                <RadioButton
+                    android:id="@+id/radioButton15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RadioButton" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/ButtonNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="526dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

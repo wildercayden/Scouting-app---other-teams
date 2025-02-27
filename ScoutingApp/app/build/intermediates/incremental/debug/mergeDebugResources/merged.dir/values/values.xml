@@ -2011,6 +2011,7 @@
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
+    <string name="hold_button_to_ndecrement">Hold button to \ndecrement</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
     <string name="image_of_field">Image of field</string>
     <string name="item_view_role_description">Tab</string>
@@ -2142,6 +2143,7 @@
     <string name="side_sheet_behavior" translatable="false">com.google.android.material.sidesheet.SideSheetBehavior</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="submit">Submit</string>
+    <string name="tele">Tele</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
