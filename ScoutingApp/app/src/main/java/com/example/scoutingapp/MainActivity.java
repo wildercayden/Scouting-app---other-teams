@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,21 +50,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.Match), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
 
         });
         Match_number = (EditText) findViewById(R.id.Match);
-        Event = (EditText) findViewById(R.id.Event);
+        //Event = (EditText) findViewById(R.id.Event);
         Team = (EditText) findViewById(R.id.TeamNumber);
         Button nextButton = (Button) findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Match_numberString = Match_number.getText().toString();
-                EventString = Event.getText().toString();
+                //EventString = Event.getText().toString();
+                EventString = "Southern Maine";
                 TeamString = Team.getText().toString();
                 if ((Match_numberString == null || Match_numberString.isEmpty()) ||
                         (EventString == null || EventString.isEmpty()) ||
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        TextView TBAView = (TextView)findViewById(R.id.TBATest);
+        //TextView TBAView = (TextView)findViewById(R.id.TBATest);
 
        // getTBAInfo = new AsynchronousGet();
 
