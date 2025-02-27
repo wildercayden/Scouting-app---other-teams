@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Match"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".startingActivity">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="405dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/Rbutton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting Postion 1" />
+
+        <RadioButton
+            android:id="@+id/Rbutton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting Postion 2" />
+
+        <RadioButton
+            android:id="@+id/Rbutton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting Postion 3" />
+
+        <RadioButton
+            android:id="@+id/Rbutton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting Postion 4" />
+
+        <RadioButton
+            android:id="@+id/Rbutton5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting Postion 5" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FF5722"
+        android:text="Next"
+        app:cornerRadius="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/_025_reefscape_transparent_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
