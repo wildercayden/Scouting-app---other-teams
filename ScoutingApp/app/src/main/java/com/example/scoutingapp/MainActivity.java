@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     private String Match_numberString;
     private String EventString;
     private String TeamString;
-    private String startingPostionString;
     public static final String Postion_key = "POSTIONKEY";
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
@@ -70,8 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 TeamString = Team.getText().toString();
                 if ((Match_numberString == null || Match_numberString.isEmpty()) ||
                         (EventString == null || EventString.isEmpty()) ||
-                        (TeamString == null || TeamString.isEmpty()) ||
-                        (startingPostionString == null || startingPostionString.isEmpty())){
+                        (TeamString == null || TeamString.isEmpty())){
                     Toast.makeText(getApplicationContext(), "Fill in EVERYTHING", Toast.LENGTH_SHORT).show();
                 }else {
                     makeIntent();
@@ -88,41 +86,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        RadioButton Rbutton1 = findViewById(R.id.Rbutton1);
-        Rbutton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startingPostionString = "1";
-            }
-        });
-        RadioButton Rbutton2 = findViewById(R.id.Rbutton2);
-        Rbutton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startingPostionString = "2";
-            }
-        });
-        RadioButton Rbutton3 = findViewById(R.id.Rbutton3);
-        Rbutton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startingPostionString = "3";
-            }
-        });
-        RadioButton Rbutton4 = findViewById(R.id.Rbutton4);
-        Rbutton4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startingPostionString = "4";
-            }
-        });
-        RadioButton Rbutton5 = findViewById(R.id.Rbutton5);
-        Rbutton5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startingPostionString = "5";
-            }
-        });
 
         TextView TBAView = (TextView)findViewById(R.id.TBATest);
 
@@ -206,11 +169,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void makeIntent()
     {
-        Intent intent = new Intent(this, AutoActivity.class);
+        Intent intent = new Intent(this, startingActivity.class);
         intent.putExtra(Event_Key, EventString);
         intent.putExtra(Match_key, Match_numberString);
         intent.putExtra(Team_key, TeamString);
-        intent.putExtra(Postion_key, startingPostionString);
         startActivity(intent);
     }
 }
