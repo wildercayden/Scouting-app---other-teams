@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
 
         });
-        Match_number = (EditText) findViewById(R.id.Match);
+        Match_number = (EditText) findViewById(R.id.Matchedit);
         //Event = (EditText) findViewById(R.id.Event);
         Team = (EditText) findViewById(R.id.TeamNumber);
         Button nextButton = (Button) findViewById(R.id.nextButton);
