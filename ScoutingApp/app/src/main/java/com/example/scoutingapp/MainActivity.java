@@ -31,6 +31,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 public class MainActivity extends AppCompatActivity {
+    private Boolean alliance = true; //true = red, false = blue
     private EditText Match_number;
     private EditText Event;
     private EditText Team;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
     public static final String Team_key = "TEAMCONFIRM";
+    public static final String Alliance_key = "ALLIANCECONFIRM";
     public String fein;
 
     AsynchronousGet getTBAInfo;
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Match_numberString = Match_number.getText().toString();
                 //EventString = Event.getText().toString();
-                EventString = "Southern Maine";
+                EventString = "Pine Tree";
                 TeamString = Team.getText().toString();
                 if ((Match_numberString == null || Match_numberString.isEmpty()) ||
                         (EventString == null || EventString.isEmpty()) ||
@@ -85,8 +87,18 @@ public class MainActivity extends AppCompatActivity {
                 submit.uploadSheets(MainActivity.this, EventString+Match_number+TeamString+".csv");
             }
         });
-
-
+        Button red = (Button) findViewById(R.id.Red);
+        red.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                alliance = true;
+            }
+        });
+        Button blue = (Button) findViewById(R.id.Blue);
+        blue.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                alliance = false;
+            }
+        });
         //TextView TBAView = (TextView)findViewById(R.id.TBATest);
 
        // getTBAInfo = new AsynchronousGet();
@@ -173,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(Event_Key, EventString);
         intent.putExtra(Match_key, Match_numberString);
         intent.putExtra(Team_key, TeamString);
+        intent.putExtra(Alliance_key, alliance);
         startActivity(intent);
     }
 }

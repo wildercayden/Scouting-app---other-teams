@@ -70,8 +70,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/submit"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/teamnumber"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -82,5 +83,15 @@
         app:layout_constraintBottom_toTopOf="@+id/Sheet"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         tools:layout_editor_absoluteX="1dp" />
+
+    <TextView
+        android:id="@+id/teamnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2648"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

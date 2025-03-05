@@ -2,6 +2,7 @@ package com.example.scoutingapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -29,6 +30,7 @@ public class TeleActivity extends AppCompatActivity {
     private boolean reefPickup = false;
     private boolean canLeave = false;
     private boolean coralPickup = false;
+    private boolean alliance = true;
 
     private Button l4Button;
     private Button l3Button;
@@ -41,6 +43,7 @@ public class TeleActivity extends AppCompatActivity {
     public static final String Match_key = "MATCHCONFIRM";
     public static final String Team_key = "TEAMCONFIRM";
     public static final String Postion_key = "POSTIONKEY";
+    public static final String Alliance_key= "ALLIANCECONFIRM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,15 @@ public class TeleActivity extends AppCompatActivity {
         matchString = intentinput.getStringExtra(AutoActivity.Match_key);
         TeamString = intentinput.getStringExtra(AutoActivity.Team_key);
         startingPostionString = intentinput.getStringExtra(AutoActivity.Postion_key);
+        alliance = intentinput.getBooleanExtra(AutoActivity.Alliance_key, false);
+        TextView textView = findViewById(R.id.teamnumber);
+        textView.setText(TeamString);
+        if (alliance == true) {
+            textView.setBackgroundColor(Color.parseColor("#F71000")); //red
+        } else {
+            textView.setBackgroundColor(Color.parseColor("#0084ff"));//blue
+        }
+
 
 
         l4Button = (Button) findViewById(R.id.button_L4);

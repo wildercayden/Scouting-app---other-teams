@@ -5,7 +5,20 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".AutoActivity">
+
+    <TextView
+        android:id="@+id/teamnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2648"
+        android:textSize="34sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -94,6 +107,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/auto"
         android:textSize="48sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -102,16 +116,16 @@
         android:id="@+id/button_Processor"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:backgroundTint="#402196F3"
+        android:backgroundTint="#6B0EE906"
         android:text="@string/processor"
         android:textColor="#000000"
         android:textSize="34sp"
         app:cornerRadius="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/teamnumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_Net"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:strokeColor="#2196F3"
+        app:strokeColor="#0EE906"
         app:strokeWidth="5dp"
         tools:ignore="VisualLintButtonSize" />
 
@@ -119,16 +133,16 @@
         android:id="@+id/button_Net"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:backgroundTint="#402196F3"
+        android:backgroundTint="#6B0EE906"
         android:text="@string/net"
         android:textColor="#000000"
         android:textSize="34sp"
         app:cornerRadius="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/teamnumber"
         app:layout_constraintEnd_toStartOf="@+id/button_Processor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:strokeColor="#2196F3"
+        app:strokeColor="#0EE906"
         app:strokeWidth="5dp"
         tools:ignore="VisualLintButtonSize" />
 
@@ -147,6 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/can_leave"
+            android:textColor="#FFFFFF"
             tools:ignore="VisualLintButtonSize" />
 
         <CheckBox
@@ -155,6 +170,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/can_remove_algae"
+            android:textColor="#FFFFFF"
             tools:ignore="VisualLintButtonSize" />
 
         <CheckBox
@@ -163,6 +179,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/coral_pickup"
+            android:textColor="#FFFFFF"
             tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
@@ -174,6 +191,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/hold_button_to_ndecrement"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"

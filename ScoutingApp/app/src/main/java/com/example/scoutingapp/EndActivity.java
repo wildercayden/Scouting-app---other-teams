@@ -1,6 +1,10 @@
 package com.example.scoutingapp;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -8,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 import androidx.activity.EdgeToEdge;
@@ -27,8 +32,10 @@ public class EndActivity extends AppCompatActivity {
     private String eventString, matchString, TeamString, noteString;
     private int climbLevel = 0;
     private EditText noteText;
+    public static final String Team_key = "TEAMCONFIRM";
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
+    private Boolean alliance = true; //true = red, false = blue
     private Button deepClimbButton, shallowClimbButton, parkButton, noClimbButton;
 
 
@@ -42,13 +49,20 @@ public class EndActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         Intent intent = new Intent(this, MainActivity.class);
         noteText = (EditText) findViewById(R.id.Notes);
         Intent intentinput = getIntent();
         eventString = intentinput.getStringExtra(TeleActivity.Event_Key);
         matchString = intentinput.getStringExtra(TeleActivity.Match_key);
         TeamString = intentinput.getStringExtra(TeleActivity.Team_key);
+        alliance = intentinput.getBooleanExtra(TeleActivity.Alliance_key, false);
+        TextView textView = findViewById(R.id.teamnumber);
+        textView.setText(TeamString);
+        if (alliance == true) {
+            textView.setBackgroundColor(Color.parseColor("#F71000")); //red
+        } else {
+            textView.setBackgroundColor(Color.parseColor("#0084ff"));//blue
+        }
 
         deepClimbButton = (Button) findViewById(R.id.RB_DeepClimb);
         shallowClimbButton = (Button) findViewById(R.id.RB_ShallowClimb);
@@ -102,8 +116,9 @@ public class EndActivity extends AppCompatActivity {
 
     public void csvMake() {
         //adds the strings
+        String timestamp = getTimestamp();
         String CSVLine = String.format(
-                "%s, %s", climbLevel, noteString
+                "%s, %s, %s", climbLevel, noteString, timestamp
         );
 
         //makes the file
@@ -117,6 +132,11 @@ public class EndActivity extends AppCompatActivity {
             Log.d("CSVFail", "CSV didn't make");
         }
 
+    }
+
+    public static String getTimestamp() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy HH:mm:ss.SSS", Locale.getDefault());
+        return sdf.format(new Date());
     }
 }
 

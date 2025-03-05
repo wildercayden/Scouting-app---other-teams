@@ -1,10 +1,12 @@
 package com.example.scoutingapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,10 +17,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class startingActivity extends AppCompatActivity {
     private String eventString, matchString, TeamString, startingPostionString;
+    private Boolean alliance = true; //true = red, false = blue
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
     public static final String Team_key = "TEAMCONFIRM";
     public static final String Postion_key = "POSTIONKEY";
+    public static final String Alliance_key = "ALLIANCECONFIRM";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,14 @@ public class startingActivity extends AppCompatActivity {
         eventString = intentinput.getStringExtra(MainActivity.Event_Key);
         matchString = intentinput.getStringExtra(MainActivity.Match_key);
         TeamString = intentinput.getStringExtra(MainActivity.Team_key);
+        alliance = intentinput.getBooleanExtra(MainActivity.Alliance_key, false);
+        TextView textView = findViewById(R.id.teamnumber);
+        textView.setText(TeamString);
+        if (alliance == true) {
+            textView.setBackgroundColor(Color.parseColor("#F71000")); //red
+        } else {
+            textView.setBackgroundColor(Color.parseColor("#0084ff"));//blue
+        }
 
         Button nextButton = (Button) findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +102,7 @@ public class startingActivity extends AppCompatActivity {
         intent.putExtra(Match_key, matchString);
         intent.putExtra(Team_key, TeamString);
         intent.putExtra(Postion_key, startingPostionString);
+        intent.putExtra(Alliance_key, alliance);
         startActivity(intent);
     }
 }
