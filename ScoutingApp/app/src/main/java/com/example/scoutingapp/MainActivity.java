@@ -17,6 +17,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -55,8 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
         Match_number = (EditText) findViewById(R.id.Match);
-        Event = (EditText) findViewById(R.id.Event);
-        Team = (EditText) findViewById(R.id.TeamNumber);
+        // = (EditText) findViewById(R.id.Event);
         Button nextButton = (Button) findViewById(R.id.ButtonNext);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,21 +86,117 @@ public class MainActivity extends AppCompatActivity {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2024melew_qm1");
+        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2025melew_qm" + Match_numberString);
 
         JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(stream));
         JsonObject teamsJSON = jsonElement.getAsJsonObject();
-        String blueTeams = teamsJSON.get("alliances").getAsJsonObject().get("blue").getAsJsonObject().get("team_keys").toString();
-        String redTeams = teamsJSON.get("alliances").getAsJsonObject().get("blue").getAsJsonObject().get("team_keys").toString();
+        JsonArray blueTeamsArray = teamsJSON.get("alliances")
+                .getAsJsonObject().get("blue").
+                getAsJsonObject().get("team_keys").getAsJsonArray();
+                //.asList()
+                //.get(0).
+                //toString();
+
+        String blue1 = blueTeamsArray.get(0).getAsString();
+        blue1 = blue1.substring(3);
+        String blue2 = blueTeamsArray.get(1).getAsString();
+        blue2 = blue2.substring(3);
+        String blue3 = blueTeamsArray.get(2).getAsString();
+        blue3 = blue3.substring(3);
+
+        JsonArray redTeamsArray = teamsJSON.get("alliances")
+                .getAsJsonObject()
+                .get("red").getAsJsonObject()
+                .get("team_keys")
+                .getAsJsonArray();
+
+        String red1 = redTeamsArray.get(0).getAsString();
+        red1 = red1.substring(3);
+        String red2 = redTeamsArray.get(1).getAsString();
+        red2 = red2.substring(3);
+        String red3 = redTeamsArray.get(2).getAsString();
+        red3 = red3.substring(3);
 
         RadioButton r1Button = findViewById(R.id.red1Button);
-        r1Button.setText(blueTeams);
+        r1Button.setText(red1);
         RadioButton r2Button = findViewById(R.id.red2Button);
+        r2Button.setText(red2);
         RadioButton r3Button = findViewById(R.id.red3Button);
+        r3Button.setText(red3);
 
-        RadioButton b1Button = findViewById(R.id.red1Button);
-        RadioButton b2Button = findViewById(R.id.red2Button);
-        RadioButton b3Button = findViewById(R.id.red3Button);
+        RadioButton b1Button = findViewById(R.id.blue1Button);
+        b1Button.setText(blue1);
+        RadioButton b2Button = findViewById(R.id.blue2Button);
+        b2Button.setText(blue2);
+        RadioButton b3Button = findViewById(R.id.blue3Button);
+        b3Button.setText(blue3);
+
+        r1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                r1Button.setChecked(true);
+                r2Button.setChecked(false);
+                r3Button.setChecked(false);
+                b1Button.setChecked(false);
+                b2Button.setChecked(false);
+                b3Button.setChecked(false);
+            }
+        });
+        r2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                r1Button.setChecked(false);
+                r2Button.setChecked(true);
+                r3Button.setChecked(false);
+                b1Button.setChecked(false);
+                b2Button.setChecked(false);
+                b3Button.setChecked(false);
+            }
+        });
+        r3Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                r1Button.setChecked(false);
+                r2Button.setChecked(false);
+                r3Button.setChecked(true);
+                b1Button.setChecked(false);
+                b2Button.setChecked(false);
+                b3Button.setChecked(false);
+            }
+        });
+        b1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                r1Button.setChecked(false);
+                r2Button.setChecked(false);
+                r3Button.setChecked(false);
+                b1Button.setChecked(true);
+                b2Button.setChecked(false);
+                b3Button.setChecked(false);
+            }
+        });
+        b2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                r1Button.setChecked(false);
+                r2Button.setChecked(false);
+                r3Button.setChecked(false);
+                b1Button.setChecked(false);
+                b2Button.setChecked(true);
+                b3Button.setChecked(false);
+            }
+        });
+        b3Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                r1Button.setChecked(false);
+                r2Button.setChecked(false);
+                r3Button.setChecked(false);
+                b1Button.setChecked(false);
+                b2Button.setChecked(false);
+                b3Button.setChecked(true);
+            }
+        });
     }
 
     public InputStream getJSON(String path){

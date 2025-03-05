@@ -3212,6 +3212,9 @@ id beginning
 id below
 id bestChoice
 id blocking
+id blue1Button
+id blue2Button
+id blue3Button
 id bottom
 id bounce
 id bounceBoth
@@ -3490,14 +3493,11 @@ id pressed
 id progress_circular
 id progress_horizontal
 id radio
-id radioButton10
-id radioButton11
-id radioButton12
-id radioButton13
-id radioButton14
-id radioButton15
 id ratio
 id rectangles
+id red1Button
+id red2Button
+id red3Button
 id report_drawn
 id reverseSawtooth
 id right
