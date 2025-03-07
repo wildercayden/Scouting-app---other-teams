@@ -2918,6 +2918,7 @@ dimen tooltip_precise_anchor_threshold
 dimen tooltip_vertical_padding
 dimen tooltip_y_offset_non_touch
 dimen tooltip_y_offset_touch
+drawable _025_reefscape_transparent_background
 drawable abc_ab_share_pack_mtrl_alpha
 drawable abc_action_bar_item_background_material
 drawable abc_btn_borderless_material
@@ -3119,6 +3120,11 @@ id FUNCTION
 id META
 id Match
 id NO_DEBUG
+id Rbutton1
+id Rbutton2
+id Rbutton3
+id Rbutton4
+id Rbutton5
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
@@ -3354,6 +3360,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView10
 id imageView2
 id immediateStop
 id included
@@ -3447,6 +3454,7 @@ id navigation_header_container
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id nextButton
 id noScroll
 id noState
 id none
@@ -3493,6 +3501,7 @@ id pressed
 id progress_circular
 id progress_horizontal
 id radio
+id radioGroup
 id ratio
 id rectangles
 id red1Button
@@ -3581,6 +3590,7 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id teamnumber
 id text
 id text2
 id textEnd
@@ -3761,6 +3771,7 @@ layout abc_tooltip
 layout activity_auto
 layout activity_end
 layout activity_main
+layout activity_starting
 layout activity_tele
 layout custom_dialog
 layout design_bottom_navigation_item

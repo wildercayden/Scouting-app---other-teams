@@ -2,12 +2,18 @@ R_DEF: Internal format may change without notice
 local
 color black
 color white
+drawable _025_reefscape_transparent_background
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable loop
 drawable screenshot_2025_01_16_115155
 id ButtonNext
 id Match
+id Rbutton1
+id Rbutton2
+id Rbutton3
+id Rbutton4
+id Rbutton5
 id Sheet
 id Submit_button
 id blue1Button
@@ -25,12 +31,16 @@ id cb_algaeReef
 id cb_coralPickup
 id editTextText
 id getTeamsButton
+id imageView10
 id imageView2
 id linearLayout
 id main
+id nextButton
+id radioGroup
 id red1Button
 id red2Button
 id red3Button
+id teamnumber
 id textInputLayout2
 id textInputLayout3
 id textView2
@@ -38,6 +48,7 @@ id textView3
 layout activity_auto
 layout activity_end
 layout activity_main
+layout activity_starting
 layout activity_tele
 mipmap ic_launcher
 mipmap ic_launcher_round

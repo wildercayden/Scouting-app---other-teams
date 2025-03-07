@@ -30,14 +30,15 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
     private EditText matchNumber;
-    private EditText team;
     private String matchNumberString;
     private String eventString = "2025melew";
     private String teamString;
+    private String allianceString;
     public static final String postionKey = "POSTIONKEY";
     public static final String eventKey = "EVENTCONFIRM";
     public static final String matchKey = "MATCHCONFIRM";
     public static final String teamKey = "TEAMCONFIRM";
+    public static final String allianceKey = "ALLIANCEKEY";
     public String fein;
 
     InputStream stream;
@@ -60,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 matchNumberString = matchNumber.getText().toString();
-                teamString = team.getText().toString();
                 if ((matchNumberString == null || matchNumberString.isEmpty()) ||
                         (eventString == null || eventString.isEmpty()) ||
                         (teamString == null || teamString.isEmpty())
@@ -158,6 +158,9 @@ public class MainActivity extends AppCompatActivity {
                 b1Button.setChecked(false);
                 b2Button.setChecked(false);
                 b3Button.setChecked(false);
+
+                allianceString = "red";
+                teamString = r1Button.getText().toString();
             }
         });
         r2Button.setOnClickListener(new View.OnClickListener() {
@@ -169,6 +172,9 @@ public class MainActivity extends AppCompatActivity {
                 b1Button.setChecked(false);
                 b2Button.setChecked(false);
                 b3Button.setChecked(false);
+
+                allianceString = "red";
+                teamString = r2Button.getText().toString();
             }
         });
         r3Button.setOnClickListener(new View.OnClickListener() {
@@ -180,6 +186,9 @@ public class MainActivity extends AppCompatActivity {
                 b1Button.setChecked(false);
                 b2Button.setChecked(false);
                 b3Button.setChecked(false);
+
+                allianceString = "red";
+                teamString = r3Button.getText().toString();
             }
         });
         b1Button.setOnClickListener(new View.OnClickListener() {
@@ -192,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
                 b2Button.setChecked(false);
                 b3Button.setChecked(false);
 
+                allianceString = "blue";
                 teamString = b1Button.getText().toString();
             }
         });
@@ -204,6 +214,9 @@ public class MainActivity extends AppCompatActivity {
                 b1Button.setChecked(false);
                 b2Button.setChecked(true);
                 b3Button.setChecked(false);
+
+                allianceString = "blue";
+                teamString = b2Button.getText().toString();
             }
         });
         b3Button.setOnClickListener(new View.OnClickListener() {
@@ -215,6 +228,9 @@ public class MainActivity extends AppCompatActivity {
                 b1Button.setChecked(false);
                 b2Button.setChecked(false);
                 b3Button.setChecked(true);
+
+                allianceString = "blue";
+                teamString = b3Button.getText().toString();
             }
         });
     }
@@ -248,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(eventKey, eventString);
         intent.putExtra(matchKey, matchNumberString);
         intent.putExtra(teamKey, teamString);
+        intent.putExtra(allianceKey, allianceString);
         startActivity(intent);
     }
 }
