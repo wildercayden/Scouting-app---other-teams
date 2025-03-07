@@ -52,11 +52,11 @@ public class AutoActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Intent intentinput = getIntent();
-        eventString = intentinput.getStringExtra(MainActivity.Event_Key);
-        matchString = intentinput.getStringExtra(MainActivity.Match_key);
-        TeamString = intentinput.getStringExtra(MainActivity.Team_key);
-        startingPostionString = intentinput.getStringExtra(MainActivity.Postion_key);
+        Intent intentInput = getIntent();
+        eventString = intentInput.getStringExtra(MainActivity.eventKey);
+        matchString = intentInput.getStringExtra(MainActivity.matchKey);
+        TeamString = intentInput.getStringExtra(MainActivity.teamKey);
+        startingPostionString = intentInput.getStringExtra(MainActivity.postionKey);
 
 
         l4Button = (Button) findViewById(R.id.button_L4);
@@ -146,7 +146,6 @@ public class AutoActivity extends AppCompatActivity {
             intent.putExtra(Event_Key, eventString);
             intent.putExtra(Match_key, matchString);
             intent.putExtra(Team_key, TeamString);
-            intent.putExtra(Postion_key, startingPostionString);
             startActivity(intent);
             return true;
         });

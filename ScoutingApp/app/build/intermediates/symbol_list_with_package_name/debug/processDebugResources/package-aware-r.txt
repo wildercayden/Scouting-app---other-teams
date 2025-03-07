@@ -3115,7 +3115,6 @@ id BOTTOM_END
 id BOTTOM_START
 id ButtonNext
 id CTRL
-id Event
 id FUNCTION
 id META
 id Match
@@ -3129,7 +3128,6 @@ id Sheet
 id Submit_button
 id TOP_END
 id TOP_START
-id TeamNumber
 id above
 id accelerate
 id accessibility_action_clickable_span
@@ -3303,6 +3301,7 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editTextText
 id edit_query
 id edit_text_id
 id elastic
@@ -3332,6 +3331,7 @@ id forever
 id fragment_container_view_tag
 id frost
 id fullscreen_header
+id getTeamsButton
 id ghost_view
 id ghost_view_holder
 id gone
@@ -3584,7 +3584,6 @@ id tag_window_insets_animation_callback
 id text
 id text2
 id textEnd
-id textInputLayout
 id textInputLayout2
 id textInputLayout3
 id textSpacerNoButtons

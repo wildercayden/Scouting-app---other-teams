@@ -3114,7 +3114,6 @@ int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
 int id ButtonNext 0x7f080003
 int id CTRL 0x7f080004
-int id Event 0x7f080005
 int id FUNCTION 0x7f080006
 int id META 0x7f080007
 int id Match 0x7f080008
@@ -3128,7 +3127,6 @@ int id Sheet 0x7f08000f
 int id Submit_button 0x7f080010
 int id TOP_END 0x7f080011
 int id TOP_START 0x7f080012
-int id TeamNumber 0x7f080013
 int id above 0x7f080014
 int id accelerate 0x7f080015
 int id accessibility_action_clickable_span 0x7f080016
@@ -3302,6 +3300,7 @@ int id easeInOut 0x7f0800bd
 int id easeOut 0x7f0800be
 int id east 0x7f0800bf
 int id edge 0x7f0800c0
+int id editTextText 0x7f080218
 int id edit_query 0x7f0800c1
 int id edit_text_id 0x7f0800c2
 int id elastic 0x7f0800c3
@@ -3331,6 +3330,7 @@ int id forever 0x7f0800da
 int id fragment_container_view_tag 0x7f0800db
 int id frost 0x7f0800dc
 int id fullscreen_header 0x7f0800dd
+int id getTeamsButton 0x7f080219
 int id ghost_view 0x7f0800de
 int id ghost_view_holder 0x7f0800df
 int id gone 0x7f0800e0
@@ -3583,7 +3583,6 @@ int id tag_window_insets_animation_callback 0x7f0801d6
 int id text 0x7f0801d8
 int id text2 0x7f0801d9
 int id textEnd 0x7f0801da
-int id textInputLayout 0x7f0801db
 int id textInputLayout2 0x7f0801dc
 int id textInputLayout3 0x7f0801dd
 int id textSpacerNoButtons 0x7f0801de

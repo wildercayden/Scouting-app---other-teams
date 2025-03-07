@@ -29,17 +29,15 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText Match_number;
-    private EditText Event;
-    private EditText Team;
-    private String Match_numberString;
-    private String EventString;
-    private String TeamString;
-    private String startingPostionString;
-    public static final String Postion_key = "POSTIONKEY";
-    public static final String Event_Key = "EVENTCONFIRM";
-    public static final String Match_key = "MATCHCONFIRM";
-    public static final String Team_key = "TEAMCONFIRM";
+    private EditText matchNumber;
+    private EditText team;
+    private String matchNumberString;
+    private String eventString = "2025melew";
+    private String teamString;
+    public static final String postionKey = "POSTIONKEY";
+    public static final String eventKey = "EVENTCONFIRM";
+    public static final String matchKey = "MATCHCONFIRM";
+    public static final String teamKey = "TEAMCONFIRM";
     public String fein;
 
     InputStream stream;
@@ -55,19 +53,18 @@ public class MainActivity extends AppCompatActivity {
             return insets;
 
         });
-        Match_number = (EditText) findViewById(R.id.Match);
+        matchNumber = (EditText) findViewById(R.id.Match);
         // = (EditText) findViewById(R.id.Event);
         Button nextButton = (Button) findViewById(R.id.ButtonNext);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Match_numberString = Match_number.getText().toString();
-                EventString = Event.getText().toString();
-                TeamString = Team.getText().toString();
-                if ((Match_numberString == null || Match_numberString.isEmpty()) ||
-                        (EventString == null || EventString.isEmpty()) ||
-                        (TeamString == null || TeamString.isEmpty()) ||
-                        (startingPostionString == null || startingPostionString.isEmpty())){
+                matchNumberString = matchNumber.getText().toString();
+                teamString = team.getText().toString();
+                if ((matchNumberString == null || matchNumberString.isEmpty()) ||
+                        (eventString == null || eventString.isEmpty()) ||
+                        (teamString == null || teamString.isEmpty())
+                        ){
                     Toast.makeText(getApplicationContext(), "Fill in EVERYTHING", Toast.LENGTH_SHORT).show();
                 }else {
                     makeIntent();
@@ -80,56 +77,77 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 Submit submit = new Submit();
-                submit.uploadSheets(MainActivity.this, EventString+Match_number+TeamString+".csv");
+                submit.uploadSheets(MainActivity.this, eventString+matchNumberString+teamString+".csv");
             }
         });
 
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2025melew_qm" + Match_numberString);
-
-        JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(stream));
-        JsonObject teamsJSON = jsonElement.getAsJsonObject();
-        JsonArray blueTeamsArray = teamsJSON.get("alliances")
-                .getAsJsonObject().get("blue").
-                getAsJsonObject().get("team_keys").getAsJsonArray();
-                //.asList()
-                //.get(0).
-                //toString();
-
-        String blue1 = blueTeamsArray.get(0).getAsString();
-        blue1 = blue1.substring(3);
-        String blue2 = blueTeamsArray.get(1).getAsString();
-        blue2 = blue2.substring(3);
-        String blue3 = blueTeamsArray.get(2).getAsString();
-        blue3 = blue3.substring(3);
-
-        JsonArray redTeamsArray = teamsJSON.get("alliances")
-                .getAsJsonObject()
-                .get("red").getAsJsonObject()
-                .get("team_keys")
-                .getAsJsonArray();
-
-        String red1 = redTeamsArray.get(0).getAsString();
-        red1 = red1.substring(3);
-        String red2 = redTeamsArray.get(1).getAsString();
-        red2 = red2.substring(3);
-        String red3 = redTeamsArray.get(2).getAsString();
-        red3 = red3.substring(3);
-
         RadioButton r1Button = findViewById(R.id.red1Button);
-        r1Button.setText(red1);
         RadioButton r2Button = findViewById(R.id.red2Button);
-        r2Button.setText(red2);
         RadioButton r3Button = findViewById(R.id.red3Button);
-        r3Button.setText(red3);
 
         RadioButton b1Button = findViewById(R.id.blue1Button);
-        b1Button.setText(blue1);
         RadioButton b2Button = findViewById(R.id.blue2Button);
-        b2Button.setText(blue2);
         RadioButton b3Button = findViewById(R.id.blue3Button);
-        b3Button.setText(blue3);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        Button getTeamsButton = (Button) findViewById(R.id.getTeamsButton);
+        getTeamsButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                if(matchNumber.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Fill in EVERYTHING", Toast.LENGTH_SHORT).show();
+                }else{
+                    try {
+                        matchNumberString = matchNumber.getText().toString();
+
+                        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2024melew_qm" + matchNumberString);
+
+                        JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(stream));
+                        JsonObject teamsJSON = jsonElement.getAsJsonObject();
+                        JsonArray blueTeamsArray = teamsJSON.get("alliances")
+                                .getAsJsonObject().get("blue").
+                                getAsJsonObject().get("team_keys").getAsJsonArray();
+                        Log.d("test", "why so serious");
+                        //.asList()
+                        //.get(0).
+                        //toString();
+
+                        String blue1 = blueTeamsArray.get(0).getAsString();
+                        blue1 = blue1.substring(3);
+                        String blue2 = blueTeamsArray.get(1).getAsString();
+                        blue2 = blue2.substring(3);
+                        String blue3 = blueTeamsArray.get(2).getAsString();
+                        blue3 = blue3.substring(3);
+
+                        JsonArray redTeamsArray = teamsJSON.get("alliances")
+                                .getAsJsonObject()
+                                .get("red").getAsJsonObject()
+                                .get("team_keys")
+                                .getAsJsonArray();
+
+                        String red1 = redTeamsArray.get(0).getAsString();
+                        red1 = red1.substring(3);
+                        String red2 = redTeamsArray.get(1).getAsString();
+                        red2 = red2.substring(3);
+                        String red3 = redTeamsArray.get(2).getAsString();
+                        red3 = red3.substring(3);
+
+                        r1Button.setText(red1);
+                        r2Button.setText(red2);
+                        r3Button.setText(red3);
+
+                        b1Button.setText(blue1);
+                        b2Button.setText(blue2);
+                        b3Button.setText(blue3);
+                    }
+                    catch(Exception e){
+                        Toast.makeText(getApplicationContext(), "Fill in EVERYTHING", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        });
 
         r1Button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
                 b1Button.setChecked(true);
                 b2Button.setChecked(false);
                 b3Button.setChecked(false);
+
+                teamString = b1Button.getText().toString();
             }
         });
         b2Button.setOnClickListener(new View.OnClickListener() {
@@ -214,8 +234,6 @@ public class MainActivity extends AppCompatActivity {
             connection.setUseCaches(false);
 
             stream = (InputStream)connection.getInputStream();
-            //Log.d("test", "after assigned stream");
-            //Log.d("test", stream.toString());
         }
         catch (Exception e){
             Log.d("test", "inside catch");
@@ -227,10 +245,9 @@ public class MainActivity extends AppCompatActivity {
     private void makeIntent()
     {
         Intent intent = new Intent(this, AutoActivity.class);
-        intent.putExtra(Event_Key, EventString);
-        intent.putExtra(Match_key, Match_numberString);
-        intent.putExtra(Team_key, TeamString);
-        intent.putExtra(Postion_key, startingPostionString);
+        intent.putExtra(eventKey, eventString);
+        intent.putExtra(matchKey, matchNumberString);
+        intent.putExtra(teamKey, teamString);
         startActivity(intent);
     }
 }

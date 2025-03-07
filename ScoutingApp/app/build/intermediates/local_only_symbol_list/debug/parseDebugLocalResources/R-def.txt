@@ -7,11 +7,9 @@ drawable ic_launcher_foreground
 drawable loop
 drawable screenshot_2025_01_16_115155
 id ButtonNext
-id Event
 id Match
 id Sheet
 id Submit_button
-id TeamNumber
 id blue1Button
 id blue2Button
 id blue3Button
@@ -25,13 +23,14 @@ id button_Processor
 id cb_CanLeave
 id cb_algaeReef
 id cb_coralPickup
+id editTextText
+id getTeamsButton
 id imageView2
 id linearLayout
 id main
 id red1Button
 id red2Button
 id red3Button
-id textInputLayout
 id textInputLayout2
 id textInputLayout3
 id textView2

@@ -30,15 +30,16 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <Button
         android:id="@+id/Submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="40dp"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Match"
@@ -52,7 +53,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,19 +69,19 @@
                 android:id="@+id/red1Button"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:text="RadioButton" />
+                android:text="0" />
 
             <RadioButton
                 android:id="@+id/red2Button"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:text="RadioButton" />
+                android:text="0" />
 
             <RadioButton
                 android:id="@+id/red3Button"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:text="RadioButton" />
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,30 +94,22 @@
                 android:id="@+id/blue1Button"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:text="RadioButton" />
+                android:text="0" />
 
             <RadioButton
                 android:id="@+id/blue2Button"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:text="RadioButton" />
+                android:text="0" />
 
             <RadioButton
                 android:id="@+id/blue3Button"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:text="RadioButton" />
+                android:text="0" />
         </LinearLayout>
     </LinearLayout>
 
-
-    <Button
-        android:id="@+id/ButtonNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="526dp" />
 
     <EditText
         android:id="@+id/editTextText"
@@ -130,5 +123,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/getTeamsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Match"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Match" />
+
+    <Button
+        android:id="@+id/ButtonNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        tools:layout_editor_absoluteX="282dp"
+        tools:layout_editor_absoluteY="641dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

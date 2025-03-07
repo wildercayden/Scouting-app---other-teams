@@ -11,23 +11,8 @@
         android:id="@+id/textInputLayout2"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="156dp"
-        android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -39,54 +24,36 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/TeamNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Team number"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-        app:layout_constraintVertical_bias="0.902"
-        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/Submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="40dp"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Match"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:hint="Match Number"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="156dp" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Event"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Event"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/editTextText"
+        tools:layout_editor_absoluteX="-1dp" />
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,20 +68,20 @@
             <RadioButton
                 android:id="@+id/red1Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:layout_height="100dp"
+                android:text="0" />
 
             <RadioButton
                 android:id="@+id/red2Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:layout_height="100dp"
+                android:text="0" />
 
             <RadioButton
                 android:id="@+id/red3Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:layout_height="100dp"
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
@@ -126,30 +93,52 @@
             <RadioButton
                 android:id="@+id/blue1Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:layout_height="100dp"
+                android:text="0" />
 
             <RadioButton
                 android:id="@+id/blue2Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:layout_height="100dp"
+                android:text="0" />
 
             <RadioButton
                 android:id="@+id/blue3Button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:layout_height="100dp"
+                android:text="0" />
         </LinearLayout>
     </LinearLayout>
 
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Pine Tree District Event"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/getTeamsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Match"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Match" />
 
     <Button
         android:id="@+id/ButtonNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="526dp" />
+        android:text="Next"
+        tools:layout_editor_absoluteX="282dp"
+        tools:layout_editor_absoluteY="641dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
