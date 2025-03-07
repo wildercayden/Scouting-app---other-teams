@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:2:1-39:12
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:2:1-40:12
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\26jacquesty\.gradle\caches\transforms-4\462e02600b56a66f8051426fdb1abe8f\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] C:\Users\26jacquesty\.gradle\caches\transforms-4\366138b02f1cf3448d55810a0cb2b40c\transformed\constraintlayout-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.appcompat:appcompat-resources:1.7.0] C:\Users\26jacquesty\.gradle\caches\transforms-4\dba2e01a8c76622737e536e03a8c294e\transformed\appcompat-resources-1.7.0\AndroidManifest.xml:2:1-7:12
@@ -55,17 +55,21 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\26jacqu
 		INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:5:22-76
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:5:5-67
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:6:5-67
 	android:name
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:5:22-64
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:6:22-64
 uses-permission#android.permission.VIBRATE
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:7:5-66
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:8:5-66
 	android:name
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:7:22-63
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:8:22-63
 application
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:9:5-37:19
-INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:9:5-37:19
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:10:5-38:19
+INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:10:5-38:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\26jacquesty\.gradle\caches\transforms-4\462e02600b56a66f8051426fdb1abe8f\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\26jacquesty\.gradle\caches\transforms-4\462e02600b56a66f8051426fdb1abe8f\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] C:\Users\26jacquesty\.gradle\caches\transforms-4\366138b02f1cf3448d55810a0cb2b40c\transformed\constraintlayout-2.2.0\AndroidManifest.xml:7:5-20
@@ -87,57 +91,57 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\26
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.0] C:\Users\26jacquesty\.gradle\caches\transforms-4\42dfdf811721b94244c28f65a2afec29\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:16:9-35
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:17:9-35
 	android:label
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:14:9-41
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:15:9-41
 	android:fullBackupContent
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:12:9-54
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:13:9-54
 	android:roundIcon
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:15:9-54
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:16:9-54
 	tools:targetApi
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:18:9-29
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:19:9-29
 	android:icon
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:13:9-43
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:17:9-49
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:18:9-49
 	android:dataExtractionRules
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:11:9-65
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:12:9-65
 activity#com.example.scoutingapp.EndActivity
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:19:9-21:40
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:20:9-22:40
 	android:exported
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:21:13-37
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:22:13-37
 	android:name
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:20:13-40
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:21:13-40
 activity#com.example.scoutingapp.TeleActivity
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:22:9-24:40
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:23:9-25:40
 	android:exported
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:24:13-37
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:23:13-41
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:24:13-41
 activity#com.example.scoutingapp.AutoActivity
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:25:9-27:40
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:26:9-28:40
 	android:exported
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:27:13-37
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:26:13-41
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:27:13-41
 activity#com.example.scoutingapp.MainActivity
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:28:9-36:20
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:29:9-37:20
 	android:exported
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:30:13-36
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:31:13-36
 	android:name
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:29:13-41
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:30:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:31:13-35:29
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:32:13-36:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:32:17-69
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:33:17-69
 	android:name
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:32:25-66
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:33:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:34:17-77
+ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:35:17-77
 	android:name
-		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:34:27-74
+		ADDED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml:35:27-74
 uses-sdk
 INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\26jacquesty\AndroidStudioProjects\Reefscape-Scouting-App\ScoutingApp\app\src\main\AndroidManifest.xml
