@@ -2,6 +2,7 @@ package com.example.scoutingapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -29,6 +30,7 @@ public class TeleActivity extends AppCompatActivity {
     private boolean reefPickup = false;
     private boolean canLeave = false;
     private boolean coralPickup = false;
+    private boolean alliance = true;
 
     private Button l4Button;
     private Button l3Button;
@@ -41,6 +43,7 @@ public class TeleActivity extends AppCompatActivity {
     public static final String Match_key = "MATCHCONFIRM";
     public static final String Team_key = "TEAMCONFIRM";
     public static final String Postion_key = "POSTIONKEY";
+    public static final String Alliance_key= "ALLIANCECONFIRM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,18 @@ public class TeleActivity extends AppCompatActivity {
         matchString = intentinput.getStringExtra(AutoActivity.Match_key);
         TeamString = intentinput.getStringExtra(AutoActivity.Team_key);
         startingPostionString = intentinput.getStringExtra(AutoActivity.Postion_key);
+        alliance = intentinput.getBooleanExtra(AutoActivity.Alliance_key, false);
+        TextView textViewTeam = findViewById(R.id.teamnumber);
+        textViewTeam.setText("Team " + TeamString);
+        TextView textViewMatch = findViewById(R.id.matchNumber);
+        textViewMatch.setText("Match " + matchString);
+        if (alliance == true) {
+            textViewTeam.setBackgroundColor(Color.parseColor("#F71000")); //red
+            textViewMatch.setBackgroundColor(Color.parseColor("#F71000"));
+        } else {
+            textViewTeam.setBackgroundColor(Color.parseColor("#0084ff"));
+            textViewMatch.setBackgroundColor(Color.parseColor("#0084ff"));//blue
+        }
 
 
         l4Button = (Button) findViewById(R.id.button_L4);
@@ -146,6 +161,7 @@ public class TeleActivity extends AppCompatActivity {
             intent.putExtra(Event_Key, eventString);
             intent.putExtra(Match_key, matchString);
             intent.putExtra(Team_key, TeamString);
+            intent.putExtra(Alliance_key, alliance);
             startActivity(intent);
             return true;
         });
@@ -201,11 +217,11 @@ public class TeleActivity extends AppCompatActivity {
         );
 
         //makes the file
-        File csvFile = new File(this.getFilesDir(), eventString+matchString+TeamString+".csv");
+        File csvFile = new File(this.getFilesDir(), eventString + matchString + TeamString + ".csv");
         Log.d("CSVFile", "File created/written at: " + csvFile.getAbsolutePath());
         //writes to file
         try (FileWriter writer = new FileWriter(csvFile, true)) {
-            writer.append(CSVLine).append("\n");
+            writer.append(CSVLine).append(",");
             Log.d("CSVFilePath", csvFile.getAbsolutePath());
         } catch (IOException e) {
             Log.d("CSVFail", "CSV didn't make");

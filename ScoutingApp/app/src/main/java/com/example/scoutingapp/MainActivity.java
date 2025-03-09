@@ -260,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void makeIntent()
     {
-        Intent intent = new Intent(this, AutoActivity.class);
+        Intent intent = new Intent(this, startingActivity.class);
         intent.putExtra(eventKey, eventString);
         intent.putExtra(matchKey, matchNumberString);
         intent.putExtra(teamKey, teamString);

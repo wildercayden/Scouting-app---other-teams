@@ -16,8 +16,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class startingActivity extends AppCompatActivity {
-    private String eventString, matchString, teamString, startingPostionString;
-    private Boolean alliance = true; //true = red, false = blue
+    private String eventString, matchString, teamString, startingPostionString, allianceString;
+    private boolean alliance = true;
     public static final String Event_Key = "EVENTCONFIRM";
     public static final String Match_key = "MATCHCONFIRM";
     public static final String Team_key = "TEAMCONFIRM";
@@ -37,13 +37,18 @@ public class startingActivity extends AppCompatActivity {
         eventString = intentInput.getStringExtra(MainActivity.eventKey);
         matchString = intentInput.getStringExtra(MainActivity.matchKey);
         teamString = intentInput.getStringExtra(MainActivity.teamKey);
-        alliance = intentInput.getBooleanExtra(MainActivity.allianceKey, false);
-        TextView textView = findViewById(R.id.teamnumber);
-        textView.setText(teamString);
-        if (alliance == true) {
-            textView.setBackgroundColor(Color.parseColor("#F71000")); //red
+        allianceString = intentInput.getStringExtra(MainActivity.allianceKey);
+        TextView textViewTeam = findViewById(R.id.teamnumber);
+        textViewTeam.setText("Team " + teamString);
+        TextView textViewMatch = findViewById(R.id.matchNumber);
+        textViewMatch.setText("Match " + matchString);
+        if ("red".equals(allianceString)) {
+            textViewTeam.setBackgroundColor(Color.parseColor("#F71000")); //red
+            textViewMatch.setBackgroundColor(Color.parseColor("#F71000"));
         } else {
-            textView.setBackgroundColor(Color.parseColor("#0084ff"));//blue
+            textViewTeam.setBackgroundColor(Color.parseColor("#0084ff"));
+            textViewMatch.setBackgroundColor(Color.parseColor("#0084ff"));//blue
+            alliance = false;
         }
 
         Button nextButton = (Button) findViewById(R.id.nextButton);
@@ -102,7 +107,7 @@ public class startingActivity extends AppCompatActivity {
         intent.putExtra(Match_key, matchString);
         intent.putExtra(Team_key, teamString);
         intent.putExtra(Postion_key, startingPostionString);
-        intent.putExtra(Alliance_key, alliance);
+        intent.putExtra(Alliance_key, allianceString);
         startActivity(intent);
     }
 }

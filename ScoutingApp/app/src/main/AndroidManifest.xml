@@ -18,6 +18,9 @@
         android:theme="@style/Theme.ScoutingApp"
         tools:targetApi="31">
         <activity
+            android:name=".startingActivity"
+            android:exported="false" />
+        <activity
             android:name=".EndActivity"
             android:exported="false" />
         <activity

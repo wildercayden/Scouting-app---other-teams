@@ -2,6 +2,7 @@ package com.example.scoutingapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -25,7 +26,7 @@ public class AutoActivity extends AppCompatActivity {
     private int l1Scored = 0;
     private int processorScored = 0;
     private int netScored = 0;
-
+    private boolean alliance = true;
     private boolean reefPickup = false;
     private boolean canLeave = false;
     private boolean coralPickup = false;
@@ -41,6 +42,7 @@ public class AutoActivity extends AppCompatActivity {
     public static final String Match_key = "MATCHCONFIRM";
     public static final String Team_key = "TEAMCONFIRM";
     public static final String Postion_key = "POSTIONKEY";
+    public static final String Alliance_key = "ALLIANCECONFIRM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +54,23 @@ public class AutoActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Intent intentInput = getIntent();
-        eventString = intentInput.getStringExtra(MainActivity.eventKey);
-        matchString = intentInput.getStringExtra(MainActivity.matchKey);
-        TeamString = intentInput.getStringExtra(MainActivity.teamKey);
-        startingPostionString = intentInput.getStringExtra(MainActivity.postionKey);
+        Intent intentinput = getIntent();
+        eventString = intentinput.getStringExtra(startingActivity.Event_Key);
+        matchString = intentinput.getStringExtra(startingActivity.Match_key);
+        TeamString = intentinput.getStringExtra(startingActivity.Team_key);
+        startingPostionString = intentinput.getStringExtra(startingActivity.Postion_key);
+        alliance = intentinput.getBooleanExtra(startingActivity.Alliance_key, false);
+        TextView textViewTeam = findViewById(R.id.teamnumber);
+        textViewTeam.setText("Team " + TeamString);
+        TextView textViewMatch = findViewById(R.id.matchNumber);
+        textViewMatch.setText("Match " + matchString);
+        if (alliance == true) {
+            textViewTeam.setBackgroundColor(Color.parseColor("#F71000")); //red
+            textViewMatch.setBackgroundColor(Color.parseColor("#F71000"));
+        } else {
+            textViewTeam.setBackgroundColor(Color.parseColor("#0084ff"));
+            textViewMatch.setBackgroundColor(Color.parseColor("#0084ff"));//blue
+        }
 
 
         l4Button = (Button) findViewById(R.id.button_L4);
@@ -146,6 +160,8 @@ public class AutoActivity extends AppCompatActivity {
             intent.putExtra(Event_Key, eventString);
             intent.putExtra(Match_key, matchString);
             intent.putExtra(Team_key, TeamString);
+            intent.putExtra(Postion_key, startingPostionString);
+            intent.putExtra(Alliance_key, alliance);
             startActivity(intent);
             return true;
         });
