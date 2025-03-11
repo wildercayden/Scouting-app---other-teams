@@ -8,9 +8,9 @@
         android:minSdkVersion="24"
         android:targetSdkVersion="34" />
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <permission
         android:name="com.example.scoutingapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -31,6 +31,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.ScoutingApp" >
+        <activity
+            android:name="com.example.scoutingapp.startingActivity"
+            android:exported="false" />
         <activity
             android:name="com.example.scoutingapp.EndActivity"
             android:exported="false" />

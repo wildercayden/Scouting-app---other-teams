@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String Match_key = "MATCHCONFIRM";
     public static final String Team_key = "TEAMCONFIRM";
     public String fein;
+    public static MatchData matchData;
 
     AsynchronousGet getTBAInfo;
 
@@ -54,8 +55,10 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-
         });
+
+        matchData = new MatchData();
+
         Match_number = (EditText) findViewById(R.id.Matchedit);
         //Event = (EditText) findViewById(R.id.Event);
         Team = (EditText) findViewById(R.id.TeamNumber);
@@ -160,19 +163,11 @@ public class MainActivity extends AppCompatActivity {
 
             return new String[][]{{""}, {""}};
         }
-
-
-
-
     }
 
-
-    private void makeIntent()
-    {
+    private void makeIntent() {
         Intent intent = new Intent(this, startingActivity.class);
-        intent.putExtra(Event_Key, EventString);
-        intent.putExtra(Match_key, Match_numberString);
-        intent.putExtra(Team_key, TeamString);
+        matchData.setaL2(88);
         startActivity(intent);
     }
 }

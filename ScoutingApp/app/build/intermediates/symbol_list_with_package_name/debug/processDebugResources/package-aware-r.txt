@@ -2918,6 +2918,7 @@ dimen tooltip_precise_anchor_threshold
 dimen tooltip_vertical_padding
 dimen tooltip_y_offset_non_touch
 dimen tooltip_y_offset_touch
+drawable _025_reefscape_transparent_background
 drawable abc_ab_share_pack_mtrl_alpha
 drawable abc_action_bar_item_background_material
 drawable abc_btn_borderless_material
@@ -3114,11 +3115,11 @@ id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
-id Event
-id Explain
+id Eventtext
 id FUNCTION
 id META
 id Match
+id Matchedit
 id NO_DEBUG
 id Notes
 id RB_DeepClimb
@@ -3137,7 +3138,6 @@ id SHOW_PROGRESS
 id SYM
 id Sheet
 id Submit_button
-id TBATest
 id TOP_END
 id TOP_START
 id TeamNumber
@@ -3323,6 +3323,7 @@ id escape
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id explain
 id fade
 id fill
 id fill_horizontal
@@ -3362,6 +3363,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView10
 id imageView2
 id immediateStop
 id included
@@ -3503,6 +3505,7 @@ id pressed
 id progress_circular
 id progress_horizontal
 id radio
+id radioGroup
 id ratio
 id rectangles
 id report_drawn
@@ -3591,9 +3594,7 @@ id tag_window_insets_animation_callback
 id text
 id text2
 id textEnd
-id textInputLayout
 id textInputLayout2
-id textInputLayout3
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
@@ -3769,6 +3770,7 @@ layout abc_tooltip
 layout activity_auto
 layout activity_end
 layout activity_main
+layout activity_starting
 layout activity_tele
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3853,6 +3855,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 raw info
+string Event
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <string name="Event">Southern Maine</string>
     <string name="app_name">Scouting App</string>
     <string name="auto">Auto</string>
     <string name="can_leave">Can Leave</string>
