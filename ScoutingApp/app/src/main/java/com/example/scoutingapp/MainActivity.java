@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private String eventString = "2025melew";
     private String teamString;
     private String allianceString;
-    public static final String postionKey = "POSTIONKEY";
     public static final String eventKey = "EVENTCONFIRM";
     public static final String matchKey = "MATCHCONFIRM";
     public static final String teamKey = "TEAMCONFIRM";

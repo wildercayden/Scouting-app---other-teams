@@ -9,6 +9,11 @@ drawable loop
 drawable screenshot_2025_01_16_115155
 id ButtonNext
 id Match
+id Notes
+id RB_DeepClimb
+id RB_NoClimb
+id RB_Park
+id RB_ShallowClimb
 id Rbutton1
 id Rbutton2
 id Rbutton3
@@ -34,12 +39,15 @@ id getTeamsButton
 id imageView10
 id imageView2
 id linearLayout
+id linearLayout2
 id main
+id matchNumber
 id nextButton
 id radioGroup
 id red1Button
 id red2Button
 id red3Button
+id scoutNameText
 id teamnumber
 id textInputLayout2
 id textInputLayout3

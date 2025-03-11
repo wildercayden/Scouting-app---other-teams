@@ -3119,6 +3119,11 @@ int id FUNCTION 0x7f080005
 int id META 0x7f080006
 int id Match 0x7f080007
 int id NO_DEBUG 0x7f080008
+int id Notes 0x7f08021f
+int id RB_DeepClimb 0x7f080220
+int id RB_NoClimb 0x7f080221
+int id RB_Park 0x7f080222
+int id RB_ShallowClimb 0x7f080223
 int id Rbutton1 0x7f080009
 int id Rbutton2 0x7f08000a
 int id Rbutton3 0x7f08000b
@@ -3380,12 +3385,14 @@ int id line1 0x7f08010a
 int id line3 0x7f08010b
 int id linear 0x7f08010c
 int id linearLayout 0x7f08010d
+int id linearLayout2 0x7f080224
 int id listMode 0x7f08010e
 int id list_item 0x7f08010f
 int id m3_side_sheet 0x7f080110
 int id main 0x7f080111
 int id marquee 0x7f080112
 int id masked 0x7f080113
+int id matchNumber 0x7f080225
 int id match_constraint 0x7f080114
 int id match_parent 0x7f080115
 int id material_clock_display 0x7f080116
@@ -3518,6 +3525,7 @@ int id save_non_transition_alpha 0x7f080194
 int id save_overlay_view 0x7f080195
 int id sawtooth 0x7f080196
 int id scale 0x7f080197
+int id scoutNameText 0x7f080227
 int id screen 0x7f080198
 int id scroll 0x7f080199
 int id scrollIndicatorDown 0x7f08019a

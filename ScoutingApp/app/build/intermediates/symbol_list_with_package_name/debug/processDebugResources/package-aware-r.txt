@@ -3120,6 +3120,11 @@ id FUNCTION
 id META
 id Match
 id NO_DEBUG
+id Notes
+id RB_DeepClimb
+id RB_NoClimb
+id RB_Park
+id RB_ShallowClimb
 id Rbutton1
 id Rbutton2
 id Rbutton3
@@ -3381,12 +3386,14 @@ id line1
 id line3
 id linear
 id linearLayout
+id linearLayout2
 id listMode
 id list_item
 id m3_side_sheet
 id main
 id marquee
 id masked
+id matchNumber
 id match_constraint
 id match_parent
 id material_clock_display
@@ -3519,6 +3526,7 @@ id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
 id scale
+id scoutNameText
 id screen
 id scroll
 id scrollIndicatorDown
