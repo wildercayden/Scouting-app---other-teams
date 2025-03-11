@@ -3114,18 +3114,12 @@ drawable tooltip_frame_light
 id ALT
 id BOTTOM_END
 id BOTTOM_START
+id ButtonNext
 id CTRL
-id Eventtext
 id FUNCTION
 id META
 id Match
-id Matchedit
 id NO_DEBUG
-id Notes
-id RB_DeepClimb
-id RB_NoClimb
-id RB_Park
-id RB_ShallowClimb
 id Rbutton1
 id Rbutton2
 id Rbutton3
@@ -3140,7 +3134,6 @@ id Sheet
 id Submit_button
 id TOP_END
 id TOP_START
-id TeamNumber
 id above
 id accelerate
 id accessibility_action_clickable_span
@@ -3223,6 +3216,9 @@ id beginning
 id below
 id bestChoice
 id blocking
+id blue1Button
+id blue2Button
+id blue3Button
 id bottom
 id bounce
 id bounceBoth
@@ -3311,6 +3307,7 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editTextText
 id edit_query
 id edit_text_id
 id elastic
@@ -3323,7 +3320,6 @@ id escape
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id explain
 id fade
 id fill
 id fill_horizontal
@@ -3341,6 +3337,7 @@ id forever
 id fragment_container_view_tag
 id frost
 id fullscreen_header
+id getTeamsButton
 id ghost_view
 id ghost_view_holder
 id gone
@@ -3384,7 +3381,6 @@ id line1
 id line3
 id linear
 id linearLayout
-id linearLayout2
 id listMode
 id list_item
 id m3_side_sheet
@@ -3508,6 +3504,9 @@ id radio
 id radioGroup
 id ratio
 id rectangles
+id red1Button
+id red2Button
+id red3Button
 id report_drawn
 id reverseSawtooth
 id right
@@ -3591,10 +3590,12 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
+id teamnumber
 id text
 id text2
 id textEnd
 id textInputLayout2
+id textInputLayout3
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
@@ -3855,7 +3856,6 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 raw info
-string Event
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

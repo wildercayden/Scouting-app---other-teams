@@ -2,6 +2,7 @@ package com.example.scoutingapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -38,6 +39,18 @@ public class TeleActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        TextView textViewTeam = findViewById(R.id.teamnumber);
+        textViewTeam.setText("Team " + TeamString);
+        TextView textViewMatch = findViewById(R.id.matchNumber);
+        textViewMatch.setText("Match " + matchString);
+        if (alliance == true) {
+            textViewTeam.setBackgroundColor(Color.parseColor("#F71000")); //red
+            textViewMatch.setBackgroundColor(Color.parseColor("#F71000"));
+        } else {
+            textViewTeam.setBackgroundColor(Color.parseColor("#0084ff"));
+            textViewMatch.setBackgroundColor(Color.parseColor("#0084ff"));//blue
+        }
+
 
         this.matchData = MainActivity.matchData;
 

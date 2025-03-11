@@ -5,7 +5,32 @@
     android:id="@+id/Match"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".startingActivity">
+
+    <TextView
+        android:id="@+id/teamnumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="2648"
+        android:textSize="34sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/matchNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/matchNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="01"
+        android:textSize="34sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/teamnumber"
+        android:gravity="center"/>
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -24,30 +49,36 @@
             android:id="@+id/Rbutton1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Starting Postion 1" />
+            android:checked="true"
+            android:text="Starting Postion 1"
+            android:textColor="@android:color/white" />
 
         <RadioButton
             android:id="@+id/Rbutton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
             android:text="Starting Postion 2" />
 
         <RadioButton
             android:id="@+id/Rbutton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
             android:text="Starting Postion 3" />
 
         <RadioButton
             android:id="@+id/Rbutton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
             android:text="Starting Postion 4" />
 
         <RadioButton
             android:id="@+id/Rbutton5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
             android:text="Starting Postion 5" />
 
     </RadioGroup>
@@ -68,9 +99,8 @@
         android:id="@+id/imageView10"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
         android:src="@drawable/_025_reefscape_transparent_background"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/teamnumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
