@@ -59,7 +59,7 @@ public class Submit {
                 //data for the sheet API 
                 ValueRange body = new ValueRange().setValues(data);
                 //the ID for the google sheet
-                String spreadsheetId = "1ymrHX4r1WOvpv5QSV4bdLYYrOfLZLf_4XD5CYbjihgU";
+                String spreadsheetId = "1ky5LBTpnEeBEEaaF7z6UWdh-E7YmOSeij4dYdR2PU4A";
                 //starting point
                 String range = "Data!a2:O2";
                 //inserts data to the sheet 
