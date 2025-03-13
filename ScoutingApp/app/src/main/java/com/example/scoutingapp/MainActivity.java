@@ -71,14 +71,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-        Button submit = (Button) findViewById(R.id.Submit_button);
-        submit.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                Submit submit = new Submit();
-                submit.uploadSheets(MainActivity.this, eventString+matchNumberString+teamString+".csv");
-            }
-        });
 
         RadioButton r1Button = findViewById(R.id.red1Button);
         RadioButton r2Button = findViewById(R.id.red2Button);

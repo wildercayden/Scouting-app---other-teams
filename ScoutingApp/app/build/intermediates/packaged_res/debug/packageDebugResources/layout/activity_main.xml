@@ -35,18 +35,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <Button
-        android:id="@+id/Submit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="#FF5722"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Match"
         android:layout_width="match_parent"
@@ -154,15 +142,17 @@
 
     <Button
         android:id="@+id/ButtonNext"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:backgroundTint="#FF5722"
         android:text="Next"
-        app:cornerRadius="@null"
+        app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <EditText
         android:id="@+id/scoutNameText"
@@ -172,9 +162,9 @@
         android:hint="Input Scout Name"
         android:inputType="text"
         android:textAlignment="center"
-        android:textColorHint="#AAAAAA"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/Submit_button"
+        android:textColorHint="#AAAAAA"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />

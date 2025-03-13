@@ -80,6 +80,7 @@ public class AutoActivity extends AppCompatActivity {
         processorButton = (Button) findViewById(R.id.button_Processor);
         netButton = (Button) findViewById(R.id.button_Net);
         Button nextButton = (Button) findViewById(R.id.button_Next);
+        Button backButton = (Button) findViewById(R.id.BackButton);
 
         CheckBox coralPickupBox = (CheckBox) findViewById(R.id.cb_coralPickup);
         CheckBox reefPickupBox = (CheckBox) findViewById(R.id.cb_algaeReef);
@@ -163,6 +164,11 @@ public class AutoActivity extends AppCompatActivity {
             intent.putExtra(Postion_key, startingPostionString);
             intent.putExtra(Alliance_key, alliance);
             startActivity(intent);
+            return true;
+        });
+
+        backButton.setOnLongClickListener((v) -> {
+            Intent intent = new Intent(this, startingActivity.class);
             return true;
         });
 

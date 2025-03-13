@@ -91,6 +91,13 @@ public class EndActivity extends AppCompatActivity {
 
             }
         });
+        Button backButton = (Button) findViewById(R.id.BackButton);
+
+        backButton.setOnLongClickListener((v) -> {
+            Intent backIntent = new Intent(EndActivity.this, MainActivity.class);
+            startActivity(backIntent);
+            return true;
+        });
 
         Button Sheet = (Button) findViewById(R.id.Sheet);
         Sheet.setOnClickListener(new View.OnClickListener() {
