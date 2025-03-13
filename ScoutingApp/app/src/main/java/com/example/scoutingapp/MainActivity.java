@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         matchNumberString = matchNumber.getText().toString();
 
-                        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2024melew_qm" + matchNumberString);
+                        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2025melew_qm" + matchNumberString);
 
                         JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(stream));
                         JsonObject teamsJSON = jsonElement.getAsJsonObject();
