@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
         RadioButton r1Button = findViewById(R.id.red1Button);
         RadioButton r2Button = findViewById(R.id.red2Button);
         RadioButton r3Button = findViewById(R.id.red3Button);

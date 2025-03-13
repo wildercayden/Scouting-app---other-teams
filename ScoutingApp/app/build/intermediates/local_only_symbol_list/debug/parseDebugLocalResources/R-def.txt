@@ -47,6 +47,7 @@ id radioGroup
 id red1Button
 id red2Button
 id red3Button
+id scoutNameText
 id teamnumber
 id textInputLayout2
 id textInputLayout3
