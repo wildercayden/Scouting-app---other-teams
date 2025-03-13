@@ -3,7 +3,6 @@ local
 color black
 color white
 drawable _025_reefscape_transparent_background
-drawable _025_reefscape_transparent_background_blue
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable loop

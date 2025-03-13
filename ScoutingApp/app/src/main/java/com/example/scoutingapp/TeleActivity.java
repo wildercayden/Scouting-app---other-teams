@@ -130,7 +130,7 @@ public class TeleActivity extends AppCompatActivity {
             return true;
         });
 
-        canLeaveBox.setOnClickListener((v) -> matchData.settCanLeave(canLeaveBox.isChecked()));
+        canLeaveBox.setOnClickListener((v) -> matchData.settDied(canLeaveBox.isChecked()));
 
         reefPickupBox.setOnClickListener((v) -> matchData.settReefPickup(reefPickupBox.isChecked()));
 

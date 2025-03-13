@@ -29,7 +29,7 @@ public class MatchData {
     private int tL4 = 0;
     private int tNet = 0;
     private int tProcessor = 0;
-    private boolean tCanLeave;
+    private boolean tDied;
     private boolean tReefPickup = false;
     private boolean tCoralPickup = false;
     //Endgame Page
@@ -40,33 +40,36 @@ public class MatchData {
         scoutName = "NO NAME PROVIDED";
         eventName = "NO EVENT PROVIDED";
         teamNumber = "0000";
-        eNote = "NO NOTES, PROVIDED";
+        eNote = "NO NOTES PROVIDED";
     }
 
     public String makeCSVString() {
         String[] matchData = {
-                scoutName,
                 eventName,
                 String.valueOf(matchNumber),
-                String.valueOf(teamNumber),
-                String.valueOf(startingPosition),
-                String.valueOf(aL1),
-                String.valueOf(aL2),
-                String.valueOf(aL3),
+                teamNumber,
+                "Auto",
                 String.valueOf(aL4),
+                String.valueOf(aL3),
+                String.valueOf(aL2),
+                String.valueOf(aL1),
                 String.valueOf(aNet),
                 String.valueOf(aProcessor),
-                String.valueOf(aLeave),
                 String.valueOf(aReefPickup),
-                String.valueOf(tL1),
-                String.valueOf(tL2),
-                String.valueOf(tL3),
+                String.valueOf(aLeave),
+                String.valueOf(aCoralPickup),
+                "Tele",
                 String.valueOf(tL4),
+                String.valueOf(tL3),
+                String.valueOf(tL2),
+                String.valueOf(tL1),
                 String.valueOf(tNet),
                 String.valueOf(tProcessor),
                 String.valueOf(tReefPickup),
+                String.valueOf(startingPosition),
                 String.valueOf(eClimb),
-                eNote
+                eNote,
+                scoutName,
         };
 
         return String.join("@#@", matchData);
@@ -129,7 +132,7 @@ public class MatchData {
     }
 
     public void setaL1(int aL1) {
-        this.aL1 = aL1;
+        this.aL1 = Math.max(0, aL1);
     }
 
     public int getaL2() {
@@ -137,7 +140,7 @@ public class MatchData {
     }
 
     public void setaL2(int aL2) {
-        this.aL2 = aL2;
+        this.aL2 = Math.max(0, aL2);
     }
 
     public int getaL3() {
@@ -145,7 +148,7 @@ public class MatchData {
     }
 
     public void setaL3(int aL3) {
-        this.aL3 = aL3;
+        this.aL3 = Math.max(0, aL3);
     }
 
     public int getaL4() {
@@ -153,7 +156,7 @@ public class MatchData {
     }
 
     public void setaL4(int aL4) {
-        this.aL4 = aL4;
+        this.aL4 = Math.max(0, aL4);
     }
 
     public int getaNet() {
@@ -161,7 +164,7 @@ public class MatchData {
     }
 
     public void setaNet(int aNet) {
-        this.aNet = aNet;
+        this.aNet = Math.max(0, aNet);
     }
 
     public int getaProcessor() {
@@ -169,7 +172,7 @@ public class MatchData {
     }
 
     public void setaProcessor(int aProcessor) {
-        this.aProcessor = aProcessor;
+        this.aProcessor = Math.max(0, aProcessor);
     }
 
     public boolean isaLeave() {
@@ -201,7 +204,7 @@ public class MatchData {
     }
 
     public void settL1(int tL1) {
-        this.tL1 = tL1;
+        this.tL1 = Math.max(0, tL1);
     }
 
     public int gettL2() {
@@ -209,7 +212,7 @@ public class MatchData {
     }
 
     public void settL2(int tL2) {
-        this.tL2 = tL2;
+        this.tL2 = Math.max(0, tL2);
     }
 
     public int gettL3() {
@@ -217,7 +220,7 @@ public class MatchData {
     }
 
     public void settL3(int tL3) {
-        this.tL3 = tL3;
+        this.tL3 = Math.max(0, tL3);
     }
 
     public int gettL4() {
@@ -225,7 +228,7 @@ public class MatchData {
     }
 
     public void settL4(int tL4) {
-        this.tL4 = tL4;
+        this.tL4 = Math.max(0, tL4);
     }
 
     public int gettNet() {
@@ -233,7 +236,7 @@ public class MatchData {
     }
 
     public void settNet(int tNet) {
-        this.tNet = tNet;
+        this.tNet = Math.max(0, tNet);
     }
 
     public int gettProcessor() {
@@ -241,7 +244,7 @@ public class MatchData {
     }
 
     public void settProcessor(int tProcessor) {
-        this.tProcessor = tProcessor;
+        this.tProcessor = Math.max(0, tProcessor);
     }
 
     public boolean istReefPickup() {
@@ -252,12 +255,12 @@ public class MatchData {
         this.tReefPickup = tReefPickup;
     }
 
-    public boolean istCanLeave() {
-        return tCanLeave;
+    public boolean istDied() {
+        return tDied;
     }
 
-    public void settCanLeave(boolean tCanLeave) {
-        this.tCanLeave = tCanLeave;
+    public void settDied(boolean tCanLeave) {
+        this.tDied = tCanLeave;
     }
 
     public boolean istCoralPickup() {

@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText matchNumber = (EditText) findViewById(R.id.Match);
         EditText eventNameTextBox = (EditText) findViewById(R.id.editTextText);
+        EditText scoutNameTextBox = (EditText) findViewById(R.id.scoutNameText);
 
         Button nextButton = (Button) findViewById(R.id.ButtonNext);
 
@@ -61,10 +62,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 matchData.setEventName(eventNameTextBox.getText().toString());
+                matchData.setScoutName(scoutNameTextBox.getText().toString());
 
-                if (matchData.getEventName().equals("NO EVENT PROVIDED") || matchData.getMatchNumber() == 0 || matchData.getTeamNumber().equals("0000")) {
-                    Toast.makeText(getApplicationContext(), "Fill in EVERYTHING", Toast.LENGTH_SHORT).show();
-                }else {
+                if (matchData.getEventName().equals("NO EVENT PROVIDED") ||
+                        matchData.getEventName().isEmpty() ||
+                        matchData.getMatchNumber() == 0 ||
+                        matchData.getTeamNumber().equals("0000") ||
+                        matchData.getScoutName().isEmpty() ||
+                        matchData.getScoutName().equals("NO NAME PROVIDED")) {
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Fill in EVERYTHING",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                } else {
                     makeIntent();
                 }
             }
@@ -171,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
                 matchData.setTeamNumber(red1);
             }
         });
+
         r2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -187,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("TESTY", "GITTY");
             }
         });
+
         r3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -201,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
                 matchData.setTeamNumber(red3);
             }
         });
+
         b1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -215,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
                 matchData.setTeamNumber(blue1);
             }
         });
+
         b2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -229,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
                 matchData.setTeamNumber(blue2);
             }
         });
+
         b3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
