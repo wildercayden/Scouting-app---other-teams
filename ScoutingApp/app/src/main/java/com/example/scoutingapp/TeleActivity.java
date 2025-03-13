@@ -158,7 +158,7 @@ public class TeleActivity extends AppCompatActivity {
         nextButton.setOnLongClickListener((v) -> {
             //submit data
             csvMake();
-            Intent intent = new Intent(this, TeleActivity.class);
+            Intent intent = new Intent(this, EndActivity.class);
             intent.putExtra(Event_Key, eventString);
             intent.putExtra(Match_key, matchString);
             intent.putExtra(Team_key, TeamString);
