@@ -23,6 +23,7 @@ id Rbutton4
 id Rbutton5
 id Sheet
 id Submit_button
+id TextPine
 id blue1Button
 id blue2Button
 id blue3Button
@@ -36,7 +37,6 @@ id button_Processor
 id cb_CanLeave
 id cb_algaeReef
 id cb_coralPickup
-id editTextText
 id getTeamsButton
 id imageView10
 id imageView2

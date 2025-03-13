@@ -31,7 +31,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class MainActivity extends AppCompatActivity {
     private EditText matchNumber;
     private String matchNumberString;
-    private String eventString = "2025melew";
+    private String eventString = "2025 Pine Tree";
     private String teamString;
     private String allianceString;
     public static final String eventKey = "EVENTCONFIRM";
