@@ -9,8 +9,9 @@ public class MatchData {
     private String eventName;
     //Initial Page
     private int matchNumber = 0;
-    private int teamNumber = 0;
+    private String teamNumber;
     private int startingPosition = 0;
+    private boolean isBlueAlliance = false;
     //Auto Page
     private int aL1 = 0;
     private int aL2 = 0;
@@ -38,6 +39,7 @@ public class MatchData {
     public MatchData() {
         scoutName = "NO NAME PROVIDED";
         eventName = "NO EVENT PROVIDED";
+        teamNumber = "0000";
         eNote = "NO NOTES, PROVIDED";
     }
 
@@ -98,11 +100,11 @@ public class MatchData {
         this.matchNumber = matchNumber;
     }
 
-    public int getTeamNumber() {
+    public String getTeamNumber() {
         return teamNumber;
     }
 
-    public void setTeamNumber(int teamNumber) {
+    public void setTeamNumber(String teamNumber) {
         this.teamNumber = teamNumber;
     }
 
@@ -112,6 +114,14 @@ public class MatchData {
 
     public void setStartingPosition(int startingPosition) {
         this.startingPosition = startingPosition;
+    }
+
+    public boolean isBlueAlliance() {
+        return isBlueAlliance;
+    }
+
+    public void setBlueAlliance(boolean blueAlliance) {
+        isBlueAlliance = blueAlliance;
     }
 
     public int getaL1() {

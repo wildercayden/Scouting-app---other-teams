@@ -39,11 +39,13 @@ public class AutoActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        matchData = MainActivity.matchData;
+
         TextView textViewTeam = findViewById(R.id.teamnumber);
-        textViewTeam.setText("Team " + TeamString);
+        textViewTeam.setText("Team " + matchData.getTeamNumber());
         TextView textViewMatch = findViewById(R.id.matchNumber);
-        textViewMatch.setText("Match " + matchString);
-        if (alliance == true) {
+        textViewMatch.setText("Match " + matchData.getMatchNumber());
+        if (!matchData.isBlueAlliance()) {
             textViewTeam.setBackgroundColor(Color.parseColor("#F71000")); //red
             textViewMatch.setBackgroundColor(Color.parseColor("#F71000"));
         } else {

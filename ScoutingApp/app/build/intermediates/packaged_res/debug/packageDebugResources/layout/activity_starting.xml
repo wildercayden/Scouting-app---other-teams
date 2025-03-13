@@ -10,14 +10,27 @@
 
     <TextView
         android:id="@+id/teamnumber"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="2648"
         android:textSize="34sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/matchNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/matchNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="01"
+        android:textSize="34sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/teamnumber"
+        android:gravity="center"/>
 
     <RadioGroup
         android:id="@+id/radioGroup"

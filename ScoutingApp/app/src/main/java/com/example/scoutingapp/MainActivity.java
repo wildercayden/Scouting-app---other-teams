@@ -29,17 +29,14 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText matchNumber;
-    private String matchNumberString;
-    private String eventString = "2025melew";
-    private String teamString;
-    private String allianceString;
-    public static final String postionKey = "POSTIONKEY";
-    public static final String eventKey = "EVENTCONFIRM";
-    public static final String matchKey = "MATCHCONFIRM";
-    public static final String teamKey = "TEAMCONFIRM";
-    public static final String allianceKey = "ALLIANCEKEY";
-    public String fein;
+    public static MatchData matchData;
+
+    private String red1;
+    private String red2;
+    private String red3;
+    private String blue1;
+    private String blue2;
+    private String blue3;
 
     InputStream stream;
 
@@ -52,19 +49,20 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-
         });
-        matchNumber = (EditText) findViewById(R.id.Match);
-        // = (EditText) findViewById(R.id.Event);
+        matchData = new MatchData();
+
+        EditText matchNumber = (EditText) findViewById(R.id.Match);
+        EditText eventNameTextBox = (EditText) findViewById(R.id.editTextText);
+
         Button nextButton = (Button) findViewById(R.id.ButtonNext);
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                matchNumberString = matchNumber.getText().toString();
-                if ((matchNumberString == null || matchNumberString.isEmpty()) ||
-                        (eventString == null || eventString.isEmpty()) ||
-                        (teamString == null || teamString.isEmpty())
-                        ){
+                matchData.setEventName(eventNameTextBox.getText().toString());
+
+                if (matchData.getEventName().equals("NO EVENT PROVIDED") || matchData.getMatchNumber() == 0 || matchData.getTeamNumber().equals("0000")) {
                     Toast.makeText(getApplicationContext(), "Fill in EVERYTHING", Toast.LENGTH_SHORT).show();
                 }else {
                     makeIntent();
@@ -72,15 +70,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-        Button submit = (Button) findViewById(R.id.Submit_button);
-        submit.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                Submit submit = new Submit();
-                submit.uploadSheets(MainActivity.this, eventString+matchNumberString+teamString+".csv");
-            }
-        });
-
         RadioButton r1Button = findViewById(R.id.red1Button);
         RadioButton r2Button = findViewById(R.id.red2Button);
         RadioButton r3Button = findViewById(R.id.red3Button);
@@ -89,6 +78,16 @@ public class MainActivity extends AppCompatActivity {
         RadioButton b2Button = findViewById(R.id.blue2Button);
         RadioButton b3Button = findViewById(R.id.blue3Button);
 
+        r1Button.setEnabled(false);
+        r2Button.setEnabled(false);
+        r3Button.setEnabled(false);
+
+        b1Button.setEnabled(false);
+        b2Button.setEnabled(false);
+        b3Button.setEnabled(false);
+
+        r1Button.setChecked(false);
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
@@ -96,12 +95,12 @@ public class MainActivity extends AppCompatActivity {
         getTeamsButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 if(matchNumber.getText().toString().isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Fill in EVERYTHING", Toast.LENGTH_SHORT).show();
-                }else{
+                    Toast.makeText(getApplicationContext(), "Fill in MATCH NUMBER for teams", Toast.LENGTH_SHORT).show();
+                } else {
                     try {
-                        matchNumberString = matchNumber.getText().toString();
+                        matchData.setMatchNumber(Integer.parseInt(matchNumber.getText().toString()));
 
-                        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2024melew_qm" + matchNumberString);
+                        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2024melew_qm" + matchData.getMatchNumber());
 
                         JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(stream));
                         JsonObject teamsJSON = jsonElement.getAsJsonObject();
@@ -113,11 +112,11 @@ public class MainActivity extends AppCompatActivity {
                         //.get(0).
                         //toString();
 
-                        String blue1 = blueTeamsArray.get(0).getAsString();
+                        blue1 = blueTeamsArray.get(0).getAsString();
                         blue1 = blue1.substring(3);
-                        String blue2 = blueTeamsArray.get(1).getAsString();
+                        blue2 = blueTeamsArray.get(1).getAsString();
                         blue2 = blue2.substring(3);
-                        String blue3 = blueTeamsArray.get(2).getAsString();
+                        blue3 = blueTeamsArray.get(2).getAsString();
                         blue3 = blue3.substring(3);
 
                         JsonArray redTeamsArray = teamsJSON.get("alliances")
@@ -126,11 +125,11 @@ public class MainActivity extends AppCompatActivity {
                                 .get("team_keys")
                                 .getAsJsonArray();
 
-                        String red1 = redTeamsArray.get(0).getAsString();
+                        red1 = redTeamsArray.get(0).getAsString();
                         red1 = red1.substring(3);
-                        String red2 = redTeamsArray.get(1).getAsString();
+                        red2 = redTeamsArray.get(1).getAsString();
                         red2 = red2.substring(3);
-                        String red3 = redTeamsArray.get(2).getAsString();
+                        red3 = redTeamsArray.get(2).getAsString();
                         red3 = red3.substring(3);
 
                         r1Button.setText(red1);
@@ -140,9 +139,17 @@ public class MainActivity extends AppCompatActivity {
                         b1Button.setText(blue1);
                         b2Button.setText(blue2);
                         b3Button.setText(blue3);
+
+                        r1Button.setEnabled(true);
+                        r2Button.setEnabled(true);
+                        r3Button.setEnabled(true);
+
+                        b1Button.setEnabled(true);
+                        b2Button.setEnabled(true);
+                        b3Button.setEnabled(true);
                     }
                     catch(Exception e){
-                        Toast.makeText(getApplicationContext(), "Fill in EVERYTHING", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Insufficient Match Number", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -159,8 +166,8 @@ public class MainActivity extends AppCompatActivity {
                 b2Button.setChecked(false);
                 b3Button.setChecked(false);
 
-                allianceString = "red";
-                teamString = r1Button.getText().toString();
+                matchData.setBlueAlliance(false);
+                matchData.setTeamNumber(red1);
             }
         });
         r2Button.setOnClickListener(new View.OnClickListener() {
@@ -172,9 +179,11 @@ public class MainActivity extends AppCompatActivity {
                 b1Button.setChecked(false);
                 b2Button.setChecked(false);
                 b3Button.setChecked(false);
-
-                allianceString = "red";
-                teamString = r2Button.getText().toString();
+                Log.d("TESTY", "GIT");
+                matchData.setBlueAlliance(false);
+                Log.d("TESTY", "GITTEST");
+                matchData.setTeamNumber(red2);
+                Log.d("TESTY", "GITTY");
             }
         });
         r3Button.setOnClickListener(new View.OnClickListener() {
@@ -187,8 +196,8 @@ public class MainActivity extends AppCompatActivity {
                 b2Button.setChecked(false);
                 b3Button.setChecked(false);
 
-                allianceString = "red";
-                teamString = r3Button.getText().toString();
+                matchData.setBlueAlliance(false);
+                matchData.setTeamNumber(red3);
             }
         });
         b1Button.setOnClickListener(new View.OnClickListener() {
@@ -201,8 +210,8 @@ public class MainActivity extends AppCompatActivity {
                 b2Button.setChecked(false);
                 b3Button.setChecked(false);
 
-                allianceString = "blue";
-                teamString = b1Button.getText().toString();
+                matchData.setBlueAlliance(true);
+                matchData.setTeamNumber(blue1);
             }
         });
         b2Button.setOnClickListener(new View.OnClickListener() {
@@ -214,9 +223,9 @@ public class MainActivity extends AppCompatActivity {
                 b1Button.setChecked(false);
                 b2Button.setChecked(true);
                 b3Button.setChecked(false);
-
-                allianceString = "blue";
-                teamString = b2Button.getText().toString();
+                Log.d("TESTY", "GIT");
+                matchData.setBlueAlliance(true);
+                matchData.setTeamNumber(blue2);
             }
         });
         b3Button.setOnClickListener(new View.OnClickListener() {
@@ -229,8 +238,8 @@ public class MainActivity extends AppCompatActivity {
                 b2Button.setChecked(false);
                 b3Button.setChecked(true);
 
-                allianceString = "blue";
-                teamString = b3Button.getText().toString();
+                matchData.setBlueAlliance(true);
+                matchData.setTeamNumber(blue3);
             }
         });
     }
@@ -258,13 +267,8 @@ public class MainActivity extends AppCompatActivity {
         return stream;
     }
 
-    private void makeIntent()
-    {
+    private void makeIntent() {
         Intent intent = new Intent(this, startingActivity.class);
-        intent.putExtra(eventKey, eventString);
-        intent.putExtra(matchKey, matchNumberString);
-        intent.putExtra(teamKey, teamString);
-        intent.putExtra(allianceKey, allianceString);
         startActivity(intent);
     }
 }
