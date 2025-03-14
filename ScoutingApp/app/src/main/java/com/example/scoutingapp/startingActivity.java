@@ -57,6 +57,16 @@ public class startingActivity extends AppCompatActivity {
             }
         });
 
+
+
+        Button backButton = (Button) findViewById(R.id.BackButton);
+
+        backButton.setOnLongClickListener((v) -> {
+            Intent backIntent = new Intent(startingActivity.this, MainActivity.class);
+            startActivity(backIntent);
+            return true;
+        });
+
         RadioButton Rbutton1 = findViewById(R.id.Rbutton1);
         Rbutton1.setOnClickListener(new View.OnClickListener() {
             @Override

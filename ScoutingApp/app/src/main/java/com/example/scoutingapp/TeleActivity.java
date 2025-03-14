@@ -63,6 +63,7 @@ public class TeleActivity extends AppCompatActivity {
         processorButton = (Button) findViewById(R.id.button_Processor);
         netButton = (Button) findViewById(R.id.button_Net);
         Button nextButton = (Button) findViewById(R.id.button_Next);
+        Button backButton = (Button) findViewById(R.id.BackButton);
 
         CheckBox coralPickupBox = (CheckBox) findViewById(R.id.cb_coralPickup);
         CheckBox reefPickupBox = (CheckBox) findViewById(R.id.cb_algaeReef);
@@ -141,6 +142,11 @@ public class TeleActivity extends AppCompatActivity {
             //CSVmake();
             Intent intent = new Intent(this, EndActivity.class);
             startActivity(intent);
+            return true;
+        });
+
+        backButton.setOnLongClickListener((v) -> {
+            Intent intent = new Intent(this, startingActivity.class);
             return true;
         });
 

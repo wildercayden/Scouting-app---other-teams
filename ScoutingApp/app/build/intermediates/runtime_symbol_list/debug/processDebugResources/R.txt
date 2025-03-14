@@ -3113,6 +3113,7 @@ int drawable tooltip_frame_light 0x7f0700e9
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
+int id BackButton 0x7f080228
 int id ButtonNext 0x7f080003
 int id CTRL 0x7f080004
 int id FUNCTION 0x7f080005
@@ -3138,6 +3139,7 @@ int id Sheet 0x7f080018
 int id Submit_button 0x7f080019
 int id TOP_END 0x7f08001a
 int id TOP_START 0x7f08001b
+int id TextPine 0x7f08022a
 int id above 0x7f08001c
 int id accelerate 0x7f08001d
 int id accessibility_action_clickable_span 0x7f08001e
@@ -3311,7 +3313,6 @@ int id easeInOut 0x7f0800c5
 int id easeOut 0x7f0800c6
 int id east 0x7f0800c7
 int id edge 0x7f0800c8
-int id editTextText 0x7f0800c9
 int id edit_query 0x7f0800ca
 int id edit_text_id 0x7f0800cb
 int id elastic 0x7f0800cc

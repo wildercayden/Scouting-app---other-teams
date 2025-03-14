@@ -73,13 +73,28 @@
 
     <Button
         android:id="@+id/Submit_button"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
         android:backgroundTint="#FF5722"
-        app:layout_constraintBottom_toTopOf="@+id/teamnumber"
+        android:text="Submit Data"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/BackButton" />
+
+    <Button
+        android:id="@+id/BackButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="#FF5722"
+        android:text="Back(Hold)"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Submit_button"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -97,23 +112,23 @@
         android:id="@+id/teamnumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="2648"
-        android:textSize="34sp"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/BackButton"
         app:layout_constraintEnd_toStartOf="@+id/matchNumber"
-        app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/matchNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="01"
-        android:textSize="34sp"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/Submit_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/teamnumber"
-        android:gravity="center"/>
+        app:layout_constraintStart_toEndOf="@+id/teamnumber" />
 </androidx.constraintlayout.widget.ConstraintLayout>
