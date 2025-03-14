@@ -147,6 +147,7 @@ public class TeleActivity extends AppCompatActivity {
 
         backButton.setOnLongClickListener((v) -> {
             Intent intent = new Intent(this, AutoActivity.class);
+            startActivity(intent);
             return true;
         });
 
