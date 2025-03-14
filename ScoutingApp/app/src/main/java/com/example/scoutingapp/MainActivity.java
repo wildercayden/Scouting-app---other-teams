@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         matchData.setMatchNumber(Integer.parseInt(matchNumber.getText().toString()));
 
-                        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2024melew_qm" + matchData.getMatchNumber());
+                        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2025melew_qm" + matchData.getMatchNumber());
 
                         JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(stream));
                         JsonObject teamsJSON = jsonElement.getAsJsonObject();
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                         b3Button.setEnabled(true);
                     }
                     catch(Exception e){
-                        Toast.makeText(getApplicationContext(), "Insufficient Match Number", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Invalid Match Number", Toast.LENGTH_SHORT).show();
                     }
                 }
 
