@@ -45,7 +45,7 @@ public class MatchData {
 
     public String makeCSVString() {
         String[] matchData = {
-                eventName,
+                "MELEW",
                 String.valueOf(matchNumber),
                 teamNumber,
                 "Auto",
@@ -66,10 +66,13 @@ public class MatchData {
                 String.valueOf(tNet),
                 String.valueOf(tProcessor),
                 String.valueOf(tReefPickup),
+                String.valueOf(tDied),
+                String.valueOf(tCoralPickup),
                 String.valueOf(startingPosition),
                 String.valueOf(eClimb),
                 eNote,
                 scoutName,
+                //The variable for time
         };
 
         return String.join("@#@", matchData);

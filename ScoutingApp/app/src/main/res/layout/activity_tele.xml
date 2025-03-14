@@ -131,7 +131,7 @@
         android:backgroundTint="#6B0EE906"
         android:text="@string/processor"
         android:textColor="#000000"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toTopOf="@+id/matchNumber"
         app:layout_constraintEnd_toEndOf="parent"
@@ -172,7 +172,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/can_leave"
+            android:text="Robot Died?"
             android:textColor="#FFFFFF"
             tools:ignore="VisualLintButtonSize" />
 

@@ -85,7 +85,7 @@ public class EndActivity extends AppCompatActivity {
         Button backButton = (Button) findViewById(R.id.BackButton);
 
         backButton.setOnLongClickListener((v) -> {
-            Intent backIntent = new Intent(EndActivity.this, MainActivity.class);
+            Intent backIntent = new Intent(EndActivity.this, TeleActivity.class);
             startActivity(backIntent);
             return true;
         });
@@ -139,4 +139,3 @@ public class EndActivity extends AppCompatActivity {
         return sdf.format(new Date());
     }
 }
-

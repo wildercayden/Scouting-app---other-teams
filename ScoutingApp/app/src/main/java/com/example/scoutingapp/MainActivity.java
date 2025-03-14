@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         matchData = new MatchData();
 
         EditText matchNumber = (EditText) findViewById(R.id.Match);
-        EditText eventNameTextBox = (EditText) findViewById(R.id.editTextText);
         EditText scoutNameTextBox = (EditText) findViewById(R.id.scoutNameText);
 
         Button nextButton = (Button) findViewById(R.id.ButtonNext);
@@ -61,11 +60,9 @@ public class MainActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                matchData.setEventName(eventNameTextBox.getText().toString());
                 matchData.setScoutName(scoutNameTextBox.getText().toString());
 
-                if (matchData.getEventName().equals("NO EVENT PROVIDED") ||
-                        matchData.getEventName().isEmpty() ||
+                if (matchData.getEventName().isEmpty() ||
                         matchData.getMatchNumber() == 0 ||
                         matchData.getTeamNumber().equals("0000") ||
                         matchData.getScoutName().isEmpty() ||
