@@ -147,6 +147,7 @@ public class AutoActivity extends AppCompatActivity {
 
         backButton.setOnLongClickListener((v) -> {
             Intent intent = new Intent(this, startingActivity.class);
+            startActivity(intent);
             return true;
         });
 
