@@ -72,7 +72,7 @@ public class MatchData {
                 String.valueOf(eClimb),
                 eNote,
                 scoutName,
-                //The variable for time
+                getTimestamp();
         };
 
         return String.join("@#@", matchData);
@@ -80,6 +80,11 @@ public class MatchData {
 
     public String getCSVFileName() {
         return eventName + matchNumber + teamNumber + ".csv";
+    }
+
+    public static String getTimestamp() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy HH:mm:ss.SSS", Locale.getDefault());
+        return sdf.format(new Date());
     }
 
     public String getScoutName() {
