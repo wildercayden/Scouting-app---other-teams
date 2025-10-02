@@ -82,7 +82,7 @@ public class Submit {
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] values = line.split(","); // Assuming CSV is comma-separated
+                String[] values = line.split("@#@"); // Assuming CSV is comma-separated
                 data.add(Arrays.asList((Object[]) values));
             }
         } catch (IOException e) {

@@ -1,114 +1,102 @@
 [
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\layout\\activity_main.xml"
+        "merged": "com.example.scoutingapp-debug-31:/drawable_screenshot_2025_01_16_115155.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/drawable/screenshot_2025_01_16_115155.webp"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\layout_activity_starting.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\layout\\activity_starting.xml"
+        "merged": "com.example.scoutingapp-debug-31:/layout_activity_auto.xml.flat",
+        "source": "com.example.scoutingapp-main-33:/layout/activity_auto.xml"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\drawable__025_reefscape_transparent_background_blue.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\drawable\\_025_reefscape_transparent_background_blue.webp"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\drawable__025_reefscape_transparent_background.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\drawable\\_025_reefscape_transparent_background.webp"
+        "merged": "com.example.scoutingapp-debug-31:/layout_activity_starting.xml.flat",
+        "source": "com.example.scoutingapp-main-33:/layout/activity_starting.xml"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\drawable_loop.png.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\drawable\\loop.png"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\raw_info.json.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\raw\\info.json"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "com.example.scoutingapp-debug-31:/drawable_loop.png.flat",
+        "source": "com.example.scoutingapp-main-33:/drawable/loop.png"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\layout_activity_auto.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\layout\\activity_auto.xml"
+        "merged": "com.example.scoutingapp-debug-31:/layout_activity_end.xml.flat",
+        "source": "com.example.scoutingapp-main-33:/layout/activity_end.xml"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\drawable\\ic_launcher_foreground.xml"
-    },
-    {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\layout_activity_tele.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\layout\\activity_tele.xml"
-    },
-    {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-xxhdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\drawable\\ic_launcher_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "com.example.scoutingapp-debug-31:/layout_activity_main.xml.flat",
         "source": "com.example.scoutingapp-main-33:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\xml\\backup_rules.xml"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\layout_activity_end.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\layout\\activity_end.xml"
+        "merged": "com.example.scoutingapp-debug-31:/raw_info.json.flat",
+        "source": "com.example.scoutingapp-main-33:/raw/info.json"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\drawable_screenshot_2025_01_16_115155.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\drawable\\screenshot_2025_01_16_115155.webp"
+        "merged": "com.example.scoutingapp-debug-31:/xml_backup_rules.xml.flat",
+        "source": "com.example.scoutingapp-main-33:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "com.example.scoutingapp-debug-31:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.scoutingapp-main-33:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "com.example.scoutingapp-debug-31:/layout_activity_tele.xml.flat",
+        "source": "com.example.scoutingapp-main-33:/layout/activity_tele.xml"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "com.example.scoutingapp-debug-31:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.scoutingapp-main-33:/drawable/ic_launcher_background.xml"
     },
     {
         "merged": "com.example.scoutingapp-debug-31:/drawable__025_reefscape_transparent_background.png.flat",
         "source": "com.example.scoutingapp-main-33:/drawable/_025_reefscape_transparent_background.png"
     },
     {
-        "merged": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-debug-31:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\cayde\\.gradle\\daemon\\8.7\\com.example.scoutingapp-main-33:\\xml\\data_extraction_rules.xml"
+        "merged": "com.example.scoutingapp-debug-31:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.scoutingapp-main-33:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.scoutingapp-debug-31:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.scoutingapp-main-33:/mipmap-xxhdpi/ic_launcher.webp"
     }
 ]

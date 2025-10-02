@@ -20,16 +20,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class AutoActivity extends AppCompatActivity {
-    private int l4Scored = 0;
-    private int l3Scored = 0;
-    private int l2Scored = 0;
-    private int l1Scored = 0;
-    private int processorScored = 0;
-    private int netScored = 0;
-    private boolean alliance = true;
-    private boolean reefPickup = false;
-    private boolean canLeave = false;
-    private boolean coralPickup = false;
+    private MatchData matchData;
 
     private Button l4Button;
     private Button l3Button;
@@ -37,12 +28,6 @@ public class AutoActivity extends AppCompatActivity {
     private Button l1Button;
     private Button processorButton;
     private Button netButton;
-    private String eventString, matchString, TeamString, startingPostionString;
-    public static final String Event_Key = "EVENTCONFIRM";
-    public static final String Match_key = "MATCHCONFIRM";
-    public static final String Team_key = "TEAMCONFIRM";
-    public static final String Postion_key = "POSTIONKEY";
-    public static final String Alliance_key = "ALLIANCECONFIRM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,17 +39,13 @@ public class AutoActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Intent intentinput = getIntent();
-        eventString = intentinput.getStringExtra(startingActivity.Event_Key);
-        matchString = intentinput.getStringExtra(startingActivity.Match_key);
-        TeamString = intentinput.getStringExtra(startingActivity.Team_key);
-        startingPostionString = intentinput.getStringExtra(startingActivity.Postion_key);
-        alliance = intentinput.getBooleanExtra(startingActivity.Alliance_key, false);
+        matchData = MainActivity.matchData;
+
         TextView textViewTeam = findViewById(R.id.teamnumber);
-        textViewTeam.setText("Team " + TeamString);
+        textViewTeam.setText("Team " + matchData.getTeamNumber());
         TextView textViewMatch = findViewById(R.id.matchNumber);
-        textViewMatch.setText("Match " + matchString);
-        if (alliance == true) {
+        textViewMatch.setText("Match " + matchData.getMatchNumber());
+        if (!matchData.isBlueAlliance()) {
             textViewTeam.setBackgroundColor(Color.parseColor("#F71000")); //red
             textViewMatch.setBackgroundColor(Color.parseColor("#F71000"));
         } else {
@@ -72,6 +53,8 @@ public class AutoActivity extends AppCompatActivity {
             textViewMatch.setBackgroundColor(Color.parseColor("#0084ff"));//blue
         }
 
+
+        this.matchData = MainActivity.matchData;
 
         l4Button = (Button) findViewById(R.id.button_L4);
         l3Button = (Button) findViewById(R.id.button_L3);
@@ -88,87 +71,83 @@ public class AutoActivity extends AppCompatActivity {
 
         //When clicked, add 1 to the scored and update the text for L4
         l4Button.setOnClickListener((v) -> {
-            l4Scored++;
+            matchData.setaL4(matchData.getaL4() + 1);
             updateL4Text();
         });
         //when held, subtract 1 from scored and update the text for L4
         l4Button.setOnLongClickListener((v) -> {
-            l4Scored--;
+            matchData.setaL4(matchData.getaL4() - 1);
             updateL4Text();
             return true;
         });
 
         l3Button.setOnClickListener((v) -> {
-            l3Scored++;
+            matchData.setaL3(matchData.getaL3() + 1);
             updateL3Text();
         });
         l3Button.setOnLongClickListener((v) -> {
-            l3Scored--;
+            matchData.setaL3(matchData.getaL3() - 1);
             updateL3Text();
             return true;
         });
 
         l2Button.setOnClickListener((v) -> {
-            l2Scored++;
+            matchData.setaL2(matchData.getaL2() + 1);
             updateL2Text();
         });
         l2Button.setOnLongClickListener((v) -> {
-            l2Scored--;
+            matchData.setaL2(matchData.getaL2() - 1);
             updateL2Text();
             return true;
         });
 
         l1Button.setOnClickListener((v) -> {
-            l1Scored++;
+            matchData.setaL1(matchData.getaL1() + 1);
             updateL1Text();
         });
         l1Button.setOnLongClickListener((v) -> {
-            l1Scored--;
+            matchData.setaL1(matchData.getaL1() - 1);
             updateL1Text();
             return true;
         });
 
         processorButton.setOnClickListener((v) -> {
-            processorScored++;
+            matchData.setaProcessor(matchData.getaProcessor() + 1);
             updateProcessorText();
         });
         processorButton.setOnLongClickListener((v) -> {
-            processorScored--;
+            matchData.setaProcessor(matchData.getaProcessor() - 1);
             updateProcessorText();
             return true;
         });
 
         netButton.setOnClickListener((v) -> {
-            netScored++;
+            matchData.setaNet(matchData.getaNet() + 1);
             updateNetText();
         });
         netButton.setOnLongClickListener((v) -> {
-            netScored--;
+            matchData.setaNet(matchData.getaNet() - 1);
             updateNetText();
             return true;
         });
 
-        canLeaveBox.setOnClickListener((v) -> canLeave = canLeaveBox.isChecked());
+        canLeaveBox.setOnClickListener((v) -> matchData.setaLeave(canLeaveBox.isChecked()));
 
-        reefPickupBox.setOnClickListener((v) -> reefPickup = reefPickupBox.isChecked());
+        reefPickupBox.setOnClickListener((v) -> matchData.setaReefPickup(reefPickupBox.isChecked()));
 
-        coralPickupBox.setOnClickListener((v) -> coralPickup = coralPickupBox.isChecked());
+        coralPickupBox.setOnClickListener((v) -> matchData.setaCoralPickup(coralPickupBox.isChecked()));
 
         nextButton.setOnLongClickListener((v) -> {
             //submit data
-            CSVmake();
+            //CSVmake();
             Intent intent = new Intent(this, TeleActivity.class);
-            intent.putExtra(Event_Key, eventString);
-            intent.putExtra(Match_key, matchString);
-            intent.putExtra(Team_key, TeamString);
-            intent.putExtra(Postion_key, startingPostionString);
-            intent.putExtra(Alliance_key, alliance);
             startActivity(intent);
             return true;
         });
 
         backButton.setOnLongClickListener((v) -> {
             Intent intent = new Intent(this, startingActivity.class);
+            startActivity(intent);
             return true;
         });
 
@@ -183,55 +162,26 @@ public class AutoActivity extends AppCompatActivity {
 
     //Methods that update the score count
     private void updateL4Text() {
-        l4Button.setText(String.format(getResources().getString(R.string.coralScored), "L4 : ", l4Scored));
+        l4Button.setText(String.format(getResources().getString(R.string.coralScored), "L4 : ", matchData.getaL4()));
     }
 
     private void updateL3Text() {
-        l3Button.setText(String.format(getResources().getString(R.string.coralScored), "L3 : ", l3Scored));
+        l3Button.setText(String.format(getResources().getString(R.string.coralScored), "L3 : ", matchData.getaL3()));
     }
 
     private void updateL2Text() {
-        l2Button.setText(String.format(getResources().getString(R.string.coralScored), "L2 : ", l2Scored));
+        l2Button.setText(String.format(getResources().getString(R.string.coralScored), "L2 : ", matchData.getaL2()));
     }
 
     private void updateL1Text() {
-        l1Button.setText(String.format(getResources().getString(R.string.coralScored), "L1 : ", l1Scored));
+        l1Button.setText(String.format(getResources().getString(R.string.coralScored), "L1 : ", matchData.getaL1()));
     }
 
     private void updateProcessorText() {
-        processorButton.setText(String.format(getResources().getString(R.string.coralScored), "Processor\n", processorScored));
+        processorButton.setText(String.format(getResources().getString(R.string.coralScored), "Processor\n", matchData.getaProcessor()));
     }
 
     private void updateNetText() {
-        netButton.setText(String.format(getResources().getString(R.string.coralScored), "Net\n", netScored));
-    }
-
-    public void CSVmake() {
-        //adds the strings
-        String csvLine = String.format(
-                "%s,%s,%s,Auto,%s,%s,%s,%s,%s,%s,%s,%s,%s,",
-                eventString,
-                matchString,
-                TeamString,
-                l4Scored,
-                l3Scored,
-                l2Scored,
-                l1Scored,
-                processorScored,
-                netScored,
-                reefPickup,
-                canLeave,
-                coralPickup
-        );
-        //makes the file
-        File csvFile = new File(this.getFilesDir(), eventString+matchString+TeamString+".csv");
-        Log.d("CSVFile", "File created/written at: " + csvFile.getAbsolutePath());
-        //writes to file
-        try (FileWriter writer = new FileWriter(csvFile, true)) {
-            writer.write(csvLine);
-            Log.d("CSVFilePath", csvFile.getAbsolutePath());
-        } catch (IOException e) {
-            Log.d("CSVFail", "CSV didn't make");
-        }
+        netButton.setText(String.format(getResources().getString(R.string.coralScored), "Net\n", matchData.getaNet()));
     }
 }

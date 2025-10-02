@@ -131,7 +131,7 @@
         android:backgroundTint="#6B0EE906"
         android:text="@string/processor"
         android:textColor="#000000"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toTopOf="@+id/matchNumber"
         app:layout_constraintEnd_toEndOf="parent"

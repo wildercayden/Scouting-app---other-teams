@@ -29,15 +29,8 @@ import java.util.List;
 import java.io.File;
 
 public class EndActivity extends AppCompatActivity {
-    private String eventString, matchString, TeamString, noteString;
-    private int climbLevel = 0;
     private EditText noteText;
-    public static final String Team_key = "TEAMCONFIRM";
-    public static final String Event_Key = "EVENTCONFIRM";
-    public static final String Match_key = "MATCHCONFIRM";
-    private Boolean alliance = true; //true = red, false = blue
-    private Button deepClimbButton, shallowClimbButton, parkButton, noClimbButton;
-
+    private MatchData matchData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +42,13 @@ public class EndActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Intent intent = new Intent(this, MainActivity.class);
-        noteText = (EditText) findViewById(R.id.Notes);
-        Intent intentinput = getIntent();
-        eventString = intentinput.getStringExtra(TeleActivity.Event_Key);
-        matchString = intentinput.getStringExtra(TeleActivity.Match_key);
-        TeamString = intentinput.getStringExtra(TeleActivity.Team_key);
-        alliance = intentinput.getBooleanExtra(TeleActivity.Alliance_key, false);
+        matchData = MainActivity.matchData;
+
         TextView textViewTeam = findViewById(R.id.teamnumber);
-        textViewTeam.setText("Team " + TeamString);
+        textViewTeam.setText("Team " + matchData.getTeamNumber());
         TextView textViewMatch = findViewById(R.id.matchNumber);
-        textViewMatch.setText("Match " + matchString);
-        if (alliance == true) {
+        textViewMatch.setText("Match " + matchData.getMatchNumber());
+        if (!matchData.isBlueAlliance()) {
             textViewTeam.setBackgroundColor(Color.parseColor("#F71000")); //red
             textViewMatch.setBackgroundColor(Color.parseColor("#F71000"));
         } else {
@@ -68,17 +56,20 @@ public class EndActivity extends AppCompatActivity {
             textViewMatch.setBackgroundColor(Color.parseColor("#0084ff"));//blue
         }
 
-        deepClimbButton = (Button) findViewById(R.id.RB_DeepClimb);
-        shallowClimbButton = (Button) findViewById(R.id.RB_ShallowClimb);
-        parkButton = (Button) findViewById(R.id.RB_Park);
-        noClimbButton = (Button) findViewById(R.id.RB_NoClimb);
+        Intent intent = new Intent(this, MainActivity.class);
+        noteText = (EditText) findViewById(R.id.Notes);
+
+        Button deepClimbButton = (Button) findViewById(R.id.RB_DeepClimb);
+        Button shallowClimbButton = (Button) findViewById(R.id.RB_ShallowClimb);
+        Button parkButton = (Button) findViewById(R.id.RB_Park);
+        Button noClimbButton = (Button) findViewById(R.id.RB_NoClimb);
 
         Button submit = (Button) findViewById(R.id.Submit_button);
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                noteString = noteText.getText().toString();
+                MainActivity.matchData.seteNote(String.valueOf(noteText.getText()));
                 csvMake();
-                String csvFileString = eventString+matchString+TeamString+".csv";
+                String csvFileString = MainActivity.matchData.getCSVFileName();
                 Submit submit = new Submit();
                 //Writes data to file to make google sheet read it as a list
                 File csvFilefile = new File(getFilesDir(), csvFileString);
@@ -94,7 +85,7 @@ public class EndActivity extends AppCompatActivity {
         Button backButton = (Button) findViewById(R.id.BackButton);
 
         backButton.setOnLongClickListener((v) -> {
-            Intent backIntent = new Intent(EndActivity.this, MainActivity.class);
+            Intent backIntent = new Intent(EndActivity.this, TeleActivity.class);
             startActivity(backIntent);
             return true;
         });
@@ -109,31 +100,29 @@ public class EndActivity extends AppCompatActivity {
         });
 
         deepClimbButton.setOnClickListener((v) -> {
-            climbLevel = 3;
+            MainActivity.matchData.seteClimb(3);
         });
 
         shallowClimbButton.setOnClickListener((v) -> {
-            climbLevel = 2;
+            MainActivity.matchData.seteClimb(2);
         });
 
         parkButton.setOnClickListener((v) -> {
-            climbLevel = 1;
+            MainActivity.matchData.seteClimb(1);
         });
 
         noClimbButton.setOnClickListener((v) -> {
-            climbLevel = 0;
+            MainActivity.matchData.seteClimb(0);
         });
     }
 
     public void csvMake() {
         //adds the strings
-        String timestamp = getTimestamp();
-        String CSVLine = String.format(
-                "%s, %s, %s", climbLevel, noteString, timestamp
-        );
+        String CSVLine = MainActivity.matchData.makeCSVString();
+        Log.d("matchData string", MainActivity.matchData.makeCSVString());
 
         //makes the file
-        File csvFile = new File(this.getFilesDir(), eventString + matchString + TeamString + ".csv");
+        File csvFile = new File(this.getFilesDir(), MainActivity.matchData.getCSVFileName());
         Log.d("CSVFile", "File created/written at: " + csvFile.getAbsolutePath());
         //writes to file
         try (FileWriter writer = new FileWriter(csvFile, true)) {
@@ -150,4 +139,3 @@ public class EndActivity extends AppCompatActivity {
         return sdf.format(new Date());
     }
 }
-
