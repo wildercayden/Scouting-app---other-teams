@@ -1,6 +1,9 @@
 package com.example.scoutingapp;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class MatchData {
@@ -72,7 +75,7 @@ public class MatchData {
                 String.valueOf(eClimb),
                 eNote,
                 scoutName,
-                getTimestamp();
+                getTimestamp()
         };
 
         return String.join("@#@", matchData);
