@@ -3117,11 +3117,13 @@ id BOTTOM_END
 id BOTTOM_START
 id BackButton
 id ButtonNext
+id ButtonSettings
 id CTRL
 id FUNCTION
 id META
 id Match
 id NO_DEBUG
+id Name
 id Notes
 id RB_DeepClimb
 id RB_NoClimb
@@ -3138,7 +3140,9 @@ id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
 id Sheet
+id Sheets
 id Submit_button
+id TBA
 id TOP_END
 id TOP_START
 id TextPine
@@ -3529,7 +3533,6 @@ id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
 id scale
-id scoutNameText
 id screen
 id scroll
 id scrollIndicatorDown
@@ -3782,6 +3785,7 @@ layout abc_tooltip
 layout activity_auto
 layout activity_end
 layout activity_main
+layout activity_settings
 layout activity_starting
 layout activity_tele
 layout custom_dialog

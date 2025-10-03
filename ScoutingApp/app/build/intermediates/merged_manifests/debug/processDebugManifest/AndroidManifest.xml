@@ -32,6 +32,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.ScoutingApp" >
         <activity
+            android:name="com.example.scoutingapp.SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.scoutingapp.startingActivity"
             android:exported="false" />
         <activity

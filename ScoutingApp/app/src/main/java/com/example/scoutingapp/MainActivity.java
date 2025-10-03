@@ -2,6 +2,7 @@ package com.example.scoutingapp;
 
 import android.content.Intent;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -53,14 +54,14 @@ public class MainActivity extends AppCompatActivity {
         matchData = new MatchData();
 
         EditText matchNumber = (EditText) findViewById(R.id.Match);
-        EditText scoutNameTextBox = (EditText) findViewById(R.id.scoutNameText);
+        //EditText scoutNameTextBox = (EditText) findViewById(R.id.scoutNameText);
 
         Button nextButton = (Button) findViewById(R.id.ButtonNext);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                matchData.setScoutName(scoutNameTextBox.getText().toString());
+                //matchData.setScoutName(scoutNameTextBox.getText().toString());
 
                 if (matchData.getEventName().isEmpty() ||
                         matchData.getMatchNumber() == 0 ||
@@ -77,6 +78,23 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+        });
+
+        Button SettingsButton = (Button) findViewById(R.id.ButtonSettings);
+        SettingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makeSettings();
+            }
+        });
+
+        Button Sheet = (Button) findViewById(R.id.Sheet);
+        Sheet.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/spreadsheets/d/1ky5LBTpnEeBEEaaF7z6UWdh-E7YmOSeij4dYdR2PU4A/edit?gid=0#gid=0"));
+                startActivity(browserIntent);
+            }
         });
 
         RadioButton r1Button = findViewById(R.id.red1Button);
@@ -283,6 +301,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void makeIntent() {
         Intent intent = new Intent(this, startingActivity.class);
+        startActivity(intent);
+    }
+    private void makeSettings() {
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 }

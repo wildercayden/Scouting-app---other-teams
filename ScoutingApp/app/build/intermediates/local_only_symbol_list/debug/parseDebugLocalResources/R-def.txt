@@ -10,7 +10,9 @@ drawable loop
 drawable screenshot_2025_01_16_115155
 id BackButton
 id ButtonNext
+id ButtonSettings
 id Match
+id Name
 id Notes
 id RB_DeepClimb
 id RB_NoClimb
@@ -22,7 +24,9 @@ id Rbutton3
 id Rbutton4
 id Rbutton5
 id Sheet
+id Sheets
 id Submit_button
+id TBA
 id TextPine
 id blue1Button
 id blue2Button
@@ -50,7 +54,6 @@ id radioGroup
 id red1Button
 id red2Button
 id red3Button
-id scoutNameText
 id teamnumber
 id textInputLayout2
 id textInputLayout3
@@ -59,6 +62,7 @@ id textView3
 layout activity_auto
 layout activity_end
 layout activity_main
+layout activity_settings
 layout activity_starting
 layout activity_tele
 mipmap ic_launcher
