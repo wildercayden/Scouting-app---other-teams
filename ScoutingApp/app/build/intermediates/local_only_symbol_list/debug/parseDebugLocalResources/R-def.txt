@@ -1,6 +1,7 @@
 R_DEF: Internal format may change without notice
 local
 color black
+color ic_launcher_background
 color white
 drawable _025_reefscape_transparent_background
 drawable _025_reefscape_transparent_background_blue
@@ -66,6 +67,7 @@ layout activity_settings
 layout activity_starting
 layout activity_tele
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 raw info
 string app_name
