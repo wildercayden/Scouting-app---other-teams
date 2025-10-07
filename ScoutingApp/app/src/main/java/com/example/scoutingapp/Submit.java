@@ -1,7 +1,9 @@
 package com.example.scoutingapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
@@ -27,15 +29,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Submit {
-
-    void uploadSheets(Context context, String csvFileString) {
-        if (!isWifiConnected(context)) {
-            Log.e("NetworkError", "No Wi-Fi connection. Cannot upload.");
-            Toast.makeText(context, "upload failed, Upload later", Toast.LENGTH_SHORT).show();
-            return;
-
+        public static SharedPreferences getPrefs(Context context) {
+            return context.getSharedPreferences("MySettings", Context.MODE_PRIVATE);
         }
 
+
+
+    void uploadSheets(Context context, String csvFileString) {
+        SharedPreferences sharedPreferences = getPrefs(context);
+        String savedText = sharedPreferences.getString("SheetsText", "");
         new Thread(() -> {
             try {
                 //adds account info
@@ -59,7 +61,7 @@ public class Submit {
                 //data for the sheet API 
                 ValueRange body = new ValueRange().setValues(data);
                 //the ID for the google sheet
-                String spreadsheetId = "1ky5LBTpnEeBEEaaF7z6UWdh-E7YmOSeij4dYdR2PU4A";
+                String spreadsheetId = savedText;
                 //starting point
                 String range = "Data!a2:O2";
                 //inserts data to the sheet 

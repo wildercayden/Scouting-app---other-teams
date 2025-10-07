@@ -2,6 +2,7 @@ package com.example.scoutingapp;
 
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -52,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         matchData = new MatchData();
+        SharedPreferences sharedPreferences = getSharedPreferences("MySettings", MODE_PRIVATE);
+        String EventText = sharedPreferences.getString("MatchText", "");
+        String NameText = sharedPreferences.getString("NameText", "");
 
         EditText matchNumber = (EditText) findViewById(R.id.Match);
         //EditText scoutNameTextBox = (EditText) findViewById(R.id.scoutNameText);
@@ -61,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //matchData.setScoutName(scoutNameTextBox.getText().toString());
+                matchData.setScoutName(NameText);
+                matchData.setEventName(EventText);
 
                 if (matchData.getEventName().isEmpty() ||
                         matchData.getMatchNumber() == 0 ||
@@ -126,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     try {
                         matchData.setMatchNumber(Integer.parseInt(matchNumber.getText().toString()));
-
-                        stream = getJSON("https://www.thebluealliance.com/api/v3/match/2025melew_qm" + matchData.getMatchNumber());
+                        String TBAURL = sharedPreferences.getString("TBAText", "");
+                        stream = getJSON(TBAURL + matchData.getMatchNumber());
 
                         JsonElement jsonElement = JsonParser.parseReader(new InputStreamReader(stream));
                         JsonObject teamsJSON = jsonElement.getAsJsonObject();

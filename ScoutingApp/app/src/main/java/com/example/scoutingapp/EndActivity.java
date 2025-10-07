@@ -1,6 +1,7 @@
 package com.example.scoutingapp;
 
 import java.text.SimpleDateFormat;
+import android.content.SharedPreferences;
 import java.util.Date;
 import java.util.Locale;
 import android.content.Intent;
@@ -64,9 +65,11 @@ public class EndActivity extends AppCompatActivity {
         Button parkButton = (Button) findViewById(R.id.RB_Park);
         Button noClimbButton = (Button) findViewById(R.id.RB_NoClimb);
 
+
         Button submit = (Button) findViewById(R.id.Submit_button);
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                SharedPreferences prefs = Submit.getPrefs(EndActivity.this);
                 MainActivity.matchData.seteNote(String.valueOf(noteText.getText()));
                 csvMake();
                 String csvFileString = MainActivity.matchData.getCSVFileName();

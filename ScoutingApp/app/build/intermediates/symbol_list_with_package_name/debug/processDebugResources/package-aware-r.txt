@@ -3237,7 +3237,10 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id buttonNext
 id buttonPanel
+id buttonReset
+id buttonSave
 id button_L1
 id button_L2
 id button_L3

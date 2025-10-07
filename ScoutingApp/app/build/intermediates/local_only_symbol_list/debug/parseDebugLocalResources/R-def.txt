@@ -32,6 +32,9 @@ id TextPine
 id blue1Button
 id blue2Button
 id blue3Button
+id buttonNext
+id buttonReset
+id buttonSave
 id button_L1
 id button_L2
 id button_L3
