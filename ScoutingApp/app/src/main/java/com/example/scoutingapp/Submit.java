@@ -38,7 +38,6 @@ public class Submit {
     void uploadSheets(Context context, String csvFileString) {
         SharedPreferences sharedPreferences = getPrefs(context);
         String savedText = sharedPreferences.getString("SheetsText", "");
-        Log.d("SheetsID", "Spreadsheet ID: " + savedText);
         new Thread(() -> {
             try {
                 //adds account info
@@ -75,8 +74,8 @@ public class Submit {
                 Log.e("GoogleSheets", "Data uploaded to Google Sheets successfully.");
                 deleteCSVFile(context, csvFileString);
             } catch (Exception e) {
-                Log.e("GoogleSheetFailed", "Failed to upload", e);
-        }
+                Log.e("GoogleSheetFailed", "Failed to upload");
+            }
         }).start();
     }
 

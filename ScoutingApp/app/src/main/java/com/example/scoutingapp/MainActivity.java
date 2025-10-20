@@ -92,16 +92,12 @@ public class MainActivity extends AppCompatActivity {
                 makeSettings();
             }
         });
-        String savedText = sharedPreferences.getString("SheetsText", "");
+
         Button Sheet = (Button) findViewById(R.id.Sheet);
         Sheet.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                String url = "https://docs.google.com/spreadsheets/d/"
-                        + savedText
-                        + "/edit?gid=0#gid=0";
-
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/spreadsheets/d/1ky5LBTpnEeBEEaaF7z6UWdh-E7YmOSeij4dYdR2PU4A/edit?gid=0#gid=0"));
                 startActivity(browserIntent);
             }
         });

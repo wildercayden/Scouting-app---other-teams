@@ -85,7 +85,7 @@
         android:id="@+id/Match"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Event"
+        android:hint="Match"
         android:textColor="#FFFFFF"
         android:textColorHint="#AAAAAA"
         app:layout_constraintTop_toBottomOf="@+id/Sheets"
