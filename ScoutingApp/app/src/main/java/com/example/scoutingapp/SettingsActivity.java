@@ -100,5 +100,6 @@ public class SettingsActivity extends AppCompatActivity {
     private void makeIntent() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }

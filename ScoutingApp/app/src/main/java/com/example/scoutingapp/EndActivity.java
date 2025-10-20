@@ -82,6 +82,7 @@ public class EndActivity extends AppCompatActivity {
                 submit.uploadSheets(EndActivity.this, csvFileString);
                 //submit.renameFile(EndActivity.this, csvFileString);
                 startActivity(intent);
+                finishAffinity();
 
             }
         });
