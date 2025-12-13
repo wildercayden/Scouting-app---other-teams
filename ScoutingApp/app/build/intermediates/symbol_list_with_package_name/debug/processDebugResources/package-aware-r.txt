@@ -2113,6 +2113,8 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color team4564silver1
+color team4564silver2
 color tooltip_background_dark
 color tooltip_background_light
 color white

@@ -2,6 +2,8 @@ R_DEF: Internal format may change without notice
 local
 color black
 color ic_launcher_background
+color team4564silver1
+color team4564silver2
 color white
 drawable _025_reefscape_transparent_background
 drawable _025_reefscape_transparent_background_blue

@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="team4564silver1">#DFDFDF</color>
+    <color name="team4564silver2">#ACACAC</color>
 </resources>
