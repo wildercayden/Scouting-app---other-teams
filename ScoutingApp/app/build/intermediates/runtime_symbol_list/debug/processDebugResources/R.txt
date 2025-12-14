@@ -3921,7 +3921,6 @@ int string call_notification_hang_up_action 0x7f100028
 int string call_notification_incoming_text 0x7f100029
 int string call_notification_ongoing_text 0x7f10002a
 int string call_notification_screening_text 0x7f10002b
-int string can_leave 0x7f10002c
 int string can_remove_algae 0x7f10002d
 int string character_counter_content_description 0x7f10002e
 int string character_counter_overflowed_content_description 0x7f10002f

@@ -55,7 +55,7 @@ public class SettingsActivity extends AppCompatActivity {
                 editor.putString("TBAText", TBAToSave);
                 editor.putString("SheetsText", SheetsToSave);
                 editor.putString("MatchText", MatchToSave);
-                editor.apply(); // or commit() if you want it synchronous
+                editor.commit();
                 Toast.makeText(SettingsActivity.this, "Saved!", Toast.LENGTH_SHORT).show();
             }
         });

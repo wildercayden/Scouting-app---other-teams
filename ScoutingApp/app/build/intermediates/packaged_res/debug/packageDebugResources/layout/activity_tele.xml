@@ -13,9 +13,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="2648"
-        android:textSize="34sp"
+        android:text="4564"
         android:textColor="#FFFFFF"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toStartOf="@+id/matchNumber"
         app:layout_constraintStart_toStartOf="parent" />

@@ -77,7 +77,6 @@ mipmap ic_launcher_round
 raw info
 string app_name
 string auto
-string can_leave
 string can_remove_algae
 string coralScored
 string coral_pickup
