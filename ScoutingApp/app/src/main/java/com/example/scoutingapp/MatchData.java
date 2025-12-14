@@ -48,7 +48,7 @@ public class MatchData {
 
     public String makeCSVString() {
         String[] matchData = {
-                "MELEW",
+                String.valueOf(eventName),
                 String.valueOf(matchNumber),
                 teamNumber,
                 "Auto",
