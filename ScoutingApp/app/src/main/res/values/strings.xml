@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Scouting App</string>
+    <string name="submit">Submit</string>
+    <string name="l1">L1</string>
+    <string name="l2">L2</string>
+    <string name="l3">L3</string>
+    <string name="l4">L4</string>
+    <string name="net">Net</string>
+    <string name="next_hold">Next (Hold)</string>
+    <string name="processor">Processor</string>
+    <string name="can_remove_algae">Can Remove Algae</string>
+    <string name="coral_pickup">Coral Pickup</string>
+    <string name="auto">Auto</string>
+    <string name="image_of_field">Image of field</string>
+    <string name="coralScored">%s%dx</string>
+    <string name="tele">Tele</string>
+    <string name="hold_button_to_ndecrement">Hold button to \ndecrement</string>
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Match"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".startingActivity">
+
+    <TextView
+        android:id="@+id/teamnumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="4564"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/nextButton"
+        app:layout_constraintEnd_toStartOf="@+id/matchNumber"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/matchNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="01"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/BackButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/teamnumber" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/Rbutton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting Postion 1"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/Rbutton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting Postion 2"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/Rbutton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting Postion 3"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/Rbutton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting Postion 4"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/Rbutton5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting Postion 5"
+            android:textColor="@android:color/white" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#FF5722"
+        android:text="Next"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BackButton" />
+
+    <Button
+        android:id="@+id/BackButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="#FF5722"
+        android:text="Back(Hold)"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nextButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/_025_reefscape_transparent_background"
+        app:layout_constraintBottom_toTopOf="@+id/teamnumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

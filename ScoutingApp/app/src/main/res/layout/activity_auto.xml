@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".AutoActivity">
+
+    <TextView
+        android:id="@+id/teamnumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="4564"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/matchNumber"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/matchNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="01"
+        android:textSize="34sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/teamnumber" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="264dp"
+        android:layout_height="423dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/screenshot_2025_01_16_115155"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/button_L4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="-5dp"
+        android:backgroundTint="#40FF5722"
+        android:text="@string/l4"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_L3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:strokeColor="#FF5722"
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
+
+    <Button
+        android:id="@+id/button_L3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#40FF5722"
+        android:text="@string/l3"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_L2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_L4"
+        app:strokeColor="#FF5722"
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
+
+    <Button
+        android:id="@+id/button_L2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#40FF5722"
+        android:text="@string/l2"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_L1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_L3"
+        app:strokeColor="#FF5722"
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
+
+    <Button
+        android:id="@+id/button_L1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#40FF5722"
+        android:text="@string/l1"
+        android:textColor="#000000"
+        android:textSize="60sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_L2"
+        app:strokeColor="#FF5722"
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/auto"
+        android:textSize="48sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_Processor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/team4564silver1"
+        android:text="@string/processor"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/matchNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_Net"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:strokeColor="@color/team4564silver2"
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
+
+    <Button
+        android:id="@+id/button_Net"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/team4564silver1"
+        android:text="@string/net"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/teamnumber"
+        app:layout_constraintEnd_toStartOf="@+id/button_Processor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:strokeColor="@color/team4564silver2"
+        app:strokeWidth="5dp"
+        tools:ignore="VisualLintButtonSize" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/button_Next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <CheckBox
+            android:id="@+id/cb_CanLeave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="can't leave"
+            android:textColor="#FFFFFF"
+            tools:ignore="VisualLintButtonSize" />
+
+        <CheckBox
+            android:id="@+id/cb_algaeReef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/can_remove_algae"
+            android:textColor="#FFFFFF"
+            tools:ignore="VisualLintButtonSize" />
+
+        <CheckBox
+            android:id="@+id/cb_coralPickup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/coral_pickup"
+            android:textColor="#FFFFFF"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/hold_button_to_ndecrement"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_Next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#FF5722"
+        android:text="Next(Hold)"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BackButton" />
+
+    <Button
+        android:id="@+id/BackButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="#FF5722"
+        android:text="Back(Hold)"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_Next"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
