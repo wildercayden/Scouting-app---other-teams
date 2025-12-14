@@ -1,4 +1,4 @@
-This app is for scouting for the FRC team 4564, this APK is like a exe for windows, it is a installer
+This app is for scouting for the FRC team 2648, this APK is like a exe for windows, it is a installer
 
 #how to install from phone
 You will go to the releases section on github, there are 3 options, releases, and 2 to download the source code, as a user you would want the release option, tap on it and it will download, from there you can go to the files app on your phone, the downloads folder should be on the homepage of the app, tap on that then you should see older downloads and app-release.apk, tap on that and press install (Or update if already installed) you might have to enable a permission for the file app to install apps on your phone but it talks you threw that part, then it is now on your phone like youtube or any other app
