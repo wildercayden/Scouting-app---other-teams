@@ -4,7 +4,7 @@
             "outputFile": "com.example.scoutingapp-mergeDebugResources-29:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\cayde\\Desktop\\ScoutingApp\\ScoutingApp\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "C:\\Users\\cayde\\Desktop\\Scouting\\ScoutingApp\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

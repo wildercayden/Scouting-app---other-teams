@@ -13,9 +13,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="4564"
-        android:textColor="#FFFFFF"
+        android:text="2648"
         android:textSize="34sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toStartOf="@+id/matchNumber"
         app:layout_constraintStart_toStartOf="parent" />
@@ -128,7 +128,7 @@
         android:id="@+id/button_Processor"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:backgroundTint="@color/team4564silver1"
+        android:backgroundTint="#6B0EE906"
         android:text="@string/processor"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -137,7 +137,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_Net"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:strokeColor="@color/team4564silver2"
+        app:strokeColor="#0EE906"
         app:strokeWidth="5dp"
         tools:ignore="VisualLintButtonSize" />
 
@@ -145,7 +145,7 @@
         android:id="@+id/button_Net"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:backgroundTint="@color/team4564silver1"
+        android:backgroundTint="#6B0EE906"
         android:text="@string/net"
         android:textColor="#000000"
         android:textSize="34sp"
@@ -154,7 +154,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button_Processor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:strokeColor="@color/team4564silver2"
+        app:strokeColor="#0EE906"
         app:strokeWidth="5dp"
         tools:ignore="VisualLintButtonSize" />
 
@@ -172,7 +172,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="can't leave"
+            android:text="@string/can_leave"
             android:textColor="#FFFFFF"
             tools:ignore="VisualLintButtonSize" />
 

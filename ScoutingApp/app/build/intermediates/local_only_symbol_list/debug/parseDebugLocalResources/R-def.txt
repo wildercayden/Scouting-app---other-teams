@@ -2,8 +2,6 @@ R_DEF: Internal format may change without notice
 local
 color black
 color ic_launcher_background
-color team4564silver1
-color team4564silver2
 color white
 drawable _025_reefscape_transparent_background
 drawable _025_reefscape_transparent_background_blue
@@ -77,6 +75,7 @@ mipmap ic_launcher_round
 raw info
 string app_name
 string auto
+string can_leave
 string can_remove_algae
 string coralScored
 string coral_pickup
