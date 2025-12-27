@@ -80,10 +80,6 @@
         "source": "com.example.scoutingapp-main-33:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.scoutingapp-debug-31:/raw_info.json.flat",
-        "source": "com.example.scoutingapp-main-33:/raw/info.json"
-    },
-    {
         "merged": "com.example.scoutingapp-debug-31:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
         "source": "com.example.scoutingapp-main-33:/mipmap-xhdpi/ic_launcher_foreground.webp"
     },

@@ -2,10 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="ic_launcher_background">#000000</color>
+    <color name="team4564silver1">#DFDFDF</color>
+    <color name="team4564silver2">#ACACAC</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">Scouting App</string>
     <string name="auto">Auto</string>
-    <string name="can_leave">Can Leave</string>
     <string name="can_remove_algae">Can Remove Algae</string>
     <string name="coralScored">%s%dx</string>
     <string name="coral_pickup">Coral Pickup</string>

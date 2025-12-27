@@ -2113,6 +2113,8 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color team4564silver1
+color team4564silver2
 color tooltip_background_dark
 color tooltip_background_light
 color white
@@ -3875,7 +3877,6 @@ mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
-raw info
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -3920,7 +3921,6 @@ string call_notification_hang_up_action
 string call_notification_incoming_text
 string call_notification_ongoing_text
 string call_notification_screening_text
-string can_leave
 string can_remove_algae
 string character_counter_content_description
 string character_counter_overflowed_content_description
