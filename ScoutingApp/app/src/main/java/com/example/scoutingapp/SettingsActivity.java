@@ -69,7 +69,7 @@ public class SettingsActivity extends AppCompatActivity {
                 String defaultTBA = "https://www.thebluealliance.com/api/v3/match/2025melew_qm";
                 TBATextSetting.setText(defaultTBA);
                 editor.putString("TBAText", defaultTBA);
-                String defaultSheets = "1R_OzzZ_XlIWicaYkEfWyzmEe0VN3u2ggoJCFPavsZTM";
+                String defaultSheets = "1ky5LBTpnEeBEEaaF7z6UWdh-E7YmOSeij4dYdR2PU4A";
                 SheetsTextSetting.setText(defaultSheets);
                 editor.putString("SheetsText", defaultSheets);
                 String defaultMatch = "MELEW";
